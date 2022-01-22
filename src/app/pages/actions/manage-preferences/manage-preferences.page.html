@@ -1,0 +1,51 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'ACTIONS.MANAGE_PREFERENCES.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ng-container *ngIf="preferences.length > 0">
+                    <ion-card button=true routerLink="/project/{{ preference.project.id }}" *ngFor="let preference of preferences">
+                      <ion-card-header>
+                        <ion-card-title>
+                          {{ preference.project.title }}
+                        </ion-card-title>
+                        <ion-card-subtitle>
+                          <ion-label class="subtitle-labels">{{ 'ACTIONS.VIEW_PROJECTS.topic' | translate }} </ion-label>
+                          <ng-container *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue">
+                            <ion-label class="subtitle-labels" color="primary" *ngIf="preference.project.topic == topic.key"><b>{{ topic.value }}</b></ion-label>
+                          </ng-container>
+                        </ion-card-subtitle>
+                        <ion-label class="long-description-label">
+                          {{ preference.project.description }}
+                        </ion-label>
+                        <ion-card-subtitle>
+                          <ion-chip color="danger" (click)="removePreferences(preference.id)">
+                            <ion-icon name="close"></ion-icon>
+                            <ion-label>{{ 'ACTIONS.MANAGE_PREFERENCES.removePreference' | translate }}</ion-label>
+                          </ion-chip>
+                        </ion-card-subtitle>
+                      </ion-card-header>
+                    </ion-card>
+                    <br>
+                  </ng-container>
+                  <ng-container *ngIf="preferences.length == 0">
+                    <app-empty-card message="{{ 'ACTIONS.MANAGE_PREFERENCES.noPreferences' | translate }}"></app-empty-card><br>
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

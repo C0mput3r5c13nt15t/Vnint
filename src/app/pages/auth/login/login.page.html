@@ -1,0 +1,65 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid class="login-grid">
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title>
+              {{ 'LOGIN.title' | translate }}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <ion-label color="danger" class="ion-padding" *ngIf="sessionExpired">
+                      {{ 'GENERAL.ERROR.sessionExpired' | translate }}
+                    </ion-label>
+
+                    <ion-item color="light">
+                      <ion-input type="email" formControlName="email" placeholder="{{ 'LOGIN.INPUT.email' | translate }}"></ion-input>
+                    </ion-item>
+                    <div *ngFor="let error of errorControl.email.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.email.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+
+                    <ion-item color="light">
+                      <ion-input (keypress)="keyPressEventHandler($event.key)" type="password" formControlName="password" placeholder="{{ 'LOGIN.INPUT.password' | translate }}"></ion-input>
+                    </ion-item>
+                    <div *ngFor="let error of errorControl.password.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.password.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+                    <div id="forgot-password">
+                      <a [routerLink]="['/forgot-password']" class="animated-link">{{ 'LOGIN.forgotPassword' | translate }}</a>
+                    </div>
+
+                    <ion-checkbox class="invisible" formControlName="fax"></ion-checkbox>
+
+                    <div class="ion-padding">
+                      <ion-button *ngIf="!isProcessed" type="submit" [disabled]="loginForm.invalid || isProcessed" class="ion-no-margin" expand="block" color="primary">{{ 'LOGIN.INPUT.loginButton' | translate }}</ion-button>
+                      <ion-button *ngIf="isProcessed" type="submit" [disabled]="loginForm.invalid || isProcessed" class="ion-no-margin" expand="block" color="primary"><ion-spinner name="crescent"></ion-spinner></ion-button>
+                    </div>
+                  </form>
+
+                  <ion-label id="or">{{ 'LOGIN.or' | translate }}</ion-label>
+
+                  <div class="ion-padding">
+                    <ion-button [routerLink]="['/register']" fill="outline" color="primary" class="ion-no-margin" expand="block">{{ 'LOGIN.registerButton' | translate }}</ion-button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer class="fallback-footer"></app-footer>
+</ion-content>
+<app-footer></app-footer>

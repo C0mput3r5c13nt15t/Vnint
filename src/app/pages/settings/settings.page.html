@@ -1,0 +1,30 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button *ngIf="!auth.getLoggedIn"></app-back-button>
+            <ion-card-title>{{ 'SETTINGS.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none" color="light">
+              <ion-label>{{ 'SETTINGS.APPEARANCE.chooseLanguage' | translate }}</ion-label>
+              <ion-select [value]="translateService.currentLang" [(ngModel)]="language" (ionChange)="languageChange()" interface="popover">
+                <ion-select-option value="de">DE 🇩🇪</ion-select-option>
+                <ion-select-option value="en">GB 🇬🇧</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="notSupported">
+              <span class="error ion-padding">
+                <ion-label color="danger">{{ 'SETTINGS.notSupported' | translate }}</ion-label><br>
+              </span>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<app-footer></app-footer>

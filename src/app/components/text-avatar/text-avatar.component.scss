@@ -1,0 +1,16 @@
+p {
+  margin: 0;
+}
+
+.avatar {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 41px;
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+  color: #fff;
+  background-color: var(--ion-color-primary);
+}

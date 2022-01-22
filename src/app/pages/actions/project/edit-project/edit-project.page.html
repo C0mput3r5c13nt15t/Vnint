@@ -1,0 +1,159 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'ACTIONS.EDIT_PROJECT.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <form [formGroup]="editProjectForm" (ngSubmit)="editProject()">
+                    <ion-item color="light">
+                      <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.topic' | translate }}</ion-label>
+                      <ion-select formControlName="topic" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}">
+                        <ion-select-option *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue" value="{{ topic.key }}">{{ topic.value }}</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+
+                    <ion-item color="light">
+                      <ion-input formControlName="title" type="text" placeholder="{{ 'ACTIONS.EDIT_PROJECT.INPUT.title' | translate }}"></ion-input>
+                    </ion-item>
+                    <div *ngFor="let error of errorControl.title.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.title.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+
+                    <ion-item color="light">
+                      <ion-textarea formControlName="description" type="text" rows="7" placeholder="{{ 'ACTIONS.EDIT_PROJECT.INPUT.description' | translate }}"></ion-textarea>
+                    </ion-item>
+                    <div *ngFor="let error of errorControl.description.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.description.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+
+                    <ion-item color="light">
+                      <ion-label position="floating">{{ 'ACTIONS.EDIT_PROJECT.INPUT.cost' | translate }}</ion-label>
+                      <ion-input formControlName="cost" type="text"></ion-input>
+                    </ion-item>
+                    <div *ngFor="let error of errorControl.cost.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.cost.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+
+                    <ion-list>
+                      <ion-item lines="none">
+                        <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.timeframe' | translate }}</ion-label>
+                      </ion-item>
+                      <div class="addTimeframeCards">
+                        <ion-grid>
+                          <ion-row>
+                            <ng-container *ngFor="let timeframe of timeframes">
+                              <ion-col sizeXl="4" sizeLg="4" sizeMd="6" sizeSm="12" sizeXs="12">
+                                <ion-card color="light">
+                                  <ion-card-content>
+                                    <ion-item lines="none">
+                                      <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.date' | translate }}</ion-label>
+                                      <ion-datetime presentation="date" [locale]="translateService.currentLang" [(ngModel)]="timeframe.from" [ngModelOptions]="{standalone: true}" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                                    </ion-item>
+
+                                    <ion-item lines="none">
+                                      <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.from' | translate }}</ion-label>
+                                      <ion-datetime presentation="time" [locale]="translateService.currentLang" [(ngModel)]="timeframe.from" [ngModelOptions]="{standalone: true}" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                                    </ion-item>
+
+                                    <ion-item lines="none">
+                                      <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.until' | translate }}</ion-label>
+                                      <ion-datetime presentation="time" [locale]="translateService.currentLang" [value]="timeframe.from" [(ngModel)]="timeframe.until" [ngModelOptions]="{standalone: true}" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                                    </ion-item>
+                                  </ion-card-content>
+
+                                  <div class="ion-padding">
+                                    <ion-button color="danger" (click)="deleteTimeframe(timeframe)" expand="block" class="ion-no-margin">delete</ion-button>
+                                  </div>
+                                </ion-card>
+                              </ion-col>
+                            </ng-container>
+                            <ion-col>
+                              <ion-card color="light">
+                                <div>
+                                  <ion-fab horizontal="center" vertical="center" slot="fixed">
+                                  <ion-fab-button  color="light" (click)="addTimeframe()">
+                                    <ion-icon color="dark" name="add"></ion-icon>
+                                  </ion-fab-button>
+                                </ion-fab>
+                                </div>
+                              </ion-card>
+                            </ion-col>
+                          </ion-row>
+                        </ion-grid>
+                      </div>
+                      <br><hr>
+                    </ion-list>
+
+                    <ion-list>
+                      <ion-item lines="none">
+                        <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.grade' | translate }}</ion-label>
+                      </ion-item>
+                      <ion-item color="light">
+                        <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.from' | translate }}</ion-label>
+                        <ion-input formControlName="min_grade" type="text"></ion-input>
+                      </ion-item>
+                      <div *ngFor="let error of errorControl.min_grade.errors | keyvalue">
+                        <span class="error ion-padding" *ngFor="let errorMessage of errorControl.min_grade.errors[error.key] | keyvalue">
+                          <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                        </span>
+                      </div>
+
+                      <ion-item color="light">
+                        <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.until' | translate }}</ion-label>
+                        <ion-input formControlName="max_grade" type="text"></ion-input>
+                      </ion-item>
+                      <div *ngFor="let error of errorControl.max_grade.errors | keyvalue">
+                        <span class="error ion-padding" *ngFor="let errorMessage of errorControl.max_grade.errors[error.key] | keyvalue">
+                          <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                        </span>
+                      </div>
+                    </ion-list>
+
+                    <ion-list>
+                      <ion-item lines="none">
+                        <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.capacity' | translate }}</ion-label>
+                      </ion-item>
+                      <ion-item color="light">
+                        <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.from' | translate }}</ion-label><ion-input formControlName="min_participants" type="number"></ion-input>
+                      </ion-item>
+                      <div *ngFor="let error of errorControl.min_participants.errors | keyvalue">
+                        <span class="error ion-padding" *ngFor="let errorMessage of errorControl.min_participants.errors[error.key] | keyvalue">
+                          <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                        </span>
+                      </div>
+                      <ion-item color="light">
+                        <ion-label>{{ 'ACTIONS.EDIT_PROJECT.INPUT.until' | translate }}</ion-label><ion-input formControlName="max_participants" type="number"></ion-input>
+                      </ion-item>
+                      <div *ngFor="let error of errorControl.max_participants.errors | keyvalue">
+                        <span class="error ion-padding" *ngFor="let errorMessage of errorControl.max_participants.errors[error.key] | keyvalue">
+                          <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                        </span>
+                      </div>
+                    </ion-list>
+                    <div class="ion-padding">
+                      <ion-button color="primary" [disabled]="editProjectForm.invalid" expand="block" type="submit" class="ion-no-margin">{{ 'ACTIONS.EDIT_PROJECT.INPUT.submitButton' | translate }}</ion-button>
+                    </div>
+                  </form>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,35 @@
+@import "../../../theme/variables.scss";
+
+.app-title {
+  color: var(--ion-color-primary);
+  font-size: 2rem;
+  padding-left: 10px;
+}
+
+ion-toolbar {
+  text-align: left;
+}
+
+ion-grid {
+  width: fit-content;
+  width: -moz-fit-content;
+  margin-left: 0;
+}
+
+.primary-toolbar {
+  margin-bottom: 0;
+}
+
+ion-chip {
+  width: max-content;
+  border-width: 2px;
+}
+
+ion-label {
+  color: #FFFFFF;
+}
+
+ion-button {
+  --ripple-color: transparent !important;
+  --background-hover-opacity: 0;
+}

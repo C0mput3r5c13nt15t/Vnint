@@ -1,0 +1,56 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngIf="feedback" color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+          </ion-card-header>
+          <ion-card-content>
+
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-title>
+                      <b>{{ feedback.short_description }}</b>
+                    </ion-title>
+                    <ion-label>
+                      {{ feedback.full_description }}
+                    </ion-label>
+                    <br>
+                    <br>
+                    <ion-label>{{ 'ACTIONS.VIEW_SINGLE_FEEDBACK.type' | translate }} </ion-label>
+                    <ion-label color="primary" *ngIf="feedback.type == 'general'"><b>{{ 'GENERAL.FEEDBACK_TYPES.general' | translate }}</b></ion-label>
+                    <ion-label color="primary" *ngIf="feedback.type == 'feature'"><b>{{ 'GENERAL.FEEDBACK_TYPES.feature' | translate }}</b></ion-label>
+                    <ion-label color="danger" *ngIf="feedback.type == 'translation'"><b>{{ 'GENERAL.FEEDBACK_TYPES.translation' | translate }}</b></ion-label>
+                    <ion-label color="danger" *ngIf="feedback.type == 'typo'"><b>{{ 'GENERAL.FEEDBACK_TYPES.typo' | translate }}</b></ion-label>
+                    <ion-label color="danger" *ngIf="feedback.type == 'bug'"><b>{{ 'GENERAL.FEEDBACK_TYPES.bug' | translate }}</b></ion-label>
+                    <ion-label color="primary" *ngIf="feedback.type == 'other'"><b>{{ 'GENERAL.FEEDBACK_TYPES.other' | translate }}</b></ion-label>
+                    <br>
+                    <ion-label>{{ 'ACTIONS.VIEW_SINGLE_FEEDBACK.published_on' | translate }} </ion-label><ion-label><b>{{ feedback.created_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ) }}</b></ion-label>
+                    <br>
+                    <ion-label>{{ 'ACTIONS.VIEW_SINGLE_FEEDBACK.published_by' | translate }} </ion-label><ion-label><b>{{ feedback.creator.email }}</b></ion-label>
+                  </ion-col>
+                </ion-row>
+                <br>
+                <hr>
+                <ion-row>
+                  <ion-chip disabled="true">
+                    <ion-icon name="chatbubble-ellipses"></ion-icon>
+                    <ion-label>chat?</ion-label>
+                  </ion-chip>
+                  <ion-chip (click)="deleteFeedback()" color="danger">
+                    <ion-icon name="trash"></ion-icon>
+                    <ion-label>{{ 'ACTIONS.VIEW_SINGLE_FEEDBACK.delete' | translate }}</ion-label>
+                  </ion-chip>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

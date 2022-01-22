@@ -1,0 +1,63 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngIf="project" color="light">
+          <img *ngIf="project.image" src="/images/{{ project.image }}" alt="Just imagine a very cool image ...">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+
+                  <ion-card-title>{{ project.title }}</ion-card-title>
+                  <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.topic' | translate }} </ion-label>
+                  <ng-container *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue">
+                    <ion-label class="subtitle-labels" color="primary" *ngIf="project.topic == topic.key"><b>{{ topic.value }}</b></ion-label>
+                  </ng-container>
+                  <br><br>
+                  <ion-label>
+                    {{ project.description }}
+                  </ion-label>
+                  <br><br>
+                  <ng-container *ngIf="project.timeframes.length > 0">
+                    <div *ngFor="let timeframe of project.timeframes">
+                      <ion-label color="primary"><b>{{ timeframe.from | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</b></ion-label><br>
+                      <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.from' | translate }} {{ timeframe.from | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ) }} {{ 'ACTIONS.MANAGE_PROJECT.until' | translate }} {{ timeframe.until | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ) }}</ion-label>
+                    </div>
+                  </ng-container>
+                  <br>
+                  <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.leader' | translate }} </ion-label><ion-label color="primary"><b>{{ project.leader.email }}</b></ion-label>
+                  <br>
+                  <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.cost' | translate }} </ion-label><ion-label><b>{{ project.cost }} €</b></ion-label>
+                  <br><br>
+                  <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.grade' | translate }} </ion-label><ion-label><b>{{ project.min_grade }}</b></ion-label><b>-</b><ion-label><b>{{ project.max_grade }}</b></ion-label>
+                  <br>
+                  <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.capacity' | translate }} </ion-label><ion-label><b>{{ project.min_participants }}</b></ion-label><b>-</b><ion-label><b>{{ project.max_participants }}</b></ion-label>
+                  <br><br>
+                  <ion-label>{{ 'GENERAL.createdAt' | translate }} </ion-label><ion-label>{{ project.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label><br>
+                  <ion-label>{{ 'GENERAL.updatedAt' | translate }} </ion-label><ion-label>{{ project.updated_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label>
+                </ion-col>
+              </ion-row>
+              <br>
+              <hr>
+              <ion-row>
+                <ion-chip [routerLink]="['/edit-project']" color="primary">
+                  <ion-icon name="pencil"></ion-icon>
+                  <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.edit' | translate }}</ion-label>
+                </ion-chip>
+                <ion-chip (click)="deleteProject()" color="danger">
+                  <ion-icon name="trash"></ion-icon>
+                  <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.delete' | translate }}</ion-label>
+                </ion-chip>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

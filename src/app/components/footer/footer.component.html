@@ -1,0 +1,18 @@
+<div>
+  <ion-footer *ngIf="!auth.getLoggedIn">
+    <ion-toolbar color="light">
+      <ion-grid>
+        <ion-row>
+          <ion-col sizeXl="2" sizeLg="4" sizeMd="4" sizeSm="6" sizeXs="12"><ion-label id="legal">{{ 'OTHER.FOOTER.copyright' | translate }}</ion-label></ion-col>
+          <ion-col sizeXl="2" sizeLg="4" sizeMd="4" sizeSm="6" sizeXs="12"><a class="animated-link" [routerLink]="['/terms']" routerDirection="root">{{ 'OTHER.FOOTER.terms' | translate }}</a></ion-col>
+          <ion-col sizeXl="2" sizeLg="4" sizeMd="4" sizeSm="6" sizeXs="12"><a class="animated-link" [routerLink]="['/impress']" routerDirection="root">{{ 'OTHER.FOOTER.impress' | translate }}</a></ion-col>
+          <ion-col sizeXl="2" sizeLg="4" sizeMd="4" sizeSm="6" sizeXs="12"><a class="animated-link" [routerLink]="['/about']" routerDirection="root">{{ 'OTHER.FOOTER.about' | translate }}</a></ion-col>
+          <ion-col sizeXl="2" sizeLg="4" sizeMd="4" sizeSm="6" sizeXs="12"><a class="animated-link" [routerLink]="['/help']" routerDirection="root">{{ 'OTHER.FOOTER.help' | translate }}</a></ion-col>
+          <ion-col sizeXl="2" sizeLg="4" sizeMd="4" sizeSm="6" sizeXs="12"><a class="animated-link" [routerLink]="['/settings']" routerDirection="root">{{ 'OTHER.FOOTER.settings' | translate }}</a></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
+</div>
+
+

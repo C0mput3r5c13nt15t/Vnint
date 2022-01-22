@@ -1,0 +1,47 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'ACTIONS.VERIFY_EMAIL.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-label>
+                    {{ 'ACTIONS.VERIFY_EMAIL.explanation' | translate }}
+                  </ion-label>
+                  <br><br>
+                  <ion-label *ngIf="verifiedEmail == false">
+                    {{ 'ACTIONS.VERIFY_EMAIL.notVerified' | translate }}
+                  </ion-label>
+                  <ion-label *ngIf="verifiedEmail">
+                    <b>{{ 'ACTIONS.VERIFY_EMAIL.verified' | translate }}</b>
+                  </ion-label>
+                  <br><br>
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col sizeXl="2" sizeLg="2" sizeMd="2" sizeSm="12" sizeXs="12" ><ion-button (click)="reloadVerification()" color="primary" expand="block"><ion-icon name="refresh"></ion-icon></ion-button></ion-col>
+                      <ion-col sizeXl="10" sizeLg="10" sizeMd="10" sizeSm="12" sizeXs="12" ><ion-button (click)="resendEmailVerification()" [disabled]="sentNotification || verifiedEmail" color="primary" expand="block">{{ 'ACTIONS.VERIFY_EMAIL.resendButton' | translate }}</ion-button></ion-col>
+                    </ion-row>
+                  </ion-grid>
+                  <!--<div class="ion-padding">
+                    <ion-button (click)="reloadVerification()" color="primary" shape="round" type="submit"><ion-icon name="refresh"></ion-icon></ion-button>
+                    <ion-button (click)="resendEmailVerificytion()" [disabled]="sentNotification || verifiedEmail" color="primary" color="primary" expand="block" class="ion-no-margin">{{ 'ACTIONS.VERIFY_EMAIL.resendButton' | translate }}</ion-button>
+                  </div>-->
+                  <ion-label *ngIf="sentNotification && !verifiedEmail == true">
+                    {{ 'ACTIONS.VERIFY_EMAIL.sent' | translate }}
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

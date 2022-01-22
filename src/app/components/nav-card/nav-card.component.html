@@ -1,0 +1,14 @@
+<ion-card button=true (click)="route()" color="light">
+  <!--<ion-img *ngIf="cardImageUrl" src="{{ cardImageUrl }}" alt="An error occurred"></ion-img>-->
+  <ion-card-header>
+    <ion-card-title *ngIf="cardTitle">
+      {{ cardTitle }}
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content *ngIf="cardDescription">
+    <ion-label>
+      {{ cardDescription }}
+    </ion-label>
+  </ion-card-content>
+  <ion-icon name="home"></ion-icon>
+</ion-card>

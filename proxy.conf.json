@@ -1,0 +1,18 @@
+{
+  "/api": {
+    "target": "http://mytenantinc.diribitio.de/api",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true
+  },
+  "/images": {
+    "target": "http://mytenantinc.diribitio.de/storage/images",
+    "secure": false,
+    "pathRewrite": {
+      "^/images": ""
+    },
+    "changeOrigin": true
+  }
+}

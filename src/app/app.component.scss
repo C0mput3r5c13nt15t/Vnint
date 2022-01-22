@@ -1,0 +1,64 @@
+@import "../theme/variables.scss";
+
+.app-title {
+  color: var(--ion-color-primary);
+  font-size: 2rem;
+  padding-left: 10px;
+}
+
+ion-toolbar {
+  text-align: left;
+}
+
+ion-menu {
+  border: none;
+  --ion-background-color: var(--ion-color-light) !important;
+
+  ion-list {
+    background: transparent;
+  }
+
+}
+.split-pane-visible > ion-menu {
+  max-width: 300px!important;
+}
+
+ion-footer {
+  position: fixed;
+  bottom: 0;
+}
+
+#avatar {
+  padding-left: 10%;
+
+  ion-label {
+    color: var(--ion-text-color);
+    h1, h2 {
+      font-weight: 550;
+    }
+  }
+}
+
+.routes {
+  --ripple-color: transparent !important;
+  --background-hover-opacity: 0;
+  padding-left: 10%;
+
+  ion-label {
+    font-weight: 550;
+    opacity: 0.9;
+    transition: all 0.3s;
+  }
+  ion-icon {
+    color: var(--ion-text-color);
+    opacity: 0.9;
+    transition: all 0.3s;
+  }
+}
+
+.routes:hover {
+  ion-label, ion-icon {
+    opacity: 1;
+    color: var(--ion-color-primary) !important;
+  }
+}
