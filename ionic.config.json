@@ -1,0 +1,7 @@
+{
+  "name": "Vnint",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
