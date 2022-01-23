@@ -1,0 +1,35 @@
+<!--suppress ALL -->
+<div>
+  <ion-toolbar class="primary-toolbar" color="light">
+    <ion-title *ngIf="!auth.getLoggedIn" class="app-title" slot="start">Diribitio</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-grid *ngIf="auth.getLoggedIn && isDesktop">
+      <ion-row>
+        <ng-container *ngIf="auth.getLoggedIn">
+          <ion-col *ngFor="let page of navigationService.getHistory">
+            <ion-chip color="primary" [routerLink]="[page]" routerDirection="root">
+              <ion-label color="primary">
+                <b>{{ page[1].toUpperCase() + page.substr(2).toLowerCase() }}</b>
+              </ion-label>
+            </ion-chip>
+          </ion-col>
+        </ng-container>
+      </ion-row>
+    </ion-grid>
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/settings']" routerDirection="forward" color="primary">
+        <ion-icon name="settings" size="medium"></ion-icon>
+      </ion-button>
+      <ion-button (click)="themeChange()" color="primary">
+        <ion-icon *ngIf="styleService.getDarkMode" name="moon" size="medium" color="primary"></ion-icon>
+        <ion-icon *ngIf="!styleService.getDarkMode" name="sunny" size="medium" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ng-container *ngFor="let alert of alertService.alerts">
+    <app-alert [alert]="alert"></app-alert>
+  </ng-container>
+</div>

@@ -1,0 +1,29 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'OTHER.DATA_USE.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-label>
+                    {{ 'OTHER.DATA_USE.transparencyExplanation' | translate }}
+                  </ion-label>
+                  <br><br>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer class="fallback-footer"></app-footer>
+</ion-content>
+<app-footer></app-footer>

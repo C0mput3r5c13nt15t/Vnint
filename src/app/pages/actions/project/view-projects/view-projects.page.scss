@@ -1,0 +1,25 @@
+.subtitle-labels {
+  display: inline;
+}
+
+.long-description-label {
+  margin: 0;
+  display: block;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+ion-badge {
+  ion-label {
+    font-weight: normal !important;
+  }
+}
+
+.white-font {
+  color: #fff;
+}

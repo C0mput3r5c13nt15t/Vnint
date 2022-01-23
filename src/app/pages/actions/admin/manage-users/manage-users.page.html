@@ -1,0 +1,45 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'ACTIONS.MANAGE_USERS.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <form [formGroup]="searchUsersForm">
+                    <ion-searchbar color="light" (ionChange)="searchUsers()" placeholder="{{ 'ACTIONS.MANAGE_USERS.INPUT.searchUsersPlaceholder' | translate }}" formControlName="email" showCancelButton="focus"></ion-searchbar>
+                    <ion-select (ionChange)="searchUsers()" multiple formControlName="roles" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}" placeholder="{{ role_names }}">
+                      <ion-select-option *ngFor="let role_name of role_names" value="{{ role_name }}">{{ role_name }}</ion-select-option>
+                    </ion-select>
+                  </form>
+                  <ng-container *ngIf="users.length > 0">
+                    <ion-card *ngFor="let user of filteredUsers" color="light">
+                      <ion-card-header>
+                        <ion-card-title class="user-email">
+                          {{ user.email }}
+                        </ion-card-title>
+                        <ion-card-subtitle>
+                          <ng-container *ngFor="let role of user.roles">
+                            <ion-label class="subtitle-labels" color="primary"><b>{{ role.name }} </b></ion-label>
+                          </ng-container>
+                          <ion-label class="subtitle-labels">- {{ user.created_at | date :( 'GENERAL.exactTimeDisplayFormat' | translate ) }}</ion-label>
+                        </ion-card-subtitle>
+                      </ion-card-header>
+                    </ion-card>
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

@@ -1,0 +1,192 @@
+@import "../../../theme/variables.scss";
+
+#dashboard {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  row-gap: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  flex-grow: 1;
+  width: 100%;
+}
+
+app-nav-card {
+  display: flex;
+  flex-grow: 1;
+  max-width: max(50%, 500px);
+}
+
+#morning {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: flex-start;
+  min-width: 200px;
+  transition: all 0.1s;
+  margin: 0 10px;
+  flex-grow: 2;
+
+  ion-card-title {
+    font-weight: 550;
+    font-size: 5em;
+    display: inline-block;
+    margin-bottom: 0;
+
+    @media (max-width: 400px) {
+      font-size: 3em;
+    }
+  }
+
+  ion-card-title:first-of-type {
+    background: #f857a6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff5858, #f857a6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  ion-label {
+    font-size: 1.3rem;
+    @media (max-width: 400px) {
+      font-size: 1em;
+    }
+  }
+
+  .actions {
+    margin-top: 10px;
+    ion-chip {
+      color: white;
+      font-weight: 550;
+      font-size: 1.1rem;
+      background: #f857a6;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #ff5858, #f857a6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      @media (max-width: 400px) {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+#afternoon {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: flex-start;
+  min-width: 200px;
+  transition: all 0.1s;
+  margin: 0 10px;
+  flex-grow: 2;
+
+  ion-card-title {
+    font-weight: 550;
+    font-size: 5em;
+    display: inline-block;
+    margin-bottom: 0;
+
+    @media (max-width: 400px) {
+      font-size: 3em;
+    }
+  }
+
+  ion-card-title:first-of-type {
+    background: #2BC0E4;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #e6ec7f, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #e6ec7f, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  ion-label {
+    font-size: 1.3rem;
+    @media (max-width: 400px) {
+      font-size: 1em;
+    }
+  }
+
+  .actions {
+    margin-top: 10px;
+    ion-chip {
+      color: white;
+      font-weight: 550;
+      font-size: 1.1rem;
+      background: #2BC0E4;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to left, #e6ec7f, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to left, #e6ec7f, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      @media (max-width: 400px) {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+#evening {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: flex-start;
+  min-width: 200px;
+  transition: all 0.1s;
+  margin: 0 10px;
+  flex-grow: 2;
+
+  ion-card-title {
+    font-weight: 550;
+    font-size: 5em;
+    display: inline-block;
+    margin-bottom: 0;
+
+    @media (max-width: 400px) {
+      font-size: 3em;
+    }
+  }
+
+  ion-card-title:first-of-type {
+    background: #DC2424;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #DC2424, #4A569D);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #DC2424, #4A569D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  ion-label {
+    font-size: 1.3rem;
+    @media (max-width: 400px) {
+      font-size: 1em;
+    }
+  }
+
+  .actions {
+    margin-top: 10px;
+    ion-chip {
+      color: white;
+      font-weight: 550;
+      font-size: 1.1rem;
+      background: #DC2424;  /* fallback for old browsers */
+      background: -webkit-linear-gradient(to left, #DC2424, #4A569D);  /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to left, #DC2424, #4A569D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      @media (max-width: 400px) {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+hr {
+  width: 85%;
+  max-width: 1000px;
+  background-color: var(--ion-text-color, #000);
+  margin-top: 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+ion-title {
+  font-size: 1.5rem
+};

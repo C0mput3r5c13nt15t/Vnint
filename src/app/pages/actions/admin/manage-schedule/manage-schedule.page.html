@@ -1,0 +1,183 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngIf="events" color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'ACTIONS.MANAGE_SCHEDULE.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <div class="timeline">
+              <ng-container *ngFor="let event of events">
+                <div class="container {{ event.id % 2 == 0 ? 'right' : 'left' }}">
+                  <ion-card color="light">
+                    <ion-card-header>
+                      <ion-card-title>
+                        {{ event.title }}
+                      </ion-card-title>
+                      <ion-card-subtitle>
+                        {{ event.from | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }} - {{ event.until | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}
+                      </ion-card-subtitle>
+                      <ion-card-subtitle *ngIf="event.permissions.length > 0">
+                        <ion-badge *ngFor="let permission of event.permissions"><ion-label>{{ ('GENERAL.PERMISSIONS.' + permission.name) | translate }}</ion-label></ion-badge>
+                      </ion-card-subtitle>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <ion-label>
+                        {{ event.description }}
+                      </ion-label>
+                      <hr>
+                      <ion-chip *ngIf="updateEventForm.value.id != event.id" [disabled]="updateEventForm.value.id || showAddEvent" (click)="editEvent(event)" color="primary">
+                        <ion-icon name="pencil"></ion-icon>
+                        <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.edit' | translate }}</ion-label>
+                      </ion-chip>
+                      <ion-chip *ngIf="updateEventForm.value.id == event.id" (click)="updateEventForm.patchValue({id: 0, title:'', description:'', from: null, until: null})" color="danger">
+                        <ion-icon name="close"></ion-icon>
+                        <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.abortEditing' | translate }}</ion-label>
+                      </ion-chip>
+                      <ion-chip (click)="deleteEvent(event.id)" color="danger">
+                        <ion-icon name="trash"></ion-icon>
+                        <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.delete' | translate }}</ion-label>
+                      </ion-chip>
+                    </ion-card-content>
+                  </ion-card>
+                </div>
+              </ng-container>
+              <ion-fab vertical="bottom" horizontal="{{ isDesktop ? 'center' : 'left' }}" slot="fixed">
+                <ion-fab-button [disabled]="updateEventForm.value.id" *ngIf="!showAddEvent" (click)="showAddEvent = true" color="primary">
+                  <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+                <ion-fab-button *ngIf="showAddEvent" (click)="showAddEvent = false" color="danger">
+                  <ion-icon name="close"></ion-icon>
+                </ion-fab-button>
+              </ion-fab>
+            </div>
+            <ion-card [@openClose]="showAddEvent ? 'open' : 'closed'" color="light">
+              <ion-card-header>
+                <ion-card-title>
+                  {{ 'ACTIONS.MANAGE_SCHEDULE.addEvent' | translate }}
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <form [formGroup]="addEventForm" (ngSubmit)="addEvent(addEventForm)">
+                  <ion-item color="light">
+                    <ion-input formControlName="title" type="text" placeholder="{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.title' | translate }}"></ion-input>
+                  </ion-item>
+                  <div *ngFor="let error of errorControl.title.errors | keyvalue">
+                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.title.errors[error.key] | keyvalue">
+                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                    </span>
+                  </div>
+
+                  <ion-item color="light">
+                    <ion-input formControlName="description" type="text" placeholder="{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.description' | translate }}"></ion-input>
+                  </ion-item>
+                  <div *ngFor="let error of errorControl.description.errors | keyvalue">
+                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.description.errors[error.key] | keyvalue">
+                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                    </span>
+                  </div>
+
+                  <ion-item color="light" lines="none">
+                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.from' | translate }} {{ addEventForm.value.from | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
+                  </ion-item>
+                  <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="from" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                  <div *ngFor="let error of errorControl.from.errors | keyvalue">
+                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.from.errors[error.key] | keyvalue">
+                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                    </span>
+                  </div>
+
+                  <ion-item color="light" lines="none">
+                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.until' | translate }} {{ addEventForm.value.until | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
+                  </ion-item>
+                  <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="until" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                  <div *ngFor="let error of errorControl.until.errors | keyvalue">
+                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.until.errors[error.key] | keyvalue">
+                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                    </span>
+                  </div>
+
+                  <ion-list *ngIf="addEventPermissions.length > 0">
+                    <ion-item color="light" lines="none" *ngFor="let permission of addEventPermissions">
+                      <ion-label>{{ ('GENERAL.PERMISSIONS.' + permission.name) | translate }}</ion-label>
+                      <ion-checkbox slot="start" [(ngModel)]="permission.isChecked" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+                    </ion-item>
+                  </ion-list>
+
+                  <div class="ion-padding">
+                    <ion-button *ngIf="!isProcessed" type="submit" [disabled]="addEventForm.invalid || isProcessed" class="ion-no-margin" expand="block" color="primary">{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.addEventButton' | translate }}</ion-button>
+                    <ion-button *ngIf="isProcessed" type="submit" [disabled]="addEventForm.invalid || isProcessed" class="ion-no-margin" expand="block" color="primary"><ion-spinner name="crescent"></ion-spinner></ion-button>
+                  </div>
+                </form>
+              </ion-card-content>
+            </ion-card>
+            <ion-card [@openClose]="updateEventForm.value.id ? 'open' : 'closed'" color="light">
+              <ion-card-header>
+                <ion-card-title>
+                  {{ 'ACTIONS.MANAGE_SCHEDULE.updateEvent' | translate }}
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <form [formGroup]="updateEventForm" (ngSubmit)="updateEvent()">
+                  <ion-item color="light">
+                    <ion-input formControlName="title" type="text" placeholder="{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.title' | translate }}"></ion-input>
+                  </ion-item>
+                  <div *ngFor="let error of errorControl.title.errors | keyvalue">
+                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.title.errors[error.key] | keyvalue">
+                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                    </span>
+                  </div>
+
+                  <ion-item color="light">
+                    <ion-input formControlName="description" type="text" placeholder="{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.description' | translate }}"></ion-input>
+                  </ion-item>
+                  <div *ngFor="let error of errorControl.description.errors | keyvalue">
+                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.description.errors[error.key] | keyvalue">
+                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                    </span>
+                  </div>
+
+                  <ion-item color="light" lines="none">
+                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.from' | translate }} {{ updateEventForm.value.from | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
+                  </ion-item>
+                  <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="from" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                  <div *ngFor="let error of errorControl.from.errors | keyvalue">
+                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.from.errors[error.key] | keyvalue">
+                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                    </span>
+                  </div>
+
+                  <ion-item color="light" lines="none">
+                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.until' | translate }} {{ updateEventForm.value.until | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
+                  </ion-item>
+                  <ion-datetime color="light" presentation="date" [locale]="translateService.currentLang" formControlName="until" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                  <div *ngFor="let error of errorControl.until.errors | keyvalue">
+                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.until.errors[error.key] | keyvalue">
+                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                    </span>
+                  </div>
+
+                  <ion-list *ngIf="updateEventPermissions.length > 0">
+                    <ion-item color="light" lines="none" *ngFor="let permission of updateEventPermissions">
+                      <ion-label>{{ ('GENERAL.PERMISSIONS.' + permission.name) | translate }}</ion-label>
+                      <ion-checkbox slot="start" [(ngModel)]="permission.isChecked" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+                    </ion-item>
+                  </ion-list>
+
+                  <div class="ion-padding">
+                    <ion-button *ngIf="!isProcessed" type="submit" [disabled]="updateEventForm.invalid || isProcessed" class="ion-no-margin" expand="block" color="primary">{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.updateEventButton' | translate }}</ion-button>
+                    <ion-button *ngIf="isProcessed" type="submit" [disabled]="updateEventForm.invalid || isProcessed" class="ion-no-margin" expand="block" color="primary"><ion-spinner name="crescent"></ion-spinner></ion-button>
+                  </div>
+                </form>
+              </ion-card-content>
+            </ion-card>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

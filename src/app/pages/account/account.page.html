@@ -1,0 +1,130 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title>{{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-label color="danger">{{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.warning' | translate }}<br></ion-label>
+                  <br>
+                  <form [formGroup]="updateProfileForm" (ngSubmit)="updateProfile()" novalidate>
+                    <ion-item color="light">
+                      <ion-input formControlName="name" type="text" placeholder="{{ 'REGISTER.INPUT.name' | translate }}"></ion-input>
+                    </ion-item>
+                    <div *ngFor="let error of updateProfileErrorControl.name.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of updateProfileErrorControl.name.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+
+                    <ion-item color="light">
+                      <ion-input formControlName="email" type="email" placeholder="{{ 'REGISTER.INPUT.email' | translate }}"></ion-input>
+                    </ion-item>
+                    <div *ngFor="let error of updateProfileErrorControl.email.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of updateProfileErrorControl.email.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+
+                    <br><br>
+
+                    <ion-label>
+                      {{ 'GENERAL.createdAt' | translate }} {{ user.created_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ) }}<br>
+                      {{ 'GENERAL.updatedAt' | translate }} {{ user.updated_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ) }}<br>
+                      <div *ngIf="user.email_verified_at">
+                        {{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.emailVerifiedAt' | translate }} {{ user.email_verified_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ) }}
+                      </div>
+                      <div *ngIf="!user.email_verified_at">
+                        {{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.emailNotVerified' | translate }}
+                      </div>
+                    </ion-label>
+
+                    <ion-checkbox class="invisible" formControlName="fax"></ion-checkbox>
+
+                    <div class="ion-padding">
+                      <ion-button *ngIf="!isProcessed" [disabled]="(user.name == updateProfileForm.value.name && user.email == updateProfileForm.value.email) || updateProfileForm.invalid || isProcessed" type="submit" class="ion-no-margin" expand="block" color="primary">{{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.INPUT.updateButton' | translate }}</ion-button>
+                      <ion-button *ngIf="isProcessed" [disabled]="updateProfileForm.invalid || isProcessed" type="submit" class="ion-no-margin" expand="block" color="primary"><ion-spinner name="crescent"></ion-spinner></ion-button>
+                    </div>
+                  </form>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+        <br>
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title>{{ 'ACCOUNT.CHANGE_PASSWORD.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <form [formGroup]="changePasswordForm" (ngSubmit)="changePassword()" novalidate>
+                    <ion-item color="light">
+                      <ion-input formControlName="password" type="password" placeholder="{{ 'ACCOUNT.CHANGE_PASSWORD.INPUT.password' | translate }}"></ion-input>
+                    </ion-item>
+                    <div *ngFor="let error of changePasswordErrorControl.password.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of changePasswordErrorControl.password.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+
+                    <ion-item color="light">
+                      <ion-input formControlName="password_confirmation" type="password" placeholder="{{ 'ACCOUNT.CHANGE_PASSWORD.INPUT.passwordConfirmation' | translate }}"></ion-input>
+                    </ion-item>
+                    <div *ngFor="let error of changePasswordErrorControl.password_confirmation.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of changePasswordErrorControl.password_confirmation.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+
+                    <ion-item color="light">
+                      <ion-input formControlName="current_password" type="password" placeholder="{{ 'ACCOUNT.CHANGE_PASSWORD.INPUT.currentPassword' | translate }}"></ion-input>
+                    </ion-item>
+                    <div *ngFor="let error of changePasswordErrorControl.current_password.errors | keyvalue">
+                      <span class="error ion-padding" *ngFor="let errorMessage of changePasswordErrorControl.current_password.errors[error.key] | keyvalue">
+                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+                      </span>
+                    </div>
+
+                    <ion-checkbox class="invisible" formControlName="fax"></ion-checkbox>
+
+                    <div class="ion-padding">
+                      <ion-button *ngIf="!isProcessed" [disabled]="changePasswordForm.invalid || isProcessed" type="submit" class="ion-no-margin" expand="block" color="primary">{{ 'ACCOUNT.CHANGE_PASSWORD.INPUT.changeButton' | translate }}</ion-button>
+                      <ion-button *ngIf="isProcessed" [disabled]="changePasswordForm.invalid || isProcessed" type="submit" class="ion-no-margin" expand="block" color="primary"><ion-spinner name="crescent"></ion-spinner></ion-button>
+                    </div>
+                  </form>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+        <br>
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title>{{ 'ACCOUNT.DELETE_ACCOUNT.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="ion-padding">
+                    <ion-button color="danger" expand="block" (click)="deleteAccount()" class="ion-no-margin">{{ 'ACCOUNT.DELETE_ACCOUNT.INPUT.deleteButton' | translate }}</ion-button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

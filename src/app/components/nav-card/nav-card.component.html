@@ -1,0 +1,18 @@
+<div class="nav-card-div">
+  <div class="type">
+    <ion-icon name="{{ cardIcon }}"></ion-icon><h1>{{ cardTitle }}</h1>
+  </div>
+  <ion-card color="light">
+    <ion-card-content *ngIf="cardButtonsArray">
+      <ng-container *ngFor="let button of cardButtonsArray">
+        <ng-container *ngIf="arrayContainsArray(permissions, button.requiredPermissions) && arrayContainsArray(eventPermissions, button.requiredPermissions)">
+          <ion-chip color="primary" (click)="route(button.link)">
+            <ion-icon color="primary" name="{{ button.icon }}"></ion-icon>
+            <ion-label>{{ button.title }}</ion-label>
+          </ion-chip>
+        </ng-container>
+      </ng-container>
+    </ion-card-content>
+  </ion-card>
+</div>
+<!-- *ngIf="arrayContainsArray(permissions, button.requiredPermissions) && arrayContainsArray(eventPermissions, button.requiredPermissions)" -->

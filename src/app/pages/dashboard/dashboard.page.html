@@ -1,0 +1,83 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <div id="dashboard">
+    <ng-container  *ngIf="error || ('DASHBOARD.CARDS' | translate) == 'DASHBOARD.CARDS'">
+      <app-nav-card cardTitle="⚠️ Error" cardLink="/give-feedback" cardDescription="We are sorry but there seems to be some kind of error. Click here to report it."></app-nav-card>
+    </ng-container>
+    <ion-card id="morning" color="light" *ngIf="curHr <= 12">
+      <ion-card-content>
+        <ion-card-header>
+          <ion-card-title>
+            Good morning.
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label>
+            Let's see what's changed this morning, shall we?
+          </ion-label>
+          <div class="actions">
+            <ion-chip>
+              Hlaljs
+            </ion-chip>
+            <ion-chip>
+              Hlaljs
+            </ion-chip>
+          </div>
+        </ion-card-content>
+      </ion-card-content>
+    </ion-card>
+    <ion-card id="afternoon" color="light" *ngIf="curHr > 12 && curHr < 18">
+      <ion-card-content>
+        <ion-card-header>
+          <ion-card-title>
+            Good afternoon.
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label>
+            Let's see what's changed this afternoon, shall we?
+          </ion-label>
+          <div class="actions">
+            <ion-chip>
+              Hlaljs
+            </ion-chip>
+            <ion-chip>
+              Hlaljs
+            </ion-chip>
+          </div>
+        </ion-card-content>
+      </ion-card-content>
+    </ion-card>
+    <ion-card id="evening" color="light" *ngIf="curHr >= 18">
+      <ion-card-content>
+        <ion-card-header>
+          <ion-card-title>
+            Good evening.
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label>
+            Let's see what's changed this evening, shall we?
+          </ion-label>
+          <div class="actions">
+            <ion-chip>
+              Hlaljs
+            </ion-chip>
+            <ion-chip>
+              Hlaljs
+            </ion-chip>
+          </div>
+        </ion-card-content>
+      </ion-card-content>
+    </ion-card>
+    <ng-container *ngIf="('DASHBOARD.CARDS' | translate) != 'DASHBOARD.CARDS'">
+      <ng-container *ngFor="let card of ('DASHBOARD.CARDS' | translate)">
+        <ng-container>
+          <app-nav-card cardTitle="{{ card.title }}" cardIcon="{{ card.icon_name }}" cardButtons="{{ card.BUTTONS | json}}" [permissions]="permissions" [eventPermissions]="eventPermissions"></app-nav-card>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
+</ion-content>
+
+<!--  *ngIf="arrayContainsArray(permissions, card.requiredPermissions) && arrayContainsArray(eventPermissions, card.requiredPermissions)" -->

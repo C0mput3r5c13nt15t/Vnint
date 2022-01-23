@@ -1,0 +1,53 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button *ngIf="!auth.getLoggedIn"></app-back-button>
+            <ion-card-title>{{ 'OTHER.IMPRESS.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row *ngIf="('OTHER.IMPRESS.CONTACT' | translate) != 'OTHER.IMPRESS.CONTACT'">
+                <ion-col size="12" *ngFor="let contact of ('OTHER.IMPRESS.CONTACT' | translate)">
+                  <ion-title *ngIf="contact.name">
+                    <b>{{ contact.name }}</b>
+                  </ion-title>
+                  <ion-label *ngIf="contact.address1">
+                    {{ contact.address1 }}<br>
+                  </ion-label>
+                  <ion-label *ngIf="contact.address2">
+                    {{ contact.address2 }}<br>
+                  </ion-label>
+                  <ion-label *ngIf="contact.telephone">
+                    {{ ('OTHER.IMPRESS.telephone' | translate) }} {{ contact.telephone }}<br>
+                  </ion-label>
+                  <ion-label *ngIf="contact.mobile">
+                    {{ ('OTHER.IMPRESS.mobile' | translate) }} {{ contact.mobile }}<br>
+                  </ion-label>
+                  <ion-label *ngIf="contact.fax">
+                    {{ ('OTHER.IMPRESS.fax' | translate) }} {{ contact.fax }}<br>
+                  </ion-label>
+                  <ion-label *ngIf="contact.email">
+                    {{ contact.email }}
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="('OTHER.IMPRESS.CONTACT' | translate) == 'OTHER.IMPRESS.CONTACT'">
+                <ion-col>
+                  <ion-label>
+                    Loading impress... This should not take too long. If it takes longer that 5 minutes please refresh the page. If the error continues to exist contact the system administrator.
+                  </ion-label>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer class="fallback-footer"></app-footer>
+</ion-content>
+<app-footer></app-footer>

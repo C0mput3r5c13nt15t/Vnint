@@ -1,0 +1,67 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'ACTIONS.ADMINISTRATE.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-label>
+                    {{ 'ACTIONS.ADMINISTRATE.explanation' | translate }}
+                  </ion-label><br>
+                  <br><hr><br>
+                  <ng-container *ngIf="roles.length > 0">
+                    <ion-card *ngFor="let role of roles">
+                      <ion-card-header>
+                        <ion-card-title>{{ role.name }}</ion-card-title>
+                        <ion-card-subtitle>
+                          {{ 'GENERAL.createdAt' | translate }} <ion-label color="primary" class="subtitle-labels">{{ role.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label>
+                          {{ 'GENERAL.updatedAt' | translate }} <ion-label color="primary" class="subtitle-labels">{{ role.updated_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label>
+                        </ion-card-subtitle>
+                        <ion-card-subtitle>
+                          <ion-chip (click)="role.show_permissions = !role.show_permissions" *ngIf="!role.show_permissions">
+                            <ion-icon name="chevron-down"></ion-icon>
+                            <ion-label>{{ 'GENERAL.showMore' | translate }}</ion-label>
+                          </ion-chip>
+                          <ion-chip (click)="role.show_permissions = !role.show_permissions" *ngIf="role.show_permissions">
+                            <ion-icon name="chevron-up"></ion-icon>
+                            <ion-label>{{ 'GENERAL.showLess' | translate }}</ion-label>
+                          </ion-chip>
+                          <ion-chip color="danger" (click)="removeRole(role.id)">
+                            <ion-icon name="trash"></ion-icon>
+                            <ion-label>{{ 'ACTIONS.ADMINISTRATE.deleteRole' | translate }}</ion-label>
+                          </ion-chip>
+                          <div *ngFor="let error of role.errors | keyvalue">
+                            <span class="error ion-padding" *ngFor="let errorMessage of role.errors[error.key] | keyvalue">
+                              <ion-label color="danger">{{ errorMessage.key }}</ion-label>
+                            </span>
+                          </div>
+                          <ion-list [@openClose]="role.show_permissions ? 'open' : 'closed'" *ngIf="permissions.length > 0">
+                            <ion-item lines="none" *ngFor="let permission of permissions">
+                              <ion-label>{{ ('GENERAL.PERMISSIONS.' + permission.name) | translate }}</ion-label>
+                              <ion-checkbox (click)="togglePermission(role.id, permission.name)" slot="start" [checked]="role.permissions_names.includes(permission.name)"></ion-checkbox>
+                            </ion-item>
+                          </ion-list>
+                        </ion-card-subtitle>
+                      </ion-card-header>
+                    </ion-card>
+                    <br>
+                  </ng-container>
+                  <div class="ion-padding">
+                    <ion-button color="primary" (click)="addRole()" expand="block" type="submit" class="ion-no-margin">+ {{ 'ACTIONS.ADMINISTRATE.addRole' | translate }}</ion-button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngIf="projects" color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'ACTIONS.VIEW_PROJECTS.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <form [formGroup]="searchProjectForm">
+                    <ion-searchbar (ionChange)="searchProject()" placeholder="{{ 'ACTIONS.VIEW_PROJECTS.INPUT.searchProjectPlaceholder' | translate }}" formControlName="title" showCancelButton="focus"></ion-searchbar>
+                    <ion-select (ionChange)="searchProject()" multiple formControlName="topic" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}">
+                      <ion-select-option *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue" value="{{ topic.key }}">{{ topic.value }}</ion-select-option>
+                    </ion-select>
+                  </form>
+                  <ng-container *ngIf="projects.length > 0">
+                    <ng-container *ngFor="let project of filteredProjects">
+                      <ion-card button=true routerLink="/project/{{ project.id }}" [disabled]="!permissions.includes('projects.toggleAuthorized') && !project.authorized">
+                        <ion-card-header>
+                          <ion-card-title>
+                            {{ project.title }}
+                          </ion-card-title>
+                          <ion-card-subtitle>
+                            <ion-label class="subtitle-labels">{{ 'ACTIONS.VIEW_PROJECTS.by' | translate }} </ion-label>
+                            <ion-label class="subtitle-labels" color="primary"><b>{{ project.leader.email }}</b></ion-label><br>
+                            <ion-label class="subtitle-labels">{{ 'ACTIONS.VIEW_PROJECTS.topic' | translate }} </ion-label>
+                            <ng-container *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue">
+                              <ion-label class="subtitle-labels" color="primary" *ngIf="project.topic == topic.key"><b>{{ topic.value }}</b></ion-label>
+                            </ng-container>
+                          </ion-card-subtitle>
+                          <ion-label class="long-description-label">
+                            {{ project.description }}
+                          </ion-label>
+                          <ion-card-subtitle>
+                            <ion-badge color="danger" *ngIf="permissions.includes('projects.toggleAuthorized') && !project.authorized"><ion-label class="white-font">{{ 'ACTIONS.VIEW_PROJECTS.unauthorized' | translate }}</ion-label></ion-badge>
+                            <ion-badge color="success" *ngIf="permissions.includes('projects.toggleAuthorized') && project.authorized"><ion-label class="white-font">{{ 'ACTIONS.VIEW_PROJECTS.authorized' | translate }}</ion-label></ion-badge>
+                            <ion-badge color="light" *ngIf="permissions.includes('preferences.store') && preference_ids.includes(project.id)"><ion-label>{{ 'ACTIONS.VIEW_PROJECTS.isPreference' | translate }}</ion-label></ion-badge>
+                          </ion-card-subtitle>
+                        </ion-card-header>
+                      </ion-card>
+                    </ng-container>
+                  </ng-container>
+                  <ng-container *ngIf="projects.length == 0">
+                    <app-empty-card message="{{ 'ACTIONS.VIEW_PROJECTS.noProjects' | translate }}"></app-empty-card><br>
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

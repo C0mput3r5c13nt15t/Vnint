@@ -1,0 +1,413 @@
+@import "../../../../theme/variables.scss";
+
+.universe {
+	position: relative;
+  display: flex;
+  margin: auto;
+	overflow: hidden;
+  width: 266px;
+  height: 250px;
+	background: #181743;
+  border-radius: 10px;
+}
+
+.part {
+  position: relative;
+  width: 266px;
+  height: 250px;
+
+  .planet {
+    position: absolute;
+    top: 163px;
+    left: 80px;
+    height: 67px;
+    width: 106px;
+    border-radius: 7px 7px 50px 50px;
+    background: linear-gradient(180deg, #ebf3fe 34%,#77cdff 35%,#77cdff 47%,#58b6fc 48%);
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 14px;
+      top: 11px;
+      height: 20px;
+      width: 36px;
+      border-radius: 20px 20px 0 0;
+      background: #77cdff;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 25px;
+      left: 58px;
+      width: 40px;
+      height: 20px;
+      border-radius: 0 0 30px 30px;
+      background: #77cdff;
+    }
+  }
+
+  .hills {
+    position: absolute;
+    top: 119px;
+    left: 150px;
+    height: 44px;
+    width: 30px;
+    border-radius: 20px 20px 0 0 ;
+    background: #306CF2;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 10px;
+      height: 34px;
+      width: 30px;
+      border-radius: 15px 15px 0 0;
+      background: #3EADFC;
+      box-shadow: 4px 0 0 rgba(0, 0, 0, .1);
+      z-index: 10;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 31px;
+      height: 24px;
+      width: 32px;
+      border-radius: 15px 15px 0 0;
+      background: #EBF3FE;
+      z-index: 10;
+    }
+  }
+
+  .bubble:nth-child(1) {
+    position: absolute;
+    top: 160px;
+    left: 86px;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    background: #FFFFFF;
+    animation: universe-star 4s ease infinite;
+  }
+
+  .bubble:nth-child(2) {
+    position: absolute;
+    top: 151px;
+    left: 91px;
+    height: 18px;
+    width: 18px;
+    border-radius: 100%;
+    background: #FFFFFF;
+    animation: universe-star 5s ease infinite;
+    animation-delay: -2s;
+  }
+
+  .bubble:nth-child(3) {
+    position: absolute;
+    top: 155px;
+    left: 107px;
+    height: 14px;
+    width: 14px;
+    border-radius: 100%;
+    background: #FFFFFF;
+    animation: universe-star 3s ease infinite;
+    animation-delay: -1s;
+  }
+
+  .bubble:nth-child(4) {
+    position: absolute;
+    top: 154px;
+    left: 120px;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    background: #FFFFFF;
+    animation: universe-star 6s ease infinite;
+  }
+
+  .bubble:nth-child(5) {
+    position: absolute;
+    top: 149px;
+    left: 126px;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    background: #FFFFFF;
+    animation: universe-star 4s ease infinite;
+    animation-delay: -2s;
+  }
+
+  .bubble:nth-child(6) {
+    position: absolute;
+    top: 160px;
+    left: 118px;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    background: #FFFFFF;
+    animation: universe-star 5s ease infinite;
+    animation-delay: -1s;
+  }
+
+  .rocket {
+    position: absolute;
+    top: 116px;
+    left: 96px;
+    height: 14px;
+    width: 39px;
+    border-radius: 50% 50% 2px 2px / 100% 100% 2px 2px;
+    background: #2D97F7;
+    animation: universe-rocket 4s ease infinite;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -18px;
+      left: 7px;
+      height: 32px;
+      width: 26px;
+      border-radius: 50% 50% 2px 2px / 100% 100% 2px 2px;
+      background: linear-gradient(to right, #ffffff 49%, #a8d3fd 50%);
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 13px;
+      height: 4px;
+      width: 12px;
+      border-radius: 2px;
+      background: #2D97F7;
+    }
+  }
+
+  .rocket-window {
+    position: absolute;
+    top: -7px;
+    left: 14px;
+    height: 8px;
+    width: 8px;
+    border-radius: 100%;
+    background: #214A8A;
+    border: 2px solid #A8D4F9;
+  }
+
+  .rocket-light {
+    position: absolute;
+    top: 18px;
+    left: 17px;
+    height: 29px;
+    width: 5px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+  }
+
+  .satellite {
+    position: absolute;
+    top: 73px;
+    left: 140px;
+    height: 32px;
+    width: 32px;
+    border-radius: 100%;
+    background: linear-gradient(to right, rgba(250,1,109,1) 0%, rgba(250,1,109,0) 100%);
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 34px;
+      top: -8px;
+      height: 9px;
+      width: 9px;
+      border-radius: 100%;
+      background: #2D97F7;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 49px;
+      top: 16px;
+      height: 3px;
+      width: 3px;
+      border-radius: 100%;
+      background: #EEF9FF;
+    }
+  }
+
+  .star:nth-child(11) {
+    position: absolute;
+    top: 80px;
+    left: 66px;
+    height: 3px;
+    width: 3px;
+    animation: universe-star 6s linear infinite;
+    animation-delay: -2s;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      height: 1px;
+      width: 100%;
+      border-radius: 1px;
+      background: #2D97F5;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 1px;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      border-radius: 1px;
+      background: #2D97F5;
+    }
+  }
+
+  .star:nth-child(12) {
+    position: absolute;
+    top: 69px;
+    left: 83px;
+    height: 8px;
+    width: 8px;
+    animation: universe-star 6s linear infinite;
+    animation-delay: -3s;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 3px;
+      height: 2px;
+      width: 100%;
+      border-radius: 2px;
+      background: white;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      border-radius: 2px;
+      background: white;
+    }
+  }
+
+  .star:nth-child(13) {
+    position: absolute;
+    top: 91px;
+    left: 73px;
+    height: 3px;
+    width: 3px;
+    animation: universe-star 6s linear infinite;
+    animation-delay: -4s;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      height: 1px;
+      width: 100%;
+      border-radius: 1px;
+      background: #2D97F5;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 1px;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      border-radius: 1px;
+      background: #2D97F5;
+    }
+  }
+
+  .star:nth-child(14) {
+    position: absolute;
+    top: 78px;
+    left: 119px;
+    height: 6px;
+    width: 6px;
+    animation: universe-star 6s linear infinite;
+    animation-delay: -5s;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      height: 2px;
+      width: 100%;
+      border-radius: 2px;
+      background: #2D97F5;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      border-radius: 2px;
+      background: #2D97F5;
+    }
+  }
+
+  .star:nth-child(15) {
+    position: absolute;
+    top: 76px;
+    left: 195px;
+    height: 3px;
+    width: 3px;
+    animation: universe-star 6s linear infinite;
+    animation-delay: -1s;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 1px;
+      height: 1px;
+      width: 100%;
+      border-radius: 1px;
+      background: #2D97F5;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      left: 1px;
+      top: 0;
+      height: 100%;
+      width: 1px;
+      border-radius: 1px;
+      background: #2D97F5;
+    }
+  }
+}
+
+/* Animations */
+@keyframes universe-ufo {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(5px); }
+	100% { transform: translateY(0); }
+}
+@keyframes universe-rocket {
+	0% { transform: translateY(0); }
+	50% { transform: translateY(7px); }
+	100% { transform: translateY(0); }
+}
+@keyframes universe-ufo-light {
+	0% { opacity: 1; }
+	50% { opacity: .6; }
+	100% { opacity: 1; }
+}
+@keyframes universe-star {
+	0% { transform: scale(1); }
+	50% { transform: scale(2); }
+	100% { transform: scale(1); }
+}

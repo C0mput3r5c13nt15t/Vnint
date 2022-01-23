@@ -1,0 +1,89 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'ACTIONS.MANAGE_FRIENDS.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-label>
+                    {{ 'ACTIONS.MANAGE_FRIENDS.explanation' | translate }}
+                  </ion-label>
+                  <br><br>
+                  <ion-label>
+                    {{ 'ACTIONS.MANAGE_FRIENDS.LEGEND.yourFriendshipRequest' | translate }}<br>
+                    <ion-icon color="danger" slot="start" name="hourglass"></ion-icon> {{ 'ACTIONS.MANAGE_FRIENDS.LEGEND.hourglass' | translate }}<br>
+                    <ion-icon color="warning" slot="start" name="checkmark"></ion-icon> {{ 'ACTIONS.MANAGE_FRIENDS.LEGEND.check' | translate }}<br>
+                    <ion-icon color="success" slot="start" name="checkmark-done"></ion-icon> {{ 'ACTIONS.MANAGE_FRIENDS.LEGEND.doubleCheck' | translate }}
+                  </ion-label><br>
+                  <br><hr><br>
+                  <ng-container *ngIf="offered_friendships.length > 0">
+                    <ion-label>{{ 'ACTIONS.MANAGE_FRIENDS.proposedFriendships' | translate }}</ion-label>
+                    <ion-card *ngFor="let friendship of offered_friendships">
+                      <ion-item color="light">
+                        <ion-icon *ngIf="friendship.state == 0" color="danger" slot="start" name="hourglass"></ion-icon>
+                        <ion-icon *ngIf="friendship.state == 1" color="warning" slot="start" name="checkmark"></ion-icon>
+                        <ion-icon *ngIf="friendship.state == 2" color="success" slot="start" name="checkmark-done"></ion-icon>
+                        <ion-card-header>
+                          <ion-card-title>{{ friendship.respondent.email }}</ion-card-title>
+                          <ion-card-subtitle>
+                            {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.proposedOn' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.to' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.respondent.email }}</ion-label>
+                          </ion-card-subtitle>
+                          <ion-card-subtitle>
+                            <ion-chip color="danger" (click)="removeFriend(friendship.id)">
+                              <ion-icon name="close"></ion-icon>
+                              <ion-label>{{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.removeFriend' | translate }}</ion-label>
+                            </ion-chip>
+                          </ion-card-subtitle>
+                        </ion-card-header>
+                      </ion-item>
+                    </ion-card>
+                    <br>
+                  </ng-container>
+                  <ng-container *ngIf="received_friendships.length > 0">
+                    <ion-label>{{ 'ACTIONS.MANAGE_FRIENDS.receivedFriendships' | translate }}</ion-label>
+                    <ion-card *ngFor="let friendship of received_friendships">
+                      <ion-item color="light">
+                        <ion-icon *ngIf="friendship.state == 0" color="danger" slot="start" name="hourglass"></ion-icon>
+                        <ion-icon *ngIf="friendship.state == 1" color="warning" slot="start" name="checkmark"></ion-icon>
+                        <ion-icon *ngIf="friendship.state == 2" color="success" slot="start" name="checkmark-done"></ion-icon>
+                        <ion-card-header>
+                          <ion-card-title>{{ friendship.applicant.email }}</ion-card-title>
+                          <ion-card-subtitle>
+                            {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.receivedOn' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.from' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.applicant.email }}</ion-label>
+                          </ion-card-subtitle>
+                          <ion-card-subtitle>
+                            <ion-chip *ngIf="friendship.state == 0" color="success" (click)="acceptFriend(friendship.id)">
+                              <ion-icon name="checkmark"></ion-icon>
+                              <ion-label>{{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.acceptFriend' | translate }}</ion-label>
+                            </ion-chip>
+                            <ion-chip color="danger" (click)="removeFriend(friendship.id)">
+                              <ion-icon name="close"></ion-icon>
+                              <ion-label>{{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.removeFriend' | translate }}</ion-label>
+                            </ion-chip>
+                          </ion-card-subtitle>
+                        </ion-card-header>
+                      </ion-item>
+                    </ion-card><br>
+                  </ng-container>
+                  <ng-container *ngIf="offered_friendships.length == 0 && received_friendships.length == 0">
+                    <app-empty-card message="{{ 'ACTIONS.MANAGE_FRIENDS.noFriends' | translate }}"></app-empty-card><br>
+                  </ng-container>
+                  <div class="ion-padding">
+                    <ion-button color="primary" (click)="addFriend()" expand="block" type="submit" class="ion-no-margin">+ {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.add' | translate }}</ion-button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

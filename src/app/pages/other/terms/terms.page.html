@@ -1,0 +1,45 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-header>
+            <app-back-button *ngIf="!auth.getLoggedIn"></app-back-button>
+            <ion-card-title>{{ 'OTHER.TERMS.title' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+                <ion-row *ngIf="('OTHER.TERMS.LEGAL' | translate) != 'OTHER.TERMS.LEGAL'">
+                  <ng-container *ngFor="let term of ('OTHER.TERMS.LEGAL' | translate)">
+                    <ion-col sizeXl="9" sizeLg="9" sizeMd="9" sizeSm="12" sizeXs="12">
+                      <ion-title *ngIf="term.title">
+                        <b>{{ term.title }}</b>
+                      </ion-title>
+                      <ion-label *ngIf="term.term">
+                        {{ term.term }}
+                      </ion-label>
+                    </ion-col>
+                    <ion-col sizeXl="3" sizeLg="3" sizeMd="3" sizeSm="12" sizeXs="12" *ngIf="term.summary">
+                      <ion-label color="primary">
+                        <b>{{ term.summary }}</b>
+                      </ion-label>
+                    </ion-col>
+                  </ng-container>
+                </ion-row>
+                <ion-row *ngIf="('OTHER.TERMS.LEGAL' | translate) == 'OTHER.TERMS.LEGAL'">
+                  <ion-col>
+                    <ion-label>
+                      Loading terms... This should not take too long. If it takes longer that 5 minutes please refresh the page. If the error continues to exist contact the system administrator.
+                    </ion-label>
+                  </ion-col>
+                </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <app-footer class="fallback-footer"></app-footer>
+</ion-content>
+<app-footer></app-footer>
