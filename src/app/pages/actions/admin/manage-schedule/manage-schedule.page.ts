@@ -170,6 +170,10 @@ export class ManageSchedulePage implements OnInit {
   updateEvent() {
     if (!this.isProcessed && this.updateEventForm.valid) {
       this.isProcessed = true;
+      this.updateEventForm.patchValue({
+        from: this.datePipe.transform(this.updateEventForm.value.from, 'yyyy-MM-dd'),
+        until: this.datePipe.transform(this.updateEventForm.value.until, 'yyyy-MM-dd'),
+      });
       const updateEventPermissionsNames = this.updateEventPermissions.filter(permission => permission.isChecked).map(permissions => permissions.name);
       this.eventService.syncPermissions(this.updateEventForm.value.id, {permissions: updateEventPermissionsNames}).subscribe({
         error: error => {

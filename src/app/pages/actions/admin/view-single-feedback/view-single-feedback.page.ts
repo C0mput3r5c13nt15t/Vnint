@@ -64,7 +64,7 @@ export class ViewSingleFeedbackPage implements OnInit {
               },
               next: () => {},
               complete: () => {
-                this.router.navigate(['/view feedback']);
+                this.router.navigate(['/view-feedback']);
               },
             });
           }

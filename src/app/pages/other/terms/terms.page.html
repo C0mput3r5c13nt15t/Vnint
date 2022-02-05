@@ -9,7 +9,7 @@
             <ion-card-title>{{ 'OTHER.TERMS.title' | translate }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-grid>
+            <ion-grid class="inside-card-grid">
                 <ion-row *ngIf="('OTHER.TERMS.LEGAL' | translate) != 'OTHER.TERMS.LEGAL'">
                   <ng-container *ngFor="let term of ('OTHER.TERMS.LEGAL' | translate)">
                     <ion-col sizeXl="9" sizeLg="9" sizeMd="9" sizeSm="12" sizeXs="12">

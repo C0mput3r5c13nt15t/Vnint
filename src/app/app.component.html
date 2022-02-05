@@ -1,8 +1,10 @@
 <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu [disabled]="!auth.getLoggedIn" contentId="main-content" type="push" color="light">
-      <ion-content color="light">
+      <div>
         <ion-toolbar color="light"><ion-title class="app-title" slot="start">Diribitio</ion-title></ion-toolbar>
+      </div>
+      <ion-content color="light">
         <ion-list color="light" id="inbox-list">
           <ion-item color="light" id="avatar" lines="none">
             <ion-avatar slot="start">

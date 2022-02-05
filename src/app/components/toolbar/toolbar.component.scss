@@ -7,13 +7,17 @@
 }
 
 ion-toolbar {
+  position: fixed;
+  height: 3.7rem;
   text-align: left;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 }
 
 ion-grid {
   width: fit-content;
   width: -moz-fit-content;
   margin-left: 0;
+  margin-top: 0;
 }
 
 .primary-toolbar {

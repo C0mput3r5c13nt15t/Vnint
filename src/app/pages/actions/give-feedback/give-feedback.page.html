@@ -9,7 +9,7 @@
             <ion-card-title>{{ 'ACTIONS.GIVE_FEEDBACK.title' | translate }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-grid>
+            <ion-grid class="inside-card-grid">
               <ion-row>
                 <ion-col>
                   <form [formGroup]="giveFeedbackForm" (ngSubmit)="giveFeedback()">
@@ -62,7 +62,7 @@
             <ion-card-title>{{ 'ACTIONS.GIVE_FEEDBACK.SUCCESS.thankYou' | translate }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-grid>
+            <ion-grid class="inside-card-grid">
               <ion-row>
                 <ion-col>
                   <ion-label>

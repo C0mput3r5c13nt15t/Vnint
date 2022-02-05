@@ -9,7 +9,7 @@
             <ion-card-title>{{ 'OTHER.IMPRESS.title' | translate }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-grid>
+            <ion-grid class="inside-card-grid">
               <ion-row *ngIf="('OTHER.IMPRESS.CONTACT' | translate) != 'OTHER.IMPRESS.CONTACT'">
                 <ion-col size="12" *ngFor="let contact of ('OTHER.IMPRESS.CONTACT' | translate)">
                   <ion-title *ngIf="contact.name">

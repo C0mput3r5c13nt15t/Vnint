@@ -7,18 +7,42 @@
 }
 
 ion-toolbar {
+  height: 3.7rem;
   text-align: left;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 }
 
 ion-menu {
   border: none;
   --ion-background-color: var(--ion-color-light) !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+  ion-content {
+    --ion-background-color: var(--ion-color-light) !important;
+    border-width: 15px;
+    border-style: solid;
+    border-image:
+      linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.03),
+          var(--ion-color-medium)
+      ) 1 100%;
+    border-left: none;
+    border-bottom: none;
+    border-top: none;
+  }
+
+  @media (max-width: 991px) {
+    ion-content {
+      border: none;
+    }
+  }
 
   ion-list {
     background: transparent;
   }
-
 }
+
 .split-pane-visible > ion-menu {
   max-width: 300px!important;
 }
