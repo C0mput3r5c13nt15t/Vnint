@@ -28,14 +28,6 @@
 @import "./theme/variables.scss";
 
 // Make page work on even the smallest screens
-app-footer {
-  ion-footer {
-    display: block;
-  }
-}
-.fallback-footer {
-  display: none;
-}
 ion-card {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
   border-radius: 10px;
@@ -53,19 +45,21 @@ ion-router-outlet {
   margin-left: -15px;
 }
 
-@media (max-height: 992px) {
+.fixed-footer div {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+@media (max-height: 900px) {
   ion-grid {
     margin-top: calc(25px + 2.5rem);
   }
-  app-footer {
-    display: none;
-  }
-  .fallback-footer {
-    margin-top: 50px;
-    display: block;
-  }
   ion-router-outlet {
     margin-left: 0;
+  }
+  .fixed-footer div {
+    position: relative;
   }
 }
 
@@ -90,12 +84,6 @@ ion-router-outlet {
 
   ion-toolbar {
     margin-top: 0;
-  }
-
-  app-footer {
-    ion-toolbar {
-      padding-bottom: 10px;
-    }
   }
 
   app-toolbar {

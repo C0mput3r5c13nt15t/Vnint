@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { AlertComponent } from './alert.component';
+import { AlertCardComponent } from './alert-card.component';
 
-describe('AlertComponent', () => {
-  let component: AlertComponent;
-  let fixture: ComponentFixture<AlertComponent>;
+describe('NavCardComponent', () => {
+  let component: AlertCardComponent;
+  let fixture: ComponentFixture<AlertCardComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlertComponent ],
+      declarations: [ AlertCardComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AlertComponent);
+    fixture = TestBed.createComponent(AlertCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

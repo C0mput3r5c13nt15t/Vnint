@@ -2,7 +2,7 @@
   <ion-split-pane contentId="main-content">
     <ion-menu [disabled]="!auth.getLoggedIn" contentId="main-content" type="push" color="light">
       <div>
-        <ion-toolbar color="light"><ion-title class="app-title" slot="start">Diribitio</ion-title></ion-toolbar>
+        <ion-toolbar [routerLink]="['/dashboard']" color="light"><ion-title class="app-title" slot="start">Diribitio</ion-title></ion-toolbar>
       </div>
       <ion-content color="light">
         <ion-list color="light" id="inbox-list">
@@ -26,7 +26,7 @@
           </ion-menu-toggle>
         </ion-list>
         <div class="ion-padding">
-          <ion-button color="primary" fill="outline" id="logout" (click)="logout()" expand="block">
+          <ion-button color="primary" shape="round" fill="outline" (click)="logout()">
             <ion-icon slot="start" name="log-out"></ion-icon>
             <ion-label color="primary">{{ 'MENU.ACTIONS.logout' | translate }}</ion-label>
           </ion-button>

@@ -29,8 +29,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/other/terms/terms.module').then( m => m.TermsPageModule)
   },
   {
-    path: 'impress',
-    loadChildren: () => import('./pages/other/impress/impress.module').then( m => m.ImpressPageModule)
+    path: 'impressum',
+    loadChildren: () => import('./pages/other/impressum/impressum.module').then(m => m.ImpressumPageModule)
   },
   {
     path: 'help',

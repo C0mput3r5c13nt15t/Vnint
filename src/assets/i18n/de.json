@@ -540,34 +540,18 @@
       "title": "Hilfe 📖",
       "help": "Hier soll ein Text um dir zu helfen hin"
     },
-    "IMPRESS": {
+    "IMPRESSUM": {
       "title": "Impressum 📞",
       "telephone": "Tel.",
       "fax": "Fax",
       "mobile": "Mobil",
       "CONTACT": [
         {
-          "name": "Max Mustermann (Platzhalter!)",
-          "address1": "1253  Southern Avenue (Platzhalter!)",
-          "address2": "50049 Chariton (Platzhalter!)",
-          "telephone": "641-217-9306 (Platzhalter!)",
-          "fax": "641-217-9306 (Platzhalter!)",
-          "email": "example@placeholder.net (Platzhalter!)"
-        },
-        {
-          "name": "Max Mustermann (Platzhalter!)",
-          "address1": "1253  Southern Avenue (Platzhalter!)",
-          "address2": "50049 Chariton (Platzhalter!)",
-          "fax": "641-217-9306 (Platzhalter!)",
-          "email": "example@placeholder.net (Platzhalter!)"
-        },
-        {
-          "name": "Max Mustermann (Platzhalter!)",
-          "address1": "1253  Southern Avenue (Platzhalter!)",
-          "address2": "50049 Chariton (Platzhalter!)",
-          "telephone": "641-217-9306 (Platzhalter!)",
-          "fax": "641-217-9306 (Platzhalter!)",
-          "email": "example@placeholder.net (Platzhalter!)"
+          "name": "Paul Maier",
+          "address1": "Winziger Straße 2",
+          "address2": "84181 Neufraunhofen",
+          "telephone": "+49 1733 780289",
+          "email": "pauljustus279@gmail.com"
         }
       ]
     },
@@ -640,9 +624,9 @@
       ]
     },
     "FOOTER": {
-      "copyright": "© 2021 Paul Maier",
+      "copyright": "Paul Maier © 2021",
       "terms": "AGBs",
-      "impress": "Impressum",
+      "impressum": "Impressum",
       "about": "About",
       "help": "Hilfe",
       "settings": "Einstellungen"

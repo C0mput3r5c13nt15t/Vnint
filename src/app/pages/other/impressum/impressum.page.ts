@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../../services/auth.service";
 
 @Component({
-  selector: 'app-impress',
-  templateUrl: './impress.page.html',
-  styleUrls: ['./impress.page.scss'],
+  selector: 'app-impressum',
+  templateUrl: './impressum.page.html',
+  styleUrls: ['./impressum.page.scss'],
 })
-export class ImpressPage implements OnInit {
+export class ImpressumPage implements OnInit {
 
   constructor(public auth: AuthService) { }
 

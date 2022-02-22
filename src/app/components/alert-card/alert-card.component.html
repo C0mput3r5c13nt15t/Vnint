@@ -1,0 +1,13 @@
+<div class="nav-card-div">
+  <ion-card color="light">
+    <ion-card-content>
+      <div [class]="'type ' + alert.type">
+        <h1>{{ alert.title }}</h1><ion-icon name="alert-circle"></ion-icon>
+      </div>
+      <p>
+        {{ alert.message }}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</div>
+<!-- *ngIf="arrayContainsArray(permissions, button.requiredPermissions) && arrayContainsArray(eventPermissions, button.requiredPermissions)" -->

@@ -5,7 +5,7 @@
       <ion-col>
         <ion-card color="light">
           <ion-card-header>
-            <app-back-button *ngIf="!auth.getLoggedIn"></app-back-button>
+            <app-back-button></app-back-button>
             <ion-card-title>{{ 'OTHER.TERMS.title' | translate }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
@@ -40,6 +40,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <app-footer class="fallback-footer"></app-footer>
+  <app-footer></app-footer>
 </ion-content>
-<app-footer></app-footer>

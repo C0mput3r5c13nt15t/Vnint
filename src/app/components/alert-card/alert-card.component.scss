@@ -41,7 +41,6 @@ ion-card:hover {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-bottom: 20px;
-  background-color: var(--ion-color-primary);
   color: white;
   z-index: 10;
   text-align: right;
@@ -63,6 +62,18 @@ ion-card:hover {
     width: calc(100% - 50px);
     float: left;
   }
+}
+
+.error {
+  background-color: var(--ion-color-danger, red);
+}
+
+.warning {
+  background-color: var(--ion-color-warning, orange);
+}
+
+.success {
+  background-color: var(--ion-color-success, green);
 }
 
 .icon-container {

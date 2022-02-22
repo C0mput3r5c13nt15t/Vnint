@@ -5,16 +5,16 @@
       <ion-col>
         <ion-card color="light">
           <ion-card-header>
-            <app-back-button *ngIf="!auth.getLoggedIn"></app-back-button>
-            <ion-card-title>{{ 'OTHER.IMPRESS.title' | translate }}</ion-card-title>
+            <app-back-button></app-back-button>
+            <ion-card-title>{{ 'OTHER.IMPRESSUM.title' | translate }}</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-grid class="inside-card-grid">
-              <ion-row *ngIf="('OTHER.IMPRESS.CONTACT' | translate) != 'OTHER.IMPRESS.CONTACT'">
-                <ion-col size="12" *ngFor="let contact of ('OTHER.IMPRESS.CONTACT' | translate)">
-                  <ion-title *ngIf="contact.name">
-                    <b>{{ contact.name }}</b>
-                  </ion-title>
+              <ion-row *ngIf="('OTHER.IMPRESSUM.CONTACT' | translate) != 'OTHER.IMPRESSUM.CONTACT'">
+                <ion-col size="12" *ngFor="let contact of ('OTHER.IMPRESSUM.CONTACT' | translate)">
+                  <ion-label *ngIf="contact.name">
+                    <b>{{ contact.name }}</b><br>
+                  </ion-label>
                   <ion-label *ngIf="contact.address1">
                     {{ contact.address1 }}<br>
                   </ion-label>
@@ -22,20 +22,20 @@
                     {{ contact.address2 }}<br>
                   </ion-label>
                   <ion-label *ngIf="contact.telephone">
-                    {{ ('OTHER.IMPRESS.telephone' | translate) }} {{ contact.telephone }}<br>
+                    {{ ('OTHER.IMPRESSUM.telephone' | translate) }} {{ contact.telephone }}<br>
                   </ion-label>
                   <ion-label *ngIf="contact.mobile">
-                    {{ ('OTHER.IMPRESS.mobile' | translate) }} {{ contact.mobile }}<br>
+                    {{ ('OTHER.IMPRESSUM.mobile' | translate) }} {{ contact.mobile }}<br>
                   </ion-label>
                   <ion-label *ngIf="contact.fax">
-                    {{ ('OTHER.IMPRESS.fax' | translate) }} {{ contact.fax }}<br>
+                    {{ ('OTHER.IMPRESSUM.fax' | translate) }} {{ contact.fax }}<br>
                   </ion-label>
                   <ion-label *ngIf="contact.email">
-                    {{ contact.email }}
+                    <a [attr.href]="'mailto:' + contact.email">{{ contact.email }}</a>
                   </ion-label>
                 </ion-col>
               </ion-row>
-              <ion-row *ngIf="('OTHER.IMPRESS.CONTACT' | translate) == 'OTHER.IMPRESS.CONTACT'">
+              <ion-row *ngIf="('OTHER.IMPRESSUM.CONTACT' | translate) == 'OTHER.IMPRESSUM.CONTACT'">
                 <ion-col>
                   <ion-label>
                     Loading impress... This should not take too long. If it takes longer that 5 minutes please refresh the page. If the error continues to exist contact the system administrator.
@@ -48,6 +48,5 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <app-footer class="fallback-footer"></app-footer>
+  <app-footer class="fixed-footer"></app-footer>
 </ion-content>
-<app-footer></app-footer>

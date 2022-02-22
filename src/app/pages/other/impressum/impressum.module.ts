@@ -8,10 +8,10 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { ImpressPageRoutingModule } from './impress-routing.module';
+import { ImpressPageRoutingModule } from './impressum-routing.module';
 import { ComponentsModule } from '../../../components/components.module';
 
-import { ImpressPage } from './impress.page';
+import { ImpressumPage } from './impressum.page';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,6 +32,6 @@ export function createTranslateLoader(http: HttpClient) {
       }
     })
   ],
-  declarations: [ImpressPage]
+  declarations: [ImpressumPage]
 })
-export class ImpressPageModule {}
+export class ImpressumPageModule {}

@@ -1,7 +1,6 @@
-<!--suppress ALL -->
 <div>
   <ion-toolbar class="primary-toolbar" color="light">
-    <ion-title *ngIf="!auth.getLoggedIn" class="app-title" slot="start">Diribitio</ion-title>
+    <ion-title [routerLink]="['/login']" *ngIf="!auth.getLoggedIn" class="app-title" slot="start">Diribitio</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -28,8 +27,4 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-
-  <ng-container *ngFor="let alert of alertService.alerts">
-    <app-alert [alert]="alert"></app-alert>
-  </ng-container>
 </div>

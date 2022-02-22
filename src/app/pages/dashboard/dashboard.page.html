@@ -75,6 +75,13 @@
     <ng-container  *ngIf="error || ('DASHBOARD.CARDS' | translate) == 'DASHBOARD.CARDS'">
       <app-nav-card cardTitle="⚠️ Error" cardLink="/give-feedback" cardDescription="We are sorry but there seems to be some kind of error. Click here to report it."></app-nav-card>
     </ng-container>
+    <ng-container *ngIf="alertService.alerts">
+      <ng-container *ngFor="let alert of alertService.alerts">
+        <ng-container>
+          <app-alert-card [alert]="alert"></app-alert-card>
+        </ng-container>
+      </ng-container>
+    </ng-container>
     <ng-container *ngIf="('DASHBOARD.CARDS' | translate) != 'DASHBOARD.CARDS'">
       <ng-container *ngFor="let card of ('DASHBOARD.CARDS' | translate)">
         <ng-container>

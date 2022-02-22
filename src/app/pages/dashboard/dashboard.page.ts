@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Permission } from 'src/app/interfaces/permission';
 import { AuthService } from 'src/app/services/auth.service';
+import {AlertService} from "../../services/alert.service";
+import {ErrorService} from "../../services/error.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -16,9 +18,14 @@ export class DashboardPage implements OnInit {
   curHr = this.today.getHours()
 
   constructor(private auth: AuthService,
-              private router: Router) { }
+              private router: Router,
+              private alertService: AlertService,
+              private errorService: ErrorService) { }
 
   ngOnInit() {
+    this.alertService.alert('success', 'Hi', 'Cooöl')
+    this.alertService.alert('warning', 'Hi', 'Cooöl')
+    this.errorService.errorOccurred.emit({name: 'Failed', message: 'something went wrong'})
   }
 
   ionViewWillEnter() {

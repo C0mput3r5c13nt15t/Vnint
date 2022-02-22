@@ -14,7 +14,9 @@ export class NavigationService {
               private auth: AuthService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        if (this.history.includes(event.urlAfterRedirects)) {
+        if (event.urlAfterRedirects == '/dashboard') {
+          this.history = ['/dashboard']
+        } else if (this.history.includes(event.urlAfterRedirects)) {
           this.history = this.history.slice(0, this.history.indexOf(event.urlAfterRedirects) + 1);
         } else {
           this.history.push(event.urlAfterRedirects);
@@ -24,6 +26,9 @@ export class NavigationService {
   }
 
   public get getHistory() {
+    if (this.history[0] != '/dashboard') {
+      return ['/dashboard'].concat(this.history);
+    }
     return this.history;
   }
 
