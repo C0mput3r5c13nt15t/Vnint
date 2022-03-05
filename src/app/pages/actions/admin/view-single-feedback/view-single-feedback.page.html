@@ -3,10 +3,8 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <app-card-title-bar [title]="feedback.short_description"></app-card-title-bar>
         <ion-card *ngIf="feedback" color="light">
-          <ion-card-header>
-            <app-back-button></app-back-button>
-          </ion-card-header>
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row>

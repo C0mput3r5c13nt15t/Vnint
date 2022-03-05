@@ -1,14 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500&display=swap');
 @import "../../../theme/variables.scss";
 
 .app-title {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-primary, #7924f0);
   font-size: 2rem;
-  padding-left: 2%;
+  margin-left: 0.5rem;
   cursor: pointer;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+  height: 3.7rem;
+  line-height: 3.7rem;
 }
 
 ion-toolbar {
   position: fixed;
+  width: 100%;
+  left: 0;
   height: 3.7rem;
   text-align: left;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);

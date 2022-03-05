@@ -3,11 +3,8 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <app-card-title-bar title="{{ 'OTHER.IMPRESSUM.CONTACT' | translate }}"></app-card-title-bar>
         <ion-card color="light">
-          <ion-card-header>
-            <app-back-button></app-back-button>
-            <ion-card-title>{{ 'OTHER.IMPRESSUM.title' | translate }}</ion-card-title>
-          </ion-card-header>
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row *ngIf="('OTHER.IMPRESSUM.CONTACT' | translate) != 'OTHER.IMPRESSUM.CONTACT'">

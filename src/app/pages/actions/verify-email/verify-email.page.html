@@ -3,11 +3,8 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <app-card-title-bar title="{{ 'ACTIONS.VERIFY_EMAIL.title' | translate }}"></app-card-title-bar>
         <ion-card color="light">
-          <ion-card-header>
-            <app-back-button></app-back-button>
-            <ion-card-title>{{ 'ACTIONS.VERIFY_EMAIL.title' | translate }}</ion-card-title>
-          </ion-card-header>
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row>
@@ -17,7 +14,7 @@
                   </ion-label>
                   <br><br>
                   <ion-label *ngIf="verifiedEmail == false">
-                    {{ 'ACTIONS.VERIFY_EMAIL.notVerified' | translate }}
+                    <b>{{ 'ACTIONS.VERIFY_EMAIL.notVerified' | translate }}</b>
                   </ion-label>
                   <ion-label *ngIf="verifiedEmail">
                     <b>{{ 'ACTIONS.VERIFY_EMAIL.verified' | translate }}</b>
@@ -33,9 +30,6 @@
                     <ion-button (click)="reloadVerification()" color="primary" shape="round" type="submit"><ion-icon name="refresh"></ion-icon></ion-button>
                     <ion-button (click)="resendEmailVerificytion()" [disabled]="sentNotification || verifiedEmail" color="primary" color="primary" expand="block" class="ion-no-margin">{{ 'ACTIONS.VERIFY_EMAIL.resendButton' | translate }}</ion-button>
                   </div>-->
-                  <ion-label *ngIf="sentNotification && !verifiedEmail == true">
-                    {{ 'ACTIONS.VERIFY_EMAIL.sent' | translate }}
-                  </ion-label>
                 </ion-col>
               </ion-row>
             </ion-grid>

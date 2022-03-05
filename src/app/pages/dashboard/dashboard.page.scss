@@ -35,120 +35,14 @@ app-nav-card {
   max-width: max(50%, 500px);
 }
 
-#morning {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  align-items: flex-start;
-  min-width: 200px;
-  transition: all 0.1s;
-  margin: 0 10px;
-  flex-grow: 2;
-
-  ion-card-title {
-    font-weight: 550;
-    font-size: 5em;
-    display: inline-block;
-    margin-bottom: 0;
-
-    @media (max-width: 400px) {
-      font-size: 3em;
-    }
-  }
-
-  ion-card-title:first-of-type {
-    background: #f857a6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #ff5858, #f857a6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  ion-label {
-    font-size: 1.3rem;
-    @media (max-width: 400px) {
-      font-size: 1em;
-    }
-  }
-
-  .actions {
-    margin-top: 10px;
-    ion-chip {
-      color: white;
-      font-weight: 550;
-      font-size: 1.1rem;
-      background: #f857a6;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to right, #ff5858, #f857a6);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to right, #ff5858, #f857a6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-      @media (max-width: 400px) {
-        font-size: 1em;
-      }
-    }
-  }
-}
-
-#afternoon {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-  align-items: flex-start;
-  min-width: 200px;
-  transition: all 0.1s;
-  margin: 0 10px;
-  flex-grow: 2;
-
-  ion-card-title {
-    font-weight: 550;
-    font-size: 5em;
-    display: inline-block;
-    margin-bottom: 0;
-
-    @media (max-width: 400px) {
-      font-size: 3em;
-    }
-  }
-
-  ion-card-title:first-of-type {
-    background: #2BC0E4;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #e6ec7f, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #e6ec7f, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  ion-label {
-    font-size: 1.3rem;
-    @media (max-width: 400px) {
-      font-size: 1em;
-    }
-  }
-
-  .actions {
-    margin-top: 10px;
-    ion-chip {
-      color: white;
-      font-weight: 550;
-      font-size: 1.1rem;
-      background: #2BC0E4;  /* fallback for old browsers */
-      background: -webkit-linear-gradient(to left, #e6ec7f, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to left, #e6ec7f, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-      @media (max-width: 400px) {
-        font-size: 1em;
-      }
-    }
-  }
-}
-
-#evening {
+.greeting-card {
   // background: url("https://www.transparenttextures.com/patterns/escheresque.png"), linear-gradient(to right top, #cf4af3, #e73bd7, #f631bc, #fd31a2, #ff3a8b, #ff4b78, #ff5e68, #ff705c, #ff8c51, #ffaa49, #ffc848, #ffe652);
-  background: url("https://www.transparenttextures.com/patterns/escheresque.png"), linear-gradient(to right top, var(--ion-color-primary), var(--ion-color-primary));
+  background: url("https://www.transparenttextures.com/patterns/gplay.png"), linear-gradient(to right top, var(--ion-color-primary), var(--ion-color-primary));
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   transition: all 0.1s;
-  margin: 15px;
+  margin: 0 15px 15px;
   flex-grow: 1 !important;
   text-align: left;
   height: calc(100% - 30px);
@@ -194,7 +88,7 @@ app-nav-card {
   }
 }
 
-#evening:hover {
+.greeting-card:hover {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.27);
   transform: scale(1.01);
 }

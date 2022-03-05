@@ -3,11 +3,8 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <app-card-title-bar title="{{ 'ACTIONS.GIVE_FEEDBACK.title' | translate }}"></app-card-title-bar>
         <ion-card *ngIf="!success" color="light">
-          <ion-card-header>
-            <app-back-button></app-back-button>
-            <ion-card-title>{{ 'ACTIONS.GIVE_FEEDBACK.title' | translate }}</ion-card-title>
-          </ion-card-header>
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row>

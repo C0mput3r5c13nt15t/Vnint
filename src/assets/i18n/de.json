@@ -137,6 +137,42 @@
     "alreadyAccount": "Du hast bereits einen Account?"
   },
   "DASHBOARD": {
+    "GREETING1S": {
+      "morning": "Guten Morgen.",
+      "afternoon": "Guten Nachmittag.",
+      "evening": "Guten Abend."
+    },
+    "GREETINGS": [
+      {
+        "title": "Guten Morgen.",
+        "description": "Hallo",
+        "hours": [6, 11],
+        "actions": []
+      },
+      {
+        "title": "Guten Tag.",
+        "description": "Wie geht's?",
+        "hours": [11, 15],
+        "actions": []
+      },
+      {
+        "title": "Guten Nachmittag.",
+        "description": "Demo txt",
+        "hours": [15, 18],
+        "actions": []
+      },
+      {
+        "title": "Guten Abend.",
+        "description": "Es ist schon spät",
+        "hours": [18, 25],
+        "actions": []
+      }
+    ],
+    "ALERTS": {
+      "danger": "Fehler",
+      "warning": "Warnungen",
+      "primary": "Andere"
+    },
     "CARDS": [
       {
         "title": "Administrieren",
@@ -236,7 +272,7 @@
       },
       {
         "title": "Weiteres",
-        "icon_name": "information-circle",
+        "icon_name": "information",
         "BUTTONS": [
           {
             "icon": "chatbubble",
@@ -517,6 +553,7 @@
       "explanation": "Damit wir sicherstellen können, dass die angegebene E-Mail auch wirklich dir gehört haben wir dir bei deiner Anmeldung eine E-Mail gesendet. In ihr ist ein Link enthalten mit dessen Hilfe du deine E-Mail-Adresse verifizieren kasst. Klicke dafür einfach auf den Knopf in der E-Mail.",
       "verified": "Bereits verifiziert - Es scheint als wäre deine E-Mail-Adresse bereits verifiziert. Du solltest nun eigentlich vollen Zugriff auf deinen Account haben. Falls das nicht der Fall ist, versuche die Seite einmal neu zu laden. Sollte der Fehler bestehen, melde ihn bitte als Bug ( siehe Feedback Tab ).",
       "notVerified": "Verifizierung ausstehend - Deine E-Mail-Adresse scheint noch nicht verifiziert zu sein. Falls du die E-Mail nicht finden kannst schau vielleicht einmal im Spam-Ordner nach, oder prüfe deine Internetverbindung. Falls du die E-Mail bereits erhalten und bestätigt hast, drücke das Nachlade-Symbol.",
+      "sent_title": "E-Mail versandt",
       "sent": "Eine weitere E-Mail mit dem Link wurde nun an deine E-Mail-Adresse gesandt. Lade nach dem Verifizieren der E-Mail mit dem dafüt vorgesehenen Knopf nach."
     },
     "VIEW_SCHEDULE": {
@@ -624,7 +661,7 @@
       ]
     },
     "FOOTER": {
-      "copyright": "Paul Maier © 2021",
+      "copyright": "Copyright © 2022 Paul Maier",
       "terms": "AGBs",
       "impressum": "Impressum",
       "about": "About",

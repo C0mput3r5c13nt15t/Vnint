@@ -137,6 +137,37 @@
     "alreadyAccount": "Already have an account?"
   },
   "DASHBOARD": {
+    "GREETINGS": [
+      {
+        "title": "Good morning.",
+        "description": "Hallo",
+        "hours": [6, 11],
+        "actions": []
+      },
+      {
+        "title": "Good day.",
+        "description": "Wie geht's?",
+        "hours": [11, 15],
+        "actions": []
+      },
+      {
+        "title": "Good afternoon.",
+        "description": "Demo txt",
+        "hours": [15, 18],
+        "actions": []
+      },
+      {
+        "title": "Good evening.",
+        "description": "Es ist schon spät",
+        "hours": [18, 25],
+        "actions": []
+      }
+    ],
+    "ALERTS": {
+      "danger": "Errors",
+      "warning": "Warnings",
+      "primary": "Others"
+    },
     "CARDS": [
       {
         "title": "Administrate",
@@ -230,7 +261,7 @@
       },
       {
         "title": "Others",
-        "icon_name": "information-circle",
+        "icon_name": "information",
         "BUTTONS": [
           {
             "icon": "chatbubble",
@@ -511,6 +542,7 @@
       "explanation": "In order to make sure that the email address you provided is really yours, we sent you an email when you registered. It contains a link that you can use to verify your email address.",
       "verified": "Already verified - It seems that your email address is already verified. You should now have full access to your account. If this is not the case, try reloading the page. If the error persists, please report it as a bug ( see Feedback tab ).",
       "notVerified": "Verification pending - Your email address does not seem to be verified yet. If you can't find the email, check your spam folder or your internet connection. If you have already received and verified the email, press the reload icon.",
+      "sent_title": "Email sent",
       "sent": "Another email with the link has now been sent to your email address. After verifying the email, reload it using the button provided."
     },
     "VIEW_SCHEDULE": {
@@ -615,7 +647,7 @@
       ]
     },
     "FOOTER": {
-      "copyright": "Paul Maier © 2021",
+      "copyright": "Copyright © 2022 Paul Maier",
       "terms": "Terms",
       "impressum": "Impressum",
       "about": "About",

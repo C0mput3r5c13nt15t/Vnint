@@ -16,6 +16,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { BackButtonComponent } from './back-button/back-button.component';
 import { TextAvatarComponent } from './text-avatar/text-avatar.component';
 import { AlertCardComponent } from "./alert-card/alert-card.component";
+import { CardTitleBarComponent } from "./card-title-bar/card-title-bar.component";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,8 +36,8 @@ export function createTranslateLoader(http: HttpClient) {
     })
   ],
   declarations: [EmptyCardComponent, FooterComponent, MenuFooterComponent, NavCardComponent, AlertCardComponent,
-                 ToolbarComponent, BackButtonComponent, TextAvatarComponent],
+                 ToolbarComponent, BackButtonComponent, TextAvatarComponent, CardTitleBarComponent],
   exports: [EmptyCardComponent, FooterComponent, MenuFooterComponent, NavCardComponent, AlertCardComponent,
-            ToolbarComponent, BackButtonComponent, TextAvatarComponent]
+            ToolbarComponent, BackButtonComponent, TextAvatarComponent, CardTitleBarComponent]
 })
 export class ComponentsModule {}

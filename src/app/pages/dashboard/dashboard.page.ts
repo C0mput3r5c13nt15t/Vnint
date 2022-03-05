@@ -19,13 +19,10 @@ export class DashboardPage implements OnInit {
 
   constructor(private auth: AuthService,
               private router: Router,
-              private alertService: AlertService,
+              public alertService: AlertService,
               private errorService: ErrorService) { }
 
   ngOnInit() {
-    this.alertService.alert('success', 'Hi', 'Cooöl')
-    this.alertService.alert('warning', 'Hi', 'Cooöl')
-    this.errorService.errorOccurred.emit({name: 'Failed', message: 'something went wrong'})
   }
 
   ionViewWillEnter() {

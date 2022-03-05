@@ -3,11 +3,8 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <app-card-title-bar title="{{ 'ACTIONS.VIEW_SCHEDULE.title' | translate }}"></app-card-title-bar>
         <ion-card *ngIf="events" color="light">
-          <ion-card-header>
-            <app-back-button></app-back-button>
-            <ion-card-title>{{ 'ACTIONS.VIEW_SCHEDULE.title' | translate }}</ion-card-title>
-          </ion-card-header>
           <ion-card-content>
             <ng-container *ngIf="events.length > 0">
               <div class="timeline">

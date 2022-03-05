@@ -1,2 +1,6 @@
-<a (click)="back()" class="animated-link" routerDirection="back">{{ 'GENERAL.back' | translate }}</a>
+<!--<a  class="animated-link" routerDirection="back">{{ 'GENERAL.back' | translate }}</a>-->
+<ion-button (click)="back()">
+  <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+</ion-button>
+<!--<ion-button slot="icon-only" color="primary"   fill="outline"><ion-icon name="chevron-back"></ion-icon></ion-button>-->
 

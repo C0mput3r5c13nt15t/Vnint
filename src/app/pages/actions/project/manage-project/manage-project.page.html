@@ -3,11 +3,9 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <app-card-title-bar [title]="project.title"></app-card-title-bar>
         <ion-card *ngIf="project" color="light">
           <img *ngIf="project.image" src="/images/{{ project.image }}" alt="Just imagine a very cool image ...">
-          <ion-card-header>
-            <app-back-button></app-back-button>
-          </ion-card-header>
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row>

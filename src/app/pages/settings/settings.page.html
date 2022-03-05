@@ -3,11 +3,8 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <app-card-title-bar title="{{ 'SETTINGS.APPEARANCE.chooseLanguage' | translate }}"></app-card-title-bar>
         <ion-card color="light">
-          <ion-card-header>
-            <app-back-button *ngIf="!auth.getLoggedIn"></app-back-button>
-            <ion-card-title>{{ 'SETTINGS.title' | translate }}</ion-card-title>
-          </ion-card-header>
           <ion-card-content>
             <ion-item lines="none" color="light">
               <ion-label>{{ 'SETTINGS.APPEARANCE.chooseLanguage' | translate }}</ion-label>

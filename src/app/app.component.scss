@@ -1,10 +1,14 @@
 @import "../theme/variables.scss";
 
 .app-title {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-primary, #7924f0);
   font-size: 2rem;
-  padding-left: 10px;
+  margin-left: 0.5rem;
   cursor: pointer;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+  height: 3.7rem;
+  line-height: 3.7rem;
 }
 
 ion-toolbar {

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Friendship } from 'src/app/interfaces/friendship';
-import { AlertService } from 'src/app/services/alert.service';
 import { FriendshipService } from 'src/app/services/friendship.service';
 import { ErrorService } from 'src/app/services/error.service';
 
@@ -18,7 +17,6 @@ export class ManageFriendsPage implements OnInit {
   constructor(private alertCtrl: AlertController,
               private translate: TranslateService,
               private friendshipService: FriendshipService,
-              private alertService: AlertService,
               private errorService: ErrorService) { }
 
   ngOnInit() {
@@ -79,9 +77,9 @@ export class ManageFriendsPage implements OnInit {
                   for (const errorType in error.error.errors) {
                     for (const errorMessage in error.error.errors[errorType]) {
                       errors.push(error.error.errors[errorType][errorMessage] + '\n');
+                      this.errorService.errorOccurred.emit(error);
                     }
                   }
-                  this.alertService.alertToast(errors);
                 } else {
                   this.errorService.errorOccurred.emit(error);
                 }

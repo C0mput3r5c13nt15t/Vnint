@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorService } from 'src/app/services/error.service';
+import { AlertService } from "../../../services/alert.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-verify-email',
@@ -12,6 +14,8 @@ export class VerifyEmailPage implements OnInit {
   sentNotification = false;
 
   constructor(private auth: AuthService,
+              private alertService: AlertService,
+              private translateService: TranslateService,
               private errorService: ErrorService) { }
 
   ngOnInit() {
@@ -53,6 +57,7 @@ export class VerifyEmailPage implements OnInit {
       },
       next: () => {},
       complete: () => {
+        this.alertService.alert("primary", this.translateService.instant('ACTIONS.VERIFY_EMAIL.sent_title'), this.translateService.instant('ACTIONS.VERIFY_EMAIL.sent'), "send")
         this.auth.emailVerifiedAt().subscribe({
           error: () => {},
           next: response => {

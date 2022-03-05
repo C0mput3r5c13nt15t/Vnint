@@ -1,86 +1,45 @@
 <ion-content>
   <app-toolbar></app-toolbar>
   <div class="dashboard-row">
-    <ng-container  *ngIf="error || ('DASHBOARD.CARDS' | translate) == 'DASHBOARD.CARDS'">
-      <app-nav-card cardTitle="⚠️ Error" cardLink="/give-feedback" cardDescription="We are sorry but there seems to be some kind of error. Click here to report it."></app-nav-card>
+    <ng-container *ngIf="('DASHBOARD.GREETINGS' | translate) != 'DASHBOARD.CARDS'">
+      <ng-container *ngFor="let greeting of ('DASHBOARD.GREETINGS' | translate)">
+        <ng-container>
+          <ion-card class="greeting-card" color="light" *ngIf="curHr >= greeting.hours[0] && curHr < greeting.hours[1]">
+            <ion-card-content>
+              <ion-card-header>
+                <ion-card-title>
+                  {{ greeting.title }}
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <ion-label>
+                  {{ greeting.description }}
+                </ion-label>
+                <div class="actions">
+                  <ion-chip>
+                    Hlaljs
+                  </ion-chip>
+                  <ion-chip>
+                    Hlaljs
+                  </ion-chip>
+                </div>
+              </ion-card-content>
+            </ion-card-content>
+          </ion-card>
+        </ng-container>
+      </ng-container>
     </ng-container>
-    <ion-card id="morning" color="light" *ngIf="curHr <= 12">
-      <ion-card-content>
-        <ion-card-header>
-          <ion-card-title>
-            Good morning.
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-label>
-            Let's see what's changed this morning, shall we?
-          </ion-label>
-          <div class="actions">
-            <ion-chip>
-              Hlaljs
-            </ion-chip>
-            <ion-chip>
-              Hlaljs
-            </ion-chip>
-          </div>
-        </ion-card-content>
-      </ion-card-content>
-    </ion-card>
-    <ion-card id="afternoon" color="light" *ngIf="curHr > 12 && curHr < 18">
-      <ion-card-content>
-        <ion-card-header>
-          <ion-card-title>
-            Good afternoon.
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-label>
-            Let's see what's changed this afternoon, shall we?
-          </ion-label>
-          <div class="actions">
-            <ion-chip>
-              Hlaljs
-            </ion-chip>
-            <ion-chip>
-              Hlaljs
-            </ion-chip>
-          </div>
-        </ion-card-content>
-      </ion-card-content>
-    </ion-card>
-    <ion-card id="evening" color="light" *ngIf="curHr >= 18">
-      <ion-card-content>
-        <ion-card-header>
-          <ion-card-title>
-            Good evening.
-          </ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-label>
-            Let's see what's changed this evening, shall we?
-          </ion-label>
-          <div class="actions">
-            <ion-chip>
-              Hlaljs
-            </ion-chip>
-            <ion-chip>
-              Hlaljs
-            </ion-chip>
-          </div>
-        </ion-card-content>
-      </ion-card-content>
-    </ion-card>
   </div>
+  <ng-container *ngIf="alertService.alerts.length > 0">
+    <div class="dashboard-row">
+      <app-alert-card type="danger" [alerts]="alertService.errors"></app-alert-card>
+      <app-alert-card type="warning" [alerts]="alertService.warnings"></app-alert-card>
+      <app-alert-card type="primary" [alerts]="alertService.others"></app-alert-card>
+    </div>
+  </ng-container>
   <div class="dashboard-row">
     <ng-container  *ngIf="error || ('DASHBOARD.CARDS' | translate) == 'DASHBOARD.CARDS'">
       <app-nav-card cardTitle="⚠️ Error" cardLink="/give-feedback" cardDescription="We are sorry but there seems to be some kind of error. Click here to report it."></app-nav-card>
-    </ng-container>
-    <ng-container *ngIf="alertService.alerts">
-      <ng-container *ngFor="let alert of alertService.alerts">
-        <ng-container>
-          <app-alert-card [alert]="alert"></app-alert-card>
-        </ng-container>
-      </ng-container>
     </ng-container>
     <ng-container *ngIf="('DASHBOARD.CARDS' | translate) != 'DASHBOARD.CARDS'">
       <ng-container *ngFor="let card of ('DASHBOARD.CARDS' | translate)">

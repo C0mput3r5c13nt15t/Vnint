@@ -4,7 +4,8 @@
  * The basic alert interface
  */
 export interface Alert {
-  type: string;
+  icon: string,
+  color: 'success' | 'warning' | 'danger' | 'primary';
   title?: string;
   message: string;
   created_at: Date;
