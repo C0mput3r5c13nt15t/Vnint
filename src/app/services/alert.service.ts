@@ -72,7 +72,7 @@ export class AlertService {
       icon: alert.icon,
       color: alert.color,
       duration: 5000,
-      position: 'bottom',
+      position: 'top',
     });
     await this.toast.present();
   }

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { ErrorService } from 'src/app/services/error.service';
+import {AlertService} from "../../../services/alert.service";
+import {TranslateService} from "@ngx-translate/core";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-give-feedback',
@@ -15,7 +18,10 @@ export class GiveFeedbackPage implements OnInit {
 
   constructor(private feedbackService: FeedbackService,
               private formBuilder: FormBuilder,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private alertService: AlertService,
+              private translateService: TranslateService,
+              private router: Router) { }
 
   ngOnInit() {
     this.giveFeedbackForm = this.formBuilder.group({
@@ -57,6 +63,8 @@ export class GiveFeedbackPage implements OnInit {
           this.success = true;
           this.giveFeedbackForm.reset();
           this.isProcessed = false;
+          this.router.navigate(['/dashboard']);
+          this.alertService.alert("success", this.translateService.instant('ACTIONS.GIVE_FEEDBACK.SUCCESS.thankYou'), this.translateService.instant('ACTIONS.GIVE_FEEDBACK.SUCCESS.importanceOfFeedback'), "heart")
         },
       });
     }

@@ -3,7 +3,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <app-card-title-bar title="{{ 'SETTINGS.APPEARANCE.chooseLanguage' | translate }}"></app-card-title-bar>
+        <app-card-title-bar [backButton]="!auth.getLoggedIn" title="{{ 'SETTINGS.title' | translate }}"></app-card-title-bar>
         <ion-card color="light">
           <ion-card-content>
             <ion-item lines="none" color="light">

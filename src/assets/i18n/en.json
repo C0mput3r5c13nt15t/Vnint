@@ -1,5 +1,6 @@
 {
   "GENERAL": {
+    "help": "Help",
     "back": "Back",
     "showMore": "Show more",
     "showLess": "Show less",
@@ -567,7 +568,7 @@
       "help": "Just imagine a helpful text!"
     },
     "IMPRESSUM": {
-      "title": "Impressum 📞",
+      "title": "Impressum ☎️",
       "telephone": "Tel.",
       "fax": "Fax",
       "mobile": "Mobile",

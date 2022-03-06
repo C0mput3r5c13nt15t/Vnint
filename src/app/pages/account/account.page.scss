@@ -1,5 +1,9 @@
 @import "../../../theme/variables.scss";
 
+form {
+  padding-top: 10px;
+}
+
 hr {
   background-color: var(--ion-color-step-550, #737373);
 }
