@@ -15,6 +15,10 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { AppRoutingModule } from './app-routing.module';
 
+import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {fas} from "@fortawesome/free-solid-svg-icons";
+import {far} from "@fortawesome/free-regular-svg-icons";
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -31,6 +35,7 @@ registerLocaleData(localeDe, localeDeExtra);
   entryComponents: [],
   imports: [
     BrowserModule,
+    FontAwesomeModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -51,4 +56,8 @@ registerLocaleData(localeDe, localeDeExtra);
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas, far);
+  }
+}

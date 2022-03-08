@@ -15,20 +15,12 @@
                     <ion-item color="light">
                       <ion-input formControlName="name" type="text" placeholder="{{ 'REGISTER.INPUT.name' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of updateProfileErrorControl.name.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of updateProfileErrorControl.name.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="updateProfileErrorControl.name.errors"></app-form-error>
 
                     <ion-item color="light">
                       <ion-input formControlName="email" type="email" placeholder="{{ 'REGISTER.INPUT.email' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of updateProfileErrorControl.email.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of updateProfileErrorControl.email.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="updateProfileErrorControl.email.errors"></app-form-error>
 
                     <br><br>
 
@@ -66,29 +58,17 @@
                     <ion-item color="light">
                       <ion-input formControlName="password" type="password" placeholder="{{ 'ACCOUNT.CHANGE_PASSWORD.INPUT.password' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of changePasswordErrorControl.password.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of changePasswordErrorControl.password.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="changePasswordErrorControl.password.errors"></app-form-error>
 
                     <ion-item color="light">
                       <ion-input formControlName="password_confirmation" type="password" placeholder="{{ 'ACCOUNT.CHANGE_PASSWORD.INPUT.passwordConfirmation' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of changePasswordErrorControl.password_confirmation.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of changePasswordErrorControl.password_confirmation.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="changePasswordErrorControl.password_confirmation.errors"></app-form-error>
 
                     <ion-item color="light">
                       <ion-input formControlName="current_password" type="password" placeholder="{{ 'ACCOUNT.CHANGE_PASSWORD.INPUT.currentPassword' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of changePasswordErrorControl.current_password.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of changePasswordErrorControl.current_password.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="changePasswordErrorControl.current_password.errors"></app-form-error>
 
                     <ion-checkbox class="invisible" formControlName="fax"></ion-checkbox>
 

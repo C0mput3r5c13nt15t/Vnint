@@ -62,8 +62,11 @@ export class ManageSchedulePage implements OnInit {
     });
   }
 
-  get errorControl() {
+  get addEventErrorControl() {
     return this.addEventForm.controls;
+  }
+  get updateEventErrorControl() {
+    return this.updateEventForm.controls;
   }
 
   ngOnInit() {
@@ -152,6 +155,7 @@ export class ManageSchedulePage implements OnInit {
             },
             complete: () => {
               this.getEvents();
+              this.showAddEvent = false;
             }
           });
         form.reset()

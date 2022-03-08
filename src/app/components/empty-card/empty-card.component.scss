@@ -3,10 +3,43 @@ div {
   width: 100%;
 }
 
-img {
-  width: 30%;
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+h1 {
+  font-size: 12.5rem;
+  letter-spacing: .10em;
+  margin: 1rem 0;
+  text-shadow: .05em .05em 0 rgba(0,0,0,.25);
+  white-space: nowrap;
+
+  @media(max-width: 30rem) {
+    font-size: 8.5rem;
+  }
+
+  & > span {
+    animation: spooky 5s alternate infinite linear;
+    color: var(--ion-color-primary);
+    display: inline-block;
+    text-shadow: .05em .05em 0 rgba(0,0,0,.25);
+  }
 }
 
-ion-label {
-  font-size: 1.25rem;
+h2 {
+  font-size: 1.2rem;
+  letter-spacing: .10em;
+  margin: 1rem 0;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+fa-icon{filter:drop-shadow(.05em .05em 0 rgba(0,0,0,.25))}
+
+@keyframes spooky {
+  from {
+    transform: translatey(.1em) scaley(.95);
+  }
+
+  to {
+    transform: translatey(-.1em);
+  }
 }

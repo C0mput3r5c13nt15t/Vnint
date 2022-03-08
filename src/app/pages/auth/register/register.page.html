@@ -10,41 +10,25 @@
               <ion-row>
                 <ion-col>
                   <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
-                    <ion-item lines="full">
+                    <ion-item color="light" lines="full">
                       <ion-input formControlName="name" type="text" placeholder="{{ 'REGISTER.INPUT.name' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of errorControl.name.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.name.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="errorControl.name.errors"></app-form-error>
 
-                    <ion-item lines="full">
+                    <ion-item color="light" lines="full">
                       <ion-input formControlName="email" type="email" placeholder="{{ 'REGISTER.INPUT.email' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of errorControl.email.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.email.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="errorControl.email.errors"></app-form-error>
 
-                    <ion-item lines="full">
+                    <ion-item color="light" lines="full">
                       <ion-input formControlName="password" type="password" placeholder="{{ 'REGISTER.INPUT.password' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of errorControl.password.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.password.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="errorControl.password.errors"></app-form-error>
 
-                    <ion-item lines="full">
+                    <ion-item color="light" lines="full">
                       <ion-input (keypress)="keyPressEventHandler($event.key)" formControlName="password_confirmation" type="password" placeholder="{{ 'REGISTER.INPUT.passwordConfirmation' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of errorControl.password_confirmation.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.password_confirmation.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="errorControl.password_confirmation.errors"></app-form-error>
 
                     <ion-checkbox class="invisible" formControlName="fax"></ion-checkbox>
 

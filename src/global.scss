@@ -44,31 +44,7 @@ ion-router-outlet {
   margin-left: -15px;
 }
 
-app-login {
-  margin-left: 15px;
-}
-
-app-register {
-  margin-left: 15px;
-}
-
-app-forgot-password {
-  margin-left: 15px;
-}
-
-app-reset-password {
-  margin-left: 15px;
-}
-
-app-settings {
-  margin-left: 15px;
-}
-
-app-terms {
-  margin-left: 15px;
-}
-
-app-impressum {
+app-login, app-register, app-forgot-password, app-reset-password, app-settings, app-terms, app-impressum {
   margin-left: 15px;
 }
 
@@ -83,6 +59,9 @@ app-impressum {
     margin-top: calc(25px + 2.5rem);
   }
   ion-router-outlet {
+    margin-left: 0;
+  }
+  app-login, app-register, app-forgot-password, app-reset-password, app-settings, app-terms, app-impressum {
     margin-left: 0;
   }
   .fixed-footer div {
@@ -141,6 +120,15 @@ ion-card-content {
 
 .invisible {
   display: none;
+}
+
+.ion-padding {
+  padding-top: 32px;
+}
+
+.error {
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 // Typographic scss

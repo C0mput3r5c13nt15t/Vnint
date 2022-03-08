@@ -1,0 +1,6 @@
+<!--suppress TypeScriptValidateTypes -->
+<div *ngFor="let error of errors | keyvalue" class="error">
+  <span *ngFor="let errorMessage of errors[error.key] | keyvalue">
+    <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
+  </span>
+</div>

@@ -3,6 +3,14 @@
 
 /** Ionic CSS Variables **/
 
+@font-face {
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --ion-font-family: 'Montserrat', sans-serif;
+}
+
 /*
 * Light Colors
 * -------------------------------------------

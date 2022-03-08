@@ -23,6 +23,9 @@ export class ViewFeedbackPage implements OnInit {
       type: [''],
       short_description: [''],
     });
+    this.searchFeedbackForm.patchValue({
+      type: ['general', 'feature', 'translation', 'typo', 'bug', 'other']
+    })
   }
 
   ionViewWillEnter() {

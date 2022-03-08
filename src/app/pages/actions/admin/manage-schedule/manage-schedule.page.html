@@ -19,7 +19,7 @@
                       </ion-card-subtitle>
                     </ion-card-header>
                     <ion-card-content>
-                      <div *ngIf="event.permissions.length > 0">
+                      <div *ngIf="event.permissions.length > 0" class="ion-margin-bottom">
                         <ion-badge *ngFor="let permission of event.permissions"><ion-label>{{ ('GENERAL.PERMISSIONS.' + permission.name) | translate }}</ion-label></ion-badge>
                       </div>
                       <ion-label>
@@ -62,40 +62,24 @@
                   <ion-item color="light">
                     <ion-input formControlName="title" type="text" placeholder="{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.title' | translate }}"></ion-input>
                   </ion-item>
-                  <div *ngFor="let error of errorControl.title.errors | keyvalue">
-                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.title.errors[error.key] | keyvalue">
-                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                    </span>
-                  </div>
+                  <app-form-error [errors]="addEventErrorControl.title.errors"></app-form-error>
 
                   <ion-item color="light">
                     <ion-input formControlName="description" type="text" placeholder="{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.description' | translate }}"></ion-input>
                   </ion-item>
-                  <div *ngFor="let error of errorControl.description.errors | keyvalue">
-                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.description.errors[error.key] | keyvalue">
-                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                    </span>
-                  </div>
+                  <app-form-error [errors]="addEventErrorControl.description.errors"></app-form-error>
 
                   <ion-item color="light" lines="none">
                     <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.from' | translate }} {{ addEventForm.value.from | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
                   </ion-item>
                   <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="from" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
-                  <div *ngFor="let error of errorControl.from.errors | keyvalue">
-                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.from.errors[error.key] | keyvalue">
-                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                    </span>
-                  </div>
+                  <app-form-error [errors]="addEventErrorControl.from.errors"></app-form-error>
 
                   <ion-item color="light" lines="none">
                     <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.until' | translate }} {{ addEventForm.value.until | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
                   </ion-item>
                   <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="until" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
-                  <div *ngFor="let error of errorControl.until.errors | keyvalue">
-                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.until.errors[error.key] | keyvalue">
-                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                    </span>
-                  </div>
+                  <app-form-error [errors]="addEventErrorControl.until.errors"></app-form-error>
 
                   <ion-list *ngIf="addEventPermissions.length > 0">
                     <ion-item color="light" lines="none" *ngFor="let permission of addEventPermissions">
@@ -122,40 +106,24 @@
                   <ion-item color="light">
                     <ion-input formControlName="title" type="text" placeholder="{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.title' | translate }}"></ion-input>
                   </ion-item>
-                  <div *ngFor="let error of errorControl.title.errors | keyvalue">
-                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.title.errors[error.key] | keyvalue">
-                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                    </span>
-                  </div>
+                  <app-form-error [errors]="updateEventErrorControl.title.errors"></app-form-error>
 
                   <ion-item color="light">
                     <ion-input formControlName="description" type="text" placeholder="{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.description' | translate }}"></ion-input>
                   </ion-item>
-                  <div *ngFor="let error of errorControl.description.errors | keyvalue">
-                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.description.errors[error.key] | keyvalue">
-                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                    </span>
-                  </div>
+                  <app-form-error [errors]="updateEventErrorControl.description.errors"></app-form-error>
 
                   <ion-item color="light" lines="none">
                     <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.from' | translate }} {{ updateEventForm.value.from | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
                   </ion-item>
                   <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="from" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
-                  <div *ngFor="let error of errorControl.from.errors | keyvalue">
-                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.from.errors[error.key] | keyvalue">
-                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                    </span>
-                  </div>
+                  <app-form-error [errors]="updateEventErrorControl.from.errors"></app-form-error>
 
                   <ion-item color="light" lines="none">
                     <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.until' | translate }} {{ updateEventForm.value.until | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
                   </ion-item>
                   <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="until" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
-                  <div *ngFor="let error of errorControl.until.errors | keyvalue">
-                    <span class="error ion-padding" *ngFor="let errorMessage of errorControl.until.errors[error.key] | keyvalue">
-                      <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                    </span>
-                  </div>
+                  <app-form-error [errors]="updateEventErrorControl.until.errors"></app-form-error>
 
                   <ion-list *ngIf="updateEventPermissions.length > 0">
                     <ion-item color="light" lines="none" *ngFor="let permission of updateEventPermissions">

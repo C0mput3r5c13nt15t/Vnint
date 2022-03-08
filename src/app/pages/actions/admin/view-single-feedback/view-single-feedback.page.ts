@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { ErrorService } from 'src/app/services/error.service';
 import {Feedback} from "../../../../interfaces/feedback";
+import {AlertService} from "../../../../services/alert.service";
 
 @Component({
   selector: 'app-view-single-feedback',
@@ -19,6 +20,7 @@ export class ViewSingleFeedbackPage implements OnInit {
               private feedbackService: FeedbackService,
               private alertController: AlertController,
               private translate: TranslateService,
+              private alertService: AlertService,
               private errorService: ErrorService) { }
 
   ngOnInit() {

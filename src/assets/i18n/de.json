@@ -286,18 +286,6 @@
             "title": "Über uns",
             "link": "/about",
             "requiredPermissions": []
-          },
-          {
-            "icon": "analytics",
-            "title": "Datennutzung",
-            "link": "/data-use",
-            "requiredPermissions": []
-          },
-          {
-            "icon": "help",
-            "title": "Hilfe",
-            "link": "/help",
-            "requiredPermissions": []
           }
         ]
       }
@@ -306,7 +294,7 @@
   "ACCOUNT": {
     "title": "Account ℹ️",
     "UPDATE_ACCOUNT_INFORMATION": {
-      "title": "Profil aktualisieren 📝",
+      "title": "Profil aktualisieren",
       "warning": "Wenn du deine E-Mail änderst, musst du sie anschließend erneut verifizieren. Der Link dazu wird automatisch an deine neue E-Mail-Adresse gesendet.",
       "INPUT":  {
         "name": "Name",
@@ -317,7 +305,7 @@
       "emailNotVerified": "E-Mail noch nicht verifiziert"
     },
     "CHANGE_PASSWORD": {
-      "title": "Passwort ändern 🔑",
+      "title": "Passwort ändern",
       "INPUT": {
         "password": "Neues Passwort",
         "passwordConfirmation": "Neues Passwort bestätigen",
@@ -339,14 +327,14 @@
     "language": "Sprache",
     "notSupported": "Leider unterstützten unsere Server diese Sprache noch nicht, Fehlermeldungen, etc. werden folglich auf Englisch angezeigt.",
     "APPEARANCE": {
-      "title": "Optik 👀",
+      "title": "Optik",
       "chooseLanguage": "Sprache auswählen",
       "darkMode": "Dunkler Modus"
     }
   },
   "ACTIONS": {
     "ADMINISTRATE": {
-      "title": "Administrieren 👑",
+      "title": "Administrieren",
       "deleteRole": "Löschen",
       "addRole": "Rolle hinzufügen",
       "REMOVE_ROLE_ALERT": {
@@ -361,7 +349,7 @@
       }
     },
     "VIEW_FEEDBACK": {
-      "title": "Feedback einsehen 📈",
+      "title": "Feedback einsehen",
       "noFeedback": "Es gibt noch kein Feedback ...",
       "INPUT": {
         "deleteFeedback": "Löschen",
@@ -369,6 +357,7 @@
       }
     },
     "VIEW_SINGLE_FEEDBACK": {
+      "title": "Feedback einsehen \uD83D\uDCC8",
       "type": "Art",
       "published_on": "Veröffentlicht am",
       "published_by": "Veröffentlicht von",
@@ -380,7 +369,7 @@
       }
     },
     "MANAGE_SCHEDULE": {
-      "title": "Zeitplan verwalten 📅",
+      "title": "Zeitplan verwalten",
       "edit": "Bearbeiten",
       "abortEditing": "Bearbeiten abbrechen",
       "delete": "Löschen",
@@ -398,13 +387,13 @@
       }
     },
     "MANAGE_USERS": {
-      "title": "Benutzer verwalten 👑",
+      "title": "Benutzer verwalten",
       "INPUT": {
         "searchUsersPlaceholder": "Nach E-Mail suchen"
       }
     },
     "CREATE_PROJECT": {
-      "title": "Projekt erstellen 📝",
+      "title": "Projekt erstellen",
       "topicPlaceholder": "Bitte wähle ein Thema",
       "INPUT": {
         "topic": "Thema",
@@ -428,7 +417,7 @@
       }
     },
     "EDIT_PROJECT": {
-      "title": "Projekt bearbeiten 📝",
+      "title": "Projekt bearbeiten",
       "INPUT": {
         "topic": "Thema",
         "title": "Titel",
@@ -461,7 +450,7 @@
       "delete": "Löschen"
     },
     "VIEW_PROJECTS": {
-      "title": "Projekte einsehen ⚽",
+      "title": "Projekte einsehen",
       "topic": "Thema",
       "by": "Von",
       "authorized": "Autorisiert",
@@ -485,7 +474,7 @@
       "delete": "Löschen"
     },
     "GIVE_FEEDBACK": {
-      "title": "Feedback geben 🗳️",
+      "title": "Feedback geben",
       "INPUT": {
         "type": "Art",
         "shortDescription": "Kurze Beschreibung",
@@ -498,7 +487,7 @@
       }
     },
     "MANAGE_FRIENDS": {
-      "title": "Freunde 😎",
+      "title": "Freunde",
       "explanation": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.",
       "LEGEND": {
         "yourFriendshipRequest": "Deine Freundschaftsanfrage ...",
@@ -531,7 +520,7 @@
       "noPreferences": "Du hast noch keine Projektwünsche angegeben ..."
     },
     "MANAGE_FRIENDSHIPS": {
-      "title": "Freundschaften verwalten 👍",
+      "title": "Freundschaften verwalten",
       "explanation": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.",
       "LEGEND": {
         "theFriendshipRequest": "Die Freundschaftsanfrage ...",
@@ -549,7 +538,7 @@
       }
     },
     "VERIFY_EMAIL": {
-      "title": "E-Mail-Adresse verifizieren 👮",
+      "title": "E-Mail-Adresse verifizieren",
       "resendButton": "Verifizierung erneut versenden",
       "explanation": "Damit wir sicherstellen können, dass die angegebene E-Mail auch wirklich dir gehört haben wir dir bei deiner Anmeldung eine E-Mail gesendet. In ihr ist ein Link enthalten mit dessen Hilfe du deine E-Mail-Adresse verifizieren kasst. Klicke dafür einfach auf den Knopf in der E-Mail.",
       "verified": "Bereits verifiziert - Es scheint als wäre deine E-Mail-Adresse bereits verifiziert. Du solltest nun eigentlich vollen Zugriff auf deinen Account haben. Falls das nicht der Fall ist, versuche die Seite einmal neu zu laden. Sollte der Fehler bestehen, melde ihn bitte als Bug ( siehe Feedback Tab ).",
@@ -558,28 +547,36 @@
       "sent": "Eine weitere E-Mail mit dem Link wurde nun an deine E-Mail-Adresse gesandt. Lade nach dem Verifizieren der E-Mail mit dem dafüt vorgesehenen Knopf nach."
     },
     "VIEW_SCHEDULE": {
-      "title": "Zeitplan 📅",
+      "title": "Zeitplan",
       "noEvents": "Es gibt noch keinen Zeitplan ..."
     }
   },
   "OTHER": {
     "ABOUT": {
-      "title": "About 🏢",
+      "title": "About",
       "SECTION1": {
-        "title": "Section",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        "title": "The idea",
+        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+      },
+      "SECTION2": {
+        "title": "The development",
+        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+      },
+      "SECTION3": {
+        "title": "Now we're here",
+        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
       }
     },
     "DATA_USE": {
-      "title": "Informationen zur Datennutzung 📊",
+      "title": "Informationen zur Datennutzung",
       "transparencyExplanation": "Es ist uns sehr wichtig transparent zu sein, welche Daten wir wie und zu welchem Zweck nutzen. In diesem Abschnitt kann ein guter Überblick darüber gewonnen werden, es ist jedoch zu beachten, dass die Angaben nach bestem Gewissen, jedoch ohne Gewähr sind. Rechtlich bindende Informationen dazu sind nur den Nutzungsbedingungen zu entnehmen."
     },
     "HELP": {
-      "title": "Hilfe 📖",
+      "title": "Hilfe",
       "help": "Hier soll ein Text um dir zu helfen hin"
     },
     "IMPRESSUM": {
-      "title": "Impressum ☎️",
+      "title": "Impressum",
       "telephone": "Tel.",
       "fax": "Fax",
       "mobile": "Mobil",
@@ -594,7 +591,7 @@
       ]
     },
     "TERMS": {
-      "title": "Geschäftsbedingungen 📜",
+      "title": "Geschäftsbedingungen",
       "LEGAL": [
         {
           "term": "Die Geschäftsbedingungen sind zum aktuellen Zeitpunkt leider nur auf Englisch verfügbar."

@@ -1,0 +1,27 @@
+
+{
+  "icon": "analytics",
+  "title": "Datennutzung",
+  "link": "/data-use",
+  "requiredPermissions": []
+},
+{
+  "icon": "help",
+  "title": "Hilfe",
+  "link": "/help",
+  "requiredPermissions": []
+}
+
+{
+  "icon": "analytics",
+  "title": "Data usage",
+  "link": "/data-use",
+  "requiredPermissions": []
+},
+{
+  "icon": "help",
+  "title": "Help",
+  "link": "/help",
+  "requiredPermissions": []
+}
+What to with this?

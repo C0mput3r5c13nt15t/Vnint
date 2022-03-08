@@ -275,18 +275,6 @@
             "title": "About",
             "link": "/about",
             "requiredPermissions": []
-          },
-          {
-            "icon": "analytics",
-            "title": "Data usage",
-            "link": "/data-use",
-            "requiredPermissions": []
-          },
-          {
-            "icon": "help",
-            "title": "Help",
-            "link": "/help",
-            "requiredPermissions": []
           }
         ]
       }
@@ -295,7 +283,7 @@
   "ACCOUNT": {
     "title": "Account ℹ️",
     "UPDATE_ACCOUNT_INFORMATION": {
-      "title": "Update profile 📝",
+      "title": "Update profile",
       "warning": "If you change your email you will have to verify it again. The according link will be sent to your new email address.",
       "INPUT":  {
         "name": "Name",
@@ -306,7 +294,7 @@
       "emailNotVerified": "Email not yet verified"
     },
     "CHANGE_PASSWORD": {
-      "title": "Change password 🔑",
+      "title": "Change password",
       "INPUT": {
         "password": "New password",
         "passwordConfirmation": "Confirm new password",
@@ -328,14 +316,14 @@
     "language": "Language",
     "notSupported": "Sadly our servers don't support this language yet, errors, etc. will be presented in english.",
     "APPEARANCE": {
-      "title": "Appearance 👀",
+      "title": "Appearance",
       "chooseLanguage": "Choose a language",
       "darkMode": "Dark mode"
     }
   },
   "ACTIONS": {
     "ADMINISTRATE": {
-      "title": "Administrate 👑",
+      "title": "Administrate",
       "deleteRole": "Delete",
       "addRole": "Add role",
       "REMOVE_ROLE_ALERT": {
@@ -350,7 +338,7 @@
       }
     },
     "VIEW_FEEDBACK": {
-      "title": "View feedback 📈",
+      "title": "View feedback",
       "noFeedback": "There is not feedback yet ...",
       "INPUT": {
         "deleteFeedback": "Delete",
@@ -358,6 +346,7 @@
       }
     },
     "VIEW_SINGLE_FEEDBACK": {
+      "title": "View feedback",
       "type": "Type",
       "published_on": "Published on",
       "published_by": "Published by",
@@ -369,7 +358,7 @@
       }
     },
     "MANAGE_SCHEDULE": {
-      "title": "Manage Schedule 📅",
+      "title": "Manage Schedule",
       "edit": "Edit",
       "abortEditing": "Abort editing",
       "delete": "Delete",
@@ -387,13 +376,13 @@
       }
     },
     "MANAGE_USERS": {
-      "title": "Manage users 👑",
+      "title": "Manage users",
       "INPUT": {
         "searchUsersPlaceholder": "Search for a users email"
       }
     },
     "CREATE_PROJECT": {
-      "title": "Create project 📝",
+      "title": "Create project",
       "topicPlaceholder": "Please choose a topic",
       "INPUT": {
         "topic": "Topic",
@@ -417,7 +406,7 @@
       }
     },
     "EDIT_PROJECT": {
-      "title": "Edit project 📝",
+      "title": "Edit project",
       "INPUT": {
         "topic": "Topic",
         "title": "Title",
@@ -450,7 +439,7 @@
       "delete": "Delete"
     },
     "VIEW_PROJECTS": {
-      "title": "View projects ⚽",
+      "title": "View projects",
       "topic": "Topic",
       "by": "by",
       "authorized": "Authorized",
@@ -474,7 +463,7 @@
       "delete": "Delete"
     },
     "GIVE_FEEDBACK": {
-      "title": "Give Feedback 📝",
+      "title": "Give Feedback",
       "INPUT": {
         "type": "Type",
         "shortDescription": "Short description",
@@ -487,7 +476,7 @@
       }
     },
     "MANAGE_FRIENDS": {
-      "title": "Friends 😎",
+      "title": "Friends",
       "explanation": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.",
       "LEGEND": {
         "yourFriendshipRequest": "Your friendship request ...",
@@ -520,7 +509,7 @@
       "noPreferences": "You don't yet have any project wishes ..."
     },
     "MANAGE_FRIENDSHIPS": {
-      "title": "Manage Friendships 👍",
+      "title": "Manage Friendships",
       "explanation": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.",
       "LEGEND": {
         "theFriendshipRequest": "The friendship request ...",
@@ -538,7 +527,7 @@
       }
     },
     "VERIFY_EMAIL": {
-      "title": "Verify email address 👮",
+      "title": "Verify email address",
       "resendButton": "Resend verification",
       "explanation": "In order to make sure that the email address you provided is really yours, we sent you an email when you registered. It contains a link that you can use to verify your email address.",
       "verified": "Already verified - It seems that your email address is already verified. You should now have full access to your account. If this is not the case, try reloading the page. If the error persists, please report it as a bug ( see Feedback tab ).",
@@ -547,24 +536,32 @@
       "sent": "Another email with the link has now been sent to your email address. After verifying the email, reload it using the button provided."
     },
     "VIEW_SCHEDULE": {
-      "title": "Schedule 📅",
+      "title": "Schedule",
       "noEvents": "There is no schedule yet ..."
     }
   },
   "OTHER": {
     "ABOUT": {
-      "title": "About 🏢",
+      "title": "About",
       "SECTION1": {
-        "title": "Section",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        "title": "The idea",
+        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+      },
+      "SECTION2": {
+        "title": "The development",
+        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+      },
+      "SECTION3": {
+        "title": "Now we're here",
+        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
       }
     },
     "DATA_USE": {
-      "title": "Information regarding data usage 📊",
+      "title": "Information regarding data usage",
       "transparencyExplanation": "It is very important to us to be transparent about what data we use, how we use it and for what purpose. In this section, you can get a good overview, but it should be noted that the information is given to the best of our knowledge, but without liability. Legally binding information on this can only be found in the terms of use."
     },
     "HELP": {
-      "title": "Hilfe 📖",
+      "title": "Hilfe",
       "help": "Just imagine a helpful text!"
     },
     "IMPRESSUM": {
@@ -583,7 +580,7 @@
       ]
     },
     "TERMS": {
-      "title": "Terms and conditions 📜",
+      "title": "Terms and conditions",
       "LEGAL": [
         {
           "title":"General",

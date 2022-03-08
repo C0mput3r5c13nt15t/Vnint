@@ -20,30 +20,18 @@
                     <ion-item color="light">
                       <ion-input formControlName="title" type="text" placeholder="{{ 'ACTIONS.CREATE_PROJECT.INPUT.title' | translate }}"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of errorControl.title.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.title.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="errorControl.title.errors"></app-form-error>
 
                     <ion-item color="light">
                       <ion-textarea formControlName="description" type="text" rows="7" placeholder="{{ 'ACTIONS.CREATE_PROJECT.INPUT.description' | translate }}"></ion-textarea>
                     </ion-item>
-                    <div *ngFor="let error of errorControl.description.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.description.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="errorControl.description.errors"></app-form-error>
 
                     <ion-item color="light">
                       <ion-label position="floating">{{ 'ACTIONS.CREATE_PROJECT.INPUT.cost' | translate }}</ion-label>
                       <ion-input formControlName="cost" type="text"></ion-input>
                     </ion-item>
-                    <div *ngFor="let error of errorControl.cost.errors | keyvalue">
-                      <span class="error ion-padding" *ngFor="let errorMessage of errorControl.cost.errors[error.key] | keyvalue">
-                        <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                      </span>
-                    </div>
+                    <app-form-error [errors]="errorControl.cost.errors"></app-form-error>
 
                     <ion-list>
                       <ion-item lines="none">
@@ -52,11 +40,7 @@
                       <ion-item color="light">
                         <ion-input (change)="changeFile($event)" formControlName="image" accept=".png, .jpg" type="file"></ion-input>
                       </ion-item>
-                      <div *ngFor="let error of errorControl.image.errors | keyvalue">
-                        <span class="error ion-padding" *ngFor="let errorMessage of errorControl.image.errors[error.key] | keyvalue">
-                          <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                        </span>
-                      </div>
+                      <app-form-error [errors]="errorControl.image.errors"></app-form-error>
                     </ion-list>
 
                     <ion-list>
@@ -117,21 +101,13 @@
                         <ion-label>{{ 'ACTIONS.CREATE_PROJECT.INPUT.from' | translate }}</ion-label>
                         <ion-input formControlName="min_grade" type="text"></ion-input>
                       </ion-item>
-                      <div *ngFor="let error of errorControl.min_grade.errors | keyvalue">
-                        <span class="error ion-padding" *ngFor="let errorMessage of errorControl.min_grade.errors[error.key] | keyvalue">
-                          <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                        </span>
-                      </div>
+                      <app-form-error [errors]="errorControl.min_grade.errors"></app-form-error>
 
                       <ion-item color="light">
                         <ion-label>{{ 'ACTIONS.CREATE_PROJECT.INPUT.until' | translate }}</ion-label>
                         <ion-input formControlName="max_grade" type="text"></ion-input>
                       </ion-item>
-                      <div *ngFor="let error of errorControl.max_grade.errors | keyvalue">
-                        <span class="error ion-padding" *ngFor="let errorMessage of errorControl.max_grade.errors[error.key] | keyvalue">
-                          <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                        </span>
-                      </div>
+                      <app-form-error [errors]="errorControl.max_grade.errors"></app-form-error>
 
                     </ion-list>
 
@@ -142,19 +118,11 @@
                       <ion-item color="light">
                         <ion-label>{{ 'ACTIONS.CREATE_PROJECT.INPUT.from' | translate }}</ion-label><ion-input formControlName="min_participants" type="number"></ion-input>
                       </ion-item>
-                      <div *ngFor="let error of errorControl.min_participants.errors | keyvalue">
-                        <span class="error ion-padding" *ngFor="let errorMessage of errorControl.min_participants.errors[error.key] | keyvalue">
-                          <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                        </span>
-                      </div>
+                      <app-form-error [errors]="errorControl.min_participants.errors"></app-form-error>
                       <ion-item color="light">
                         <ion-label>{{ 'ACTIONS.CREATE_PROJECT.INPUT.until' | translate }}</ion-label><ion-input formControlName="max_participants" type="number"></ion-input>
                       </ion-item>
-                      <div *ngFor="let error of errorControl.max_participants.errors | keyvalue">
-                        <span class="error ion-padding" *ngFor="let errorMessage of errorControl.max_participants.errors[error.key] | keyvalue">
-                          <ion-label color="danger">{{ errorMessage.key }}</ion-label><br>
-                        </span>
-                      </div>
+                      <app-form-error [errors]="errorControl.max_participants.errors"></app-form-error>
                     </ion-list>
                     <div class="ion-padding">
                       <ion-button color="primary" [disabled]="createProjectForm.invalid" expand="block" type="submit" class="ion-no-margin">{{ 'ACTIONS.CREATE_PROJECT.INPUT.submitButton' | translate }}</ion-button>
