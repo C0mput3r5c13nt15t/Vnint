@@ -74,6 +74,7 @@
   --ion-color-light-tint: #ffffff;
 
   --ion-text-color: #1c1c1c;
+  --ion-item-background: var(--ion-color-light);
 }
 
 /*
@@ -139,4 +140,5 @@ body.dark {
   --ion-color-light-tint: #343434;
 
   --ion-text-color: #fff;
+  --ion-item-background: var(--ion-color-light);
 }

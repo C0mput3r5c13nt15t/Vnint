@@ -190,7 +190,7 @@
             "icon": "grid",
             "title": "View projects",
             "link": "/view-projects",
-            "requiredPermissions": ["projects.index", "projects.show", "timeframes.show"]
+            "requiredPermissions": ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"]
           },
           {
             "icon": "calendar",
@@ -303,7 +303,8 @@
       }
     },
     "DELETE_ACCOUNT": {
-      "title": "Delete account ☠️",
+      "title": "Delete account",
+      "warning": "Currently accounts can not be deleted automatically, please contact an administrator in order to have your account deleted.",
       "INPUT": {
         "alertHeader": "Are you sure?",
         "alertText": "Are you sure you irreversibly want to delete your account?",
@@ -312,7 +313,7 @@
     }
   },
   "SETTINGS": {
-    "title": "Settings ⚙️",
+    "title": "Settings",
     "language": "Language",
     "notSupported": "Sadly our servers don't support this language yet, errors, etc. will be presented in english.",
     "APPEARANCE": {
@@ -396,10 +397,8 @@
         "fromPlaceholder": "Beginning",
         "untilPlaceholder": "End",
         "cost": "Cost [€]",
-        "firstDay": "First day",
-        "secondDay": "Second day",
-        "from": "from",
-        "until": "until",
+        "from": "From",
+        "until": "Until",
         "grade": "Grade",
         "capacity": "Capacity",
         "submitButton": "Create project"
@@ -413,21 +412,19 @@
         "leader": "Leader",
         "description": "Description",
         "timeframe": "Timeframe  [UTC]",
-        "date": "Date",
         "datePlaceholder": "Choose a date",
         "fromPlaceholder": "Beginning",
         "untilPlaceholder": "End",
         "cost": "Cost [€]",
-        "firstDay": "First day",
-        "secondDay": "Second day",
-        "from": "from",
-        "until": "until",
+        "from": "From",
+        "until": "Until",
         "grade": "Grade",
         "capacity": "Capacity",
         "submitButton": "Edit project"
       }
     },
     "MANAGE_PROJECT": {
+      "title": "Manage project",
       "topic": "Topic",
       "leader": "Leader",
       "cost": "Cost",
@@ -451,6 +448,7 @@
       }
     },
     "VIEW_PROJECT": {
+      "title": "Projekt einsehen",
       "topic": "Topic",
       "leader": "Leader",
       "cost": "Cost",
@@ -504,7 +502,7 @@
       }
     },
     "MANAGE_PREFERENCES": {
-      "title": "Manage project wishes ⭐",
+      "title": "Manage project wishes",
       "removePreference": "Remove projet wish",
       "noPreferences": "You don't yet have any project wishes ..."
     },

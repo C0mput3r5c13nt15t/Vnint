@@ -195,7 +195,7 @@
             "icon": "grid",
             "title": "Projekte einsehen",
             "link": "/view-projects",
-            "requiredPermissions": ["projects.index", "projects.show", "timeframes.show"]
+            "requiredPermissions": ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"]
           },
           {
             "icon": "calendar",
@@ -314,7 +314,8 @@
       }
     },
     "DELETE_ACCOUNT": {
-      "title": "Account löschen ☠️",
+      "title": "Account löschen",
+      "warning": "Aktuell können Accounts noch nicht automatisch gelöscht werden, wende dich zum Löschen bitte an den Administrator.",
       "INPUT": {
         "alertHeader": "Bist du dir sicher?",
         "alertText": "Bist du dir sicher, dass du deinen Account unwiderruflich löschen willst?",
@@ -323,7 +324,7 @@
     }
   },
   "SETTINGS": {
-    "title": "Einstellungen ⚙️",
+    "title": "Einstellungen",
     "language": "Sprache",
     "notSupported": "Leider unterstützten unsere Server diese Sprache noch nicht, Fehlermeldungen, etc. werden folglich auf Englisch angezeigt.",
     "APPEARANCE": {
@@ -439,6 +440,7 @@
       }
     },
     "MANAGE_PROJECT": {
+      "title": "Projekt verwalten",
       "topic": "Thema",
       "leader": "Leiter",
       "cost": "Kosten",
@@ -462,6 +464,7 @@
       }
     },
     "VIEW_PROJECT": {
+      "title": "Projekt einsehen",
       "topic": "Thema",
       "leader": "Leiter",
       "cost": "Kosten",
@@ -515,7 +518,7 @@
       }
     },
     "MANAGE_PREFERENCES": {
-      "title": "Projektwünsche verwalten ⭐",
+      "title": "Projektwünsche verwalten",
       "removePreference": "Projektwunsch entfernen",
       "noPreferences": "Du hast noch keine Projektwünsche angegeben ..."
     },

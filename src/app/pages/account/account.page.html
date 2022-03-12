@@ -83,14 +83,16 @@
           </ion-card-content>
         </ion-card>
         <br><br><br>
-        <app-card-title-bar backButton="false" title="{{ 'ACCOUNT.DELETE_ACCOUNT.title' | translate }}"></app-card-title-bar>
+        <app-card-title-bar color="danger" backButton="false" title="{{ 'ACCOUNT.DELETE_ACCOUNT.title' | translate }}"></app-card-title-bar>
         <ion-card color="light">
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row>
                 <ion-col>
+                  <ion-label color="danger">{{ 'ACCOUNT.DELETE_ACCOUNT.warning' | translate }}<br></ion-label>
+                  <br>
                   <div class="ion-padding">
-                    <ion-button color="danger" expand="block" (click)="deleteAccount()" class="ion-no-margin">{{ 'ACCOUNT.DELETE_ACCOUNT.INPUT.deleteButton' | translate }}</ion-button>
+                    <ion-button color="danger" disabled="true" expand="block" (click)="deleteAccount()" class="ion-no-margin">{{ 'ACCOUNT.DELETE_ACCOUNT.INPUT.deleteButton' | translate }}</ion-button>
                   </div>
                 </ion-col>
               </ion-row>

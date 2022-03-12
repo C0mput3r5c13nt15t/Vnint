@@ -11,6 +11,7 @@ export class CardTitleBarComponent implements OnInit {
   @Input() title: string = '';
   @Input() backButton: boolean = true;
   @Input() help: string = '';
+  @Input() color: string = 'primary';
 
   constructor(private alertController: AlertController,
               private translateService: TranslateService) {}

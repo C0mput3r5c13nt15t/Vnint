@@ -19,8 +19,8 @@ ion-item {
 }
 
 #or {
-  margin-left: calc(50% - 26px);
-  transform: translateX(-50%);
+  margin-left: calc(50% - 13px) !important;
+  transform: translateX(-50%) !important;
 }
 
 .ion-padding {
@@ -29,7 +29,7 @@ ion-item {
 
 @media (max-width: 400px) {
   #or {
-    margin-left: calc(50% - 16px);
+    margin-left: calc(50% - 8px);
     transform: translateX(-50%);
   }
 }

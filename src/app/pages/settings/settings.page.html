@@ -8,7 +8,7 @@
           <ion-card-content>
             <ion-item lines="none" color="light">
               <ion-label>{{ 'SETTINGS.APPEARANCE.chooseLanguage' | translate }}</ion-label>
-              <ion-select [value]="translateService.currentLang" [(ngModel)]="language" (ionChange)="languageChange()" interface="popover">
+              <ion-select [value]="translateService.currentLang" [(ngModel)]="language" (ionChange)="languageChange()">
                 <ion-select-option value="de">DE 🇩🇪</ion-select-option>
                 <ion-select-option value="en">GB 🇬🇧</ion-select-option>
               </ion-select>

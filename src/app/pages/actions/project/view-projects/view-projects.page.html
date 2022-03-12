@@ -10,14 +10,14 @@
               <ion-row>
                 <ion-col>
                   <form [formGroup]="searchProjectForm">
-                    <ion-searchbar (ionChange)="searchProject()" placeholder="{{ 'ACTIONS.VIEW_PROJECTS.INPUT.searchProjectPlaceholder' | translate }}" formControlName="title" showCancelButton="focus"></ion-searchbar>
-                    <ion-select (ionChange)="searchProject()" multiple formControlName="topic" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}">
+                    <ion-searchbar color="light" (ionChange)="searchProject()" placeholder="{{ 'ACTIONS.VIEW_PROJECTS.INPUT.searchProjectPlaceholder' | translate }}" formControlName="title" showCancelButton="focus"></ion-searchbar>
+                    <ion-select (ionChange)="searchProject()" multiple="true" formControlName="topic" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}">
                       <ion-select-option *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue" value="{{ topic.key }}">{{ topic.value }}</ion-select-option>
                     </ion-select>
                   </form>
                   <ng-container *ngIf="projects.length > 0">
                     <ng-container *ngFor="let project of filteredProjects">
-                      <ion-card button=true routerLink="/project/{{ project.id }}" [disabled]="!permissions.includes('projects.toggleAuthorized') && !project.authorized">
+                      <ion-card color="light" button=true routerLink="/project/{{ project.id }}" [disabled]="!permissions.includes('projects.toggleAuthorized') && !project.authorized">
                         <ion-card-header>
                           <ion-card-title>
                             {{ project.title }}

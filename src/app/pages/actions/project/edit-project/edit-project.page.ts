@@ -7,6 +7,7 @@ import { Timeframe } from 'src/app/interfaces/timeframe';
 import { TimeframeService } from 'src/app/services/timeframe.service';
 import { ErrorService } from 'src/app/services/error.service';
 import {TranslateService} from '@ngx-translate/core';
+import {format, formatISO, parseISO} from 'date-fns';
 
 @Component({
   selector: 'app-edit-project',
@@ -56,6 +57,10 @@ export class EditProjectPage implements OnInit {
       },
       next: response => {
         const resp: any = response;
+        for (const timeframe of resp.project.timeframes) {
+          timeframe.from = formatISO(parseISO(timeframe.from));
+          timeframe.until = formatISO(parseISO(timeframe.until));
+        }
         this.editProjectForm.patchValue(resp.project);
         if (resp.project.timeframes) {
           this.timeframes = resp.project.timeframes;

@@ -3,14 +3,14 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <app-card-title-bar [title]="project.title"></app-card-title-bar>
+        <app-card-title-bar *ngIf="project" [title]="project.title"></app-card-title-bar>
+        <app-card-title-bar *ngIf="!project" title="{{ 'ACTIONS.MANAGE_PROJECT.title' | translate }}"></app-card-title-bar>
         <ion-card *ngIf="project" color="light">
           <img *ngIf="project.image" src="/images/{{ project.image }}" alt="Just imagine a very cool image ...">
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row>
                 <ion-col>
-
                   <ion-card-title>{{ project.title }}</ion-card-title>
                   <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.topic' | translate }} </ion-label>
                   <ng-container *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue">
@@ -47,7 +47,7 @@
                   <ion-icon name="pencil"></ion-icon>
                   <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.edit' | translate }}</ion-label>
                 </ion-chip>
-                <ion-chip (click)="deleteProject()" color="danger">
+                <ion-chip *ngIf="permissions.includes('projects.destroy')" (click)="deleteProject()" color="danger">
                   <ion-icon name="trash"></ion-icon>
                   <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.delete' | translate }}</ion-label>
                 </ion-chip>

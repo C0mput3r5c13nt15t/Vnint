@@ -37,7 +37,7 @@ ion-card:hover {
   display: block;
   margin-left: -16px;
   width: 100%;
-  min-width: 150px !important;
+  min-width: 200px !important;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-bottom: 20px;
@@ -45,7 +45,7 @@ ion-card:hover {
   color: white;
   z-index: 10;
   text-align: right;
-  max-width: 200px;
+  max-width: 250px;
 
   ion-icon {
     width: 20px;
