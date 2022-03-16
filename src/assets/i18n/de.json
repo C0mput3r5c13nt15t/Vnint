@@ -177,6 +177,14 @@
     "CARDS": [
       {
         "title": "Administrieren",
+        "requiredPermissions": [
+          ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"],
+          ["users.index", "roles.index"],
+          ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"],
+          ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
+          ["friendships.index", "friendships.show", "friendships.authorize", "friendships.decline"],
+          ["feedback.index", "feedback.show", "feedback.destroy"]
+        ],
         "icon_name": "options",
         "BUTTONS": [
           {
@@ -219,6 +227,7 @@
       },
       {
         "title": "Übersicht",
+        "requiredPermissions": [["events.index"], ["projects.index", "projects.show", "timeframes.show"]],
         "icon_name": "calendar",
         "BUTTONS": [
           {
@@ -408,8 +417,7 @@
         "fromPlaceholder": "Beginn",
         "untilPlaceholder": "Ende",
         "cost": "Kosten [€]",
-        "firstDay": "Erster Tag",
-        "secondDay": "Zweiter Tag",
+        "on": "am",
         "from": "von",
         "until": "bis",
         "grade": "Klassenstufe",
@@ -430,8 +438,7 @@
         "fromPlaceholder": "Beginn",
         "untilPlaceholder": "Ende",
         "cost": "Kosten [€]",
-        "firstDay": "Erster Tag",
-        "secondDay": "Zweiter Tag",
+        "on": "am",
         "from": "von",
         "until": "bis",
         "grade": "Klassenstufe",

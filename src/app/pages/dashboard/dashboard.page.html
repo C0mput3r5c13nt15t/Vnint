@@ -43,7 +43,7 @@
     </ng-container>
     <ng-container *ngIf="('DASHBOARD.CARDS' | translate) != 'DASHBOARD.CARDS'">
       <ng-container *ngFor="let card of ('DASHBOARD.CARDS' | translate)">
-        <ng-container>
+        <ng-container *ngIf="!card.requiredPermissions || hasOneSetOfPermissions(permissions, card.requiredPermissions)"> <!--TODO doesnot jet work-->
           <app-nav-card cardTitle="{{ card.title }}" cardIcon="{{ card.icon_name }}" cardButtons="{{ card.BUTTONS | json}}" [permissions]="permissions" [eventPermissions]="eventPermissions"></app-nav-card>
         </ng-container>
       </ng-container>

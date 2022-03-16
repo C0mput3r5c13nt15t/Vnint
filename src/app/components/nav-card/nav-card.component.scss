@@ -7,7 +7,7 @@ ion-card {
   flex-grow: 1 !important;
   text-align: left;
   height: calc(100% - 30px);
-  min-width: 200px;
+  min-width: 300px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.18);
 
   ion-card-title {
@@ -37,7 +37,7 @@ ion-card:hover {
   display: block;
   margin-left: -16px;
   width: 100%;
-  min-width: 200px !important;
+  min-width: 250px !important;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-bottom: 20px;

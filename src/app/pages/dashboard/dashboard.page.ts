@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Permission } from 'src/app/interfaces/permission';
 import { AuthService } from 'src/app/services/auth.service';
 import {AlertService} from "../../services/alert.service";
-import {ErrorService} from "../../services/error.service";
+import {element} from "protractor";
 
 @Component({
   selector: 'app-dashboard',
@@ -19,8 +19,7 @@ export class DashboardPage implements OnInit {
 
   constructor(private auth: AuthService,
               private router: Router,
-              public alertService: AlertService,
-              private errorService: ErrorService) { }
+              public alertService: AlertService) { }
 
   ngOnInit() {
   }
@@ -70,4 +69,28 @@ export class DashboardPage implements OnInit {
     });
   }
 
+  hasOneSetOfPermissions(permissions, setsOfRequiredPermissions: Array<Permission>[]) {
+    setsOfRequiredPermissions.forEach((setOfRequiredPermissions) => {
+      if (this.arrayContainsArray(permissions, setOfRequiredPermissions)) {
+        console.log(permissions, setOfRequiredPermissions)
+        return true;
+      }
+    })
+    return false;
+  }
+
+  /**
+   * Returns true if the first specified array contains all elements
+   * from the second one. false otherwise.
+   *
+   * @param {array} superset
+   * @param {array} subset
+   *
+   * @returns {boolean}
+   */
+  arrayContainsArray (superset, subset) {
+    return subset.every(function (value) {
+      return (superset.includes(value));
+    });
+  }
 }

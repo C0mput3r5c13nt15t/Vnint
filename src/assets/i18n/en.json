@@ -172,6 +172,14 @@
     "CARDS": [
       {
         "title": "Administrate",
+        "requiredPermissions": [
+          ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"],
+          ["users.index", "roles.index"],
+          ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"],
+          ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
+          ["friendships.index", "friendships.show", "friendships.authorize", "friendships.decline"],
+          ["feedback.index", "feedback.show", "feedback.destroy"]
+        ],
         "icon_name": "options",
         "BUTTONS": [
           {
@@ -214,6 +222,7 @@
       },
       {
         "title": "Overview",
+        "requiredPermissions": [["events.index"], ["projects.index", "projects.show", "timeframes.show"]],
         "icon_name": "calendar",
         "BUTTONS": [
           {
@@ -221,6 +230,12 @@
             "title": "View schedule",
             "link": "/view-schedule",
             "requiredPermissions": ["events.index"]
+          },
+          {
+            "icon": "grid",
+            "title": "View projects",
+            "link": "/view-projects",
+            "requiredPermissions": ["projects.index", "projects.show", "timeframes.show"]
           }
         ]
       },
@@ -397,8 +412,9 @@
         "fromPlaceholder": "Beginning",
         "untilPlaceholder": "End",
         "cost": "Cost [€]",
-        "from": "From",
-        "until": "Until",
+        "on": "on",
+        "from": "from",
+        "until": "until",
         "grade": "Grade",
         "capacity": "Capacity",
         "submitButton": "Create project"
@@ -416,8 +432,9 @@
         "fromPlaceholder": "Beginning",
         "untilPlaceholder": "End",
         "cost": "Cost [€]",
-        "from": "From",
-        "until": "Until",
+        "on": "on",
+        "from": "from",
+        "until": "until",
         "grade": "Grade",
         "capacity": "Capacity",
         "submitButton": "Edit project"
