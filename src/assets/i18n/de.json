@@ -246,6 +246,7 @@
       },
       {
         "title": "Dein Profil",
+        "requiredPermissions": [],
         "icon_name": "person",
         "BUTTONS": [
           {
@@ -282,6 +283,7 @@
       },
       {
         "title": "Weiteres",
+        "requiredPermissions": [],
         "icon_name": "information",
         "BUTTONS": [
           {

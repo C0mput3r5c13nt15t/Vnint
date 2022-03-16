@@ -43,7 +43,7 @@
     </ng-container>
     <ng-container *ngIf="('DASHBOARD.CARDS' | translate) != 'DASHBOARD.CARDS'">
       <ng-container *ngFor="let card of ('DASHBOARD.CARDS' | translate)">
-        <ng-container *ngIf="!card.requiredPermissions || hasOneSetOfPermissions(permissions, card.requiredPermissions)"> <!--TODO doesnot jet work-->
+        <ng-container *ngIf="card.requiredPermissions.length == 0 || hasOneSetOfPermissions(permissions, card.requiredPermissions)">
           <app-nav-card cardTitle="{{ card.title }}" cardIcon="{{ card.icon_name }}" cardButtons="{{ card.BUTTONS | json}}" [permissions]="permissions" [eventPermissions]="eventPermissions"></app-nav-card>
         </ng-container>
       </ng-container>
@@ -51,4 +51,5 @@
   </div>
 </ion-content>
 
+<!-- *ngIf="!card.requiredPermissions || hasOneSetOfPermissions(permissions, card.requiredPermissions)" -->
 <!--  *ngIf="arrayContainsArray(permissions, card.requiredPermissions) && arrayContainsArray(eventPermissions, card.requiredPermissions)" -->

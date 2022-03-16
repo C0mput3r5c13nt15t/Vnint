@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorService } from 'src/app/services/error.service';
+import {TranslateService} from "@ngx-translate/core";
+import {AlertService} from "../../../services/alert.service";
 
 @Component({
   selector: 'app-reset-password',
@@ -10,7 +12,6 @@ import { ErrorService } from 'src/app/services/error.service';
   styleUrls: ['./reset-password.page.scss'],
 })
 export class ResetPasswordPage implements OnInit {
-  success: any;
   resetPasswordForm: FormGroup;
   isProcessed = false;
 
@@ -18,7 +19,9 @@ export class ResetPasswordPage implements OnInit {
               private activatedRoute: ActivatedRoute,
               private auth: AuthService,
               private router: Router,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private translate: TranslateService,
+              private alert: AlertService) { }
 
   ngOnInit() {
     this.resetPasswordForm = this.formBuilder.group({
@@ -88,13 +91,15 @@ export class ResetPasswordPage implements OnInit {
             this.isProcessed = false;
           },
           next: response => {
-            this.success = response;
+            let resp: any = response;
+            this.alert.alert("success", this.translate.instant('RESET_PASSWORD.title'), resp.message, "send");
           },
           complete: () => {
             this.resetPasswordForm.reset();
             this.auth.setLoggedIn = false;
             this.auth.setSessionExpired = false;
             this.isProcessed = false;
+            this.router.navigate(['/login']);
           },
         });
       }

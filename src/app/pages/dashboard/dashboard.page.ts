@@ -69,13 +69,12 @@ export class DashboardPage implements OnInit {
     });
   }
 
-  hasOneSetOfPermissions(permissions, setsOfRequiredPermissions: Array<Permission>[]) {
-    setsOfRequiredPermissions.forEach((setOfRequiredPermissions) => {
+  hasOneSetOfPermissions(permissions, setsOfRequiredPermissions: Permission[][]) {
+    for (const setOfRequiredPermissions of setsOfRequiredPermissions) {
       if (this.arrayContainsArray(permissions, setOfRequiredPermissions)) {
-        console.log(permissions, setOfRequiredPermissions)
         return true;
       }
-    })
+    }
     return false;
   }
 

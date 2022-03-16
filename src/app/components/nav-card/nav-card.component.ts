@@ -36,10 +36,10 @@ export class NavCardComponent implements OnInit {
    *
    * @returns {boolean}
    */
-      arrayContainsArray (superset, subset) {
-      return subset.every(function (value) {
-        return (superset.includes(value));
-      });
-    }
+  arrayContainsArray (superset, subset) {
+    return subset.every(function (value) {
+      return (superset.includes(value));
+    });
+  }
 
 }

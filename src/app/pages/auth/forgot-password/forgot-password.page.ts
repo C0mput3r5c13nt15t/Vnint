@@ -3,6 +3,8 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorService } from 'src/app/services/error.service';
+import {AlertService} from "../../../services/alert.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-forgot-password',
@@ -10,14 +12,16 @@ import { ErrorService } from 'src/app/services/error.service';
   styleUrls: ['./forgot-password.page.scss'],
 })
 export class ForgotPasswordPage implements OnInit {
-  success: any;
   forgotPasswordForm: FormGroup;
   isProcessed = false;
 
   constructor(public formBuilder: FormBuilder,
               private auth: AuthService,
               private router: Router,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private alert: AlertService,
+              private translate: TranslateService) {
+  }
 
   get errorControl() {
     return this.forgotPasswordForm.controls;
@@ -68,13 +72,15 @@ export class ForgotPasswordPage implements OnInit {
             this.isProcessed = false;
           },
           next: response => {
-            this.success = response;
+            let resp: any = response;
+            this.alert.alert("success", this.translate.instant('FORGOT_PASSWORD.title'), resp.message, "send");
           },
           complete: () => {
             this.forgotPasswordForm.reset();
             this.auth.setLoggedIn = false;
             this.auth.setSessionExpired = false;
             this.isProcessed = false;
+            this.router.navigate(['/login']);
           },
         });
       }
