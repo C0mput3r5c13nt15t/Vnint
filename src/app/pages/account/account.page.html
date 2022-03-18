@@ -25,10 +25,10 @@
                     <br><br>
 
                     <ion-label>
-                      {{ 'GENERAL.createdAt' | translate }} {{ user.created_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ) }}<br>
-                      {{ 'GENERAL.updatedAt' | translate }} {{ user.updated_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ) }}<br>
+                      {{ 'GENERAL.createdAt' | translate }} {{ user.created_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}<br>
+                      {{ 'GENERAL.updatedAt' | translate }} {{ user.updated_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}<br>
                       <div *ngIf="user.email_verified_at">
-                        {{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.emailVerifiedAt' | translate }} {{ user.email_verified_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ) }}
+                        {{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.emailVerifiedAt' | translate }} {{ user.email_verified_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}
                       </div>
                       <div *ngIf="!user.email_verified_at">
                         {{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.emailNotVerified' | translate }}

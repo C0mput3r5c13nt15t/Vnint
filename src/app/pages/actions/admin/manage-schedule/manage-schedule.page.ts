@@ -8,6 +8,7 @@ import { Event } from 'src/app/interfaces/event';
 import { DatePipe } from '@angular/common';
 import { ErrorService } from 'src/app/services/error.service';
 import { TranslateService } from '@ngx-translate/core';
+import {AlertService} from "../../../../services/alert.service";
 
 export interface Checkbox {
   name: string;
@@ -53,7 +54,8 @@ export class ManageSchedulePage implements OnInit {
               private screenSizeService: ScreenSizeService,
               private datePipe: DatePipe,
               private errorService: ErrorService,
-              public translateService: TranslateService) {
+              private translate: TranslateService,
+              private alertService: AlertService) {
       this.screenSizeService.isDesktopView().subscribe(isDesktop => {
         if (this.isDesktop && !isDesktop) {
         window.location.reload();
@@ -158,6 +160,7 @@ export class ManageSchedulePage implements OnInit {
               this.showAddEvent = false;
             }
           });
+          this.alertService.alert("success", this.translate.instant('ACTIONS.MANAGE_SCHEDULE.title'), resp.message, "checkmark")
         form.reset()
         },
       });
@@ -199,7 +202,10 @@ export class ManageSchedulePage implements OnInit {
           }
           this.isProcessed = false;
         },
-        next: () => {},
+        next: response => {
+          const resp: any = response;
+          this.alertService.alert("success", this.translate.instant('ACTIONS.MANAGE_SCHEDULE.title'), resp.message, "checkmark")
+        },
         complete: () => {
           this.updateEventForm.reset();
           this.isProcessed = false;
@@ -214,7 +220,10 @@ export class ManageSchedulePage implements OnInit {
       error: error => {
         this.errorService.errorOccurred.emit(error);
       },
-      next: () => {},
+      next: response => {
+        const resp: any = response;
+        this.alertService.alert("success", this.translate.instant('ACTIONS.MANAGE_SCHEDULE.title'), resp.message, "checkmark")
+      },
       complete: () => {
         this.getEvents();
       }

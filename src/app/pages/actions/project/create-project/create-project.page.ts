@@ -6,6 +6,7 @@ import { Timeframe } from 'src/app/interfaces/timeframe';
 import { TimeframeService } from 'src/app/services/timeframe.service';
 import { ErrorService } from 'src/app/services/error.service';
 import { TranslateService } from '@ngx-translate/core';
+import {AlertService} from "../../../../services/alert.service";
 
 @Component({
   selector: 'app-create-project',
@@ -22,7 +23,8 @@ export class CreateProjectPage implements OnInit {
               private router: Router,
               private timeframeService: TimeframeService,
               private errorService: ErrorService,
-              public translateService: TranslateService) { }
+              private translate: TranslateService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.createProjectForm = this.formBuilder.group({
@@ -77,6 +79,10 @@ export class CreateProjectPage implements OnInit {
             this.errorService.errorOccurred.emit(error);
           }
           this.isProcessed = false;
+        },
+        next: response => {
+          const resp: any = response;
+          this.alertService.alert("success", this.translate.instant('ACTIONS.CREATE_PROJECT.title'), resp.message, "checkmark")
         },
         complete: () => {
           this.timeframes.forEach(timeframe => {

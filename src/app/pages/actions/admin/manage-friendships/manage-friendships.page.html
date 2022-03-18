@@ -28,7 +28,7 @@
                         <ion-icon *ngIf="friendship.state == 2" color="success" name="checkmark-done"></ion-icon>
                         <ion-card-header>
                           <ion-card-subtitle>
-                            {{ 'ACTIONS.MANAGE_FRIENDSHIPS.FRIENDS.proposedOn' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDSHIPS.FRIENDS.from' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.applicant.email }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDSHIPS.FRIENDS.to' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.respondent.email }}</ion-label>
+                            {{ 'ACTIONS.MANAGE_FRIENDSHIPS.FRIENDS.proposedOn' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDSHIPS.FRIENDS.from' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.applicant.email }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDSHIPS.FRIENDS.to' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.respondent.email }}</ion-label>
                           </ion-card-subtitle>
                           <ion-card-subtitle>
                             <ion-chip disabled="friendship.state != 1" color="success" (click)="authorizeFriendship(friendship.id)">

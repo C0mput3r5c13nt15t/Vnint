@@ -15,7 +15,7 @@
     </ion-card-content>
     <ion-list [@openClose]="details ? 'open' : 'closed'" *ngIf="alerts.length > 0">
       <ion-item shape="round" [color]="type" lines="none" *ngFor="let alert of alerts">
-        <ion-label>{{ alert.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }} <b>{{ alert.title }}</b> {{ alert.message }}</ion-label>
+        <ion-label>{{ alert.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }} <b>{{ alert.title }}</b> {{ alert.message }}</ion-label>
       </ion-item>
     </ion-list>
   </ion-card>

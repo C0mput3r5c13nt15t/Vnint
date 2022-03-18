@@ -30,7 +30,7 @@
                         <ion-card-header>
                           <ion-card-title>{{ friendship.respondent.email }}</ion-card-title>
                           <ion-card-subtitle>
-                            {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.proposedOn' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.to' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.respondent.email }}</ion-label>
+                            {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.proposedOn' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.to' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.respondent.email }}</ion-label>
                           </ion-card-subtitle>
                           <ion-card-subtitle>
                             <ion-chip color="danger" (click)="removeFriend(friendship.id)">
@@ -53,7 +53,7 @@
                         <ion-card-header>
                           <ion-card-title>{{ friendship.applicant.email }}</ion-card-title>
                           <ion-card-subtitle>
-                            {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.receivedOn' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.from' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.applicant.email }}</ion-label>
+                            {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.receivedOn' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label> {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.from' | translate }} <ion-label color="primary" class="subtitle-labels">{{ friendship.applicant.email }}</ion-label>
                           </ion-card-subtitle>
                           <ion-card-subtitle>
                             <ion-chip *ngIf="friendship.state == 0" color="success" (click)="acceptFriend(friendship.id)">

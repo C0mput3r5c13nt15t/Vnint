@@ -58,13 +58,15 @@ export class GiveFeedbackPage implements OnInit {
           }
           this.isProcessed = false;
         },
-        next: () => {},
+        next: response => {
+          const resp: any = response;
+          this.alertService.alert("success", this.translateService.instant('ACTIONS.GIVE_FEEDBACK.SUCCESS.thankYou'), resp.message, "heart")
+        },
         complete: () => {
           this.success = true;
           this.giveFeedbackForm.reset();
           this.isProcessed = false;
           this.router.navigate(['/dashboard']);
-          this.alertService.alert("success", this.translateService.instant('ACTIONS.GIVE_FEEDBACK.SUCCESS.thankYou'), this.translateService.instant('ACTIONS.GIVE_FEEDBACK.SUCCESS.importanceOfFeedback'), "heart")
         },
       });
     }

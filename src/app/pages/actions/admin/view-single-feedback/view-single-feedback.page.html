@@ -26,7 +26,7 @@
                   <ion-label color="danger" *ngIf="feedback.type == 'bug'"><b>{{ 'GENERAL.FEEDBACK_TYPES.bug' | translate }}</b></ion-label>
                   <ion-label color="primary" *ngIf="feedback.type == 'other'"><b>{{ 'GENERAL.FEEDBACK_TYPES.other' | translate }}</b></ion-label>
                   <br>
-                  <ion-label>{{ 'ACTIONS.VIEW_SINGLE_FEEDBACK.published_on' | translate }} </ion-label><ion-label><b>{{ feedback.created_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ) }}</b></ion-label>
+                  <ion-label>{{ 'ACTIONS.VIEW_SINGLE_FEEDBACK.published_on' | translate }} </ion-label><ion-label><b>{{ feedback.created_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</b></ion-label>
                   <br>
                   <ion-label>{{ 'ACTIONS.VIEW_SINGLE_FEEDBACK.published_by' | translate }} </ion-label><ion-label><b>{{ feedback.creator.email }}</b></ion-label>
                 </ion-col>
@@ -34,10 +34,6 @@
               <br>
               <hr>
               <ion-row>
-                <ion-chip disabled="true">
-                  <ion-icon name="chatbubble-ellipses"></ion-icon>
-                  <ion-label>chat?</ion-label>
-                </ion-chip>
                 <ion-chip (click)="deleteFeedback()" color="danger">
                   <ion-icon name="trash"></ion-icon>
                   <ion-label>{{ 'ACTIONS.VIEW_SINGLE_FEEDBACK.delete' | translate }}</ion-label>

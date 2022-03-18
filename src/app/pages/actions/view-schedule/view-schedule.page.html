@@ -16,7 +16,7 @@
                           {{ event.title }}
                         </ion-card-title>
                         <ion-card-subtitle>
-                          {{ event.from | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }} - {{ event.until | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}
+                          {{ event.from | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }} - {{ event.until | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}
                         </ion-card-subtitle>
                         <!-- <ion-card-subtitle *ngIf="event.permissions.length > 0">
                           <ion-badge *ngFor="let permission of event.permissions"><ion-label>{{ ('GENERAL.PERMISSIONS.' + permission.name) | translate }}</ion-label></ion-badge>

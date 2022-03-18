@@ -7,6 +7,8 @@ import { PreferencesService } from 'src/app/services/preference.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { Preference } from 'src/app/interfaces/preference';
 import { ErrorService } from 'src/app/services/error.service';
+import {TranslateService} from "@ngx-translate/core";
+import {AlertService} from "../../../../services/alert.service";
 
 @Component({
   selector: 'app-view-project',
@@ -25,7 +27,9 @@ export class ViewProjectPage implements OnInit {
               private projectService: ProjectService,
               private preferencesService: PreferencesService,
               private auth: AuthService,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private translate: TranslateService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
   }
@@ -132,7 +136,10 @@ export class ViewProjectPage implements OnInit {
       error: error => {
         this.errorService.errorOccurred.emit(error);
       },
-      next: () => { },
+      next: response => {
+        const resp: any = response;
+        this.alertService.alert("success", this.translate.instant('ACTIONS.VIEW_PROJECT.title'), resp.message, "checkmark")
+      },
       complete: () => {
         this.getProject(this.project.id);
       }
@@ -144,7 +151,9 @@ export class ViewProjectPage implements OnInit {
       error: error => {
         this.errorService.errorOccurred.emit(error);
       },
-      next: () => {
+      next: response => {
+        const resp: any = response;
+        this.alertService.alert("success", this.translate.instant('ACTIONS.VIEW_PROJECT.title'), resp.message, "checkmark")
         this.router.navigate(['/view-projects']);
       },
     });

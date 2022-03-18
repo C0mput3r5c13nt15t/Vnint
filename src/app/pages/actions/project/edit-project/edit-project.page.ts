@@ -8,6 +8,7 @@ import { TimeframeService } from 'src/app/services/timeframe.service';
 import { ErrorService } from 'src/app/services/error.service';
 import {TranslateService} from '@ngx-translate/core';
 import {format, formatISO, parseISO} from 'date-fns';
+import {AlertService} from "../../../../services/alert.service";
 
 @Component({
   selector: 'app-edit-project',
@@ -25,7 +26,8 @@ export class EditProjectPage implements OnInit {
               private formBuilder: FormBuilder,
               private router: Router,
               private errorService: ErrorService,
-              public translateService: TranslateService) { }
+              private translate: TranslateService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.editProjectForm = this.formBuilder.group({
@@ -90,7 +92,10 @@ export class EditProjectPage implements OnInit {
           }
           this.isProcessed = false;
         },
-        next: () => {},
+        next: response => {
+          const resp: any = response;
+          this.alertService.alert("success", this.translate.instant('ACTIONS.EDIT_PROJECT.title'), resp.message, "checkmark")
+        },
         complete: () => {
           this.editProjectForm.reset();
           this.isProcessed = false;

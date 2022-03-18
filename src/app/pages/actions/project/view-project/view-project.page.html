@@ -6,7 +6,7 @@
         <app-card-title-bar *ngIf="project" [title]="project.title"></app-card-title-bar>
         <app-card-title-bar *ngIf="!project" title="{{ 'ACTIONS.VIEW_PROJECT.title' | translate }}"></app-card-title-bar>
         <ion-card *ngIf="project" color="light">
-          <img *ngIf="project.image" src="/images/{{ project.image }}" alt="Just imagine a very cool image ...">
+          <img class="project-thumbnail" *ngIf="project.image" src="/images/{{ project.image }}" alt="Just imagine a very cool image ...">
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row>
@@ -23,8 +23,8 @@
                   <br><br>
                   <ng-container *ngIf="project.timeframes.length > 0">
                     <div *ngFor="let timeframe of project.timeframes">
-                      <ion-label color="primary"><b>{{ timeframe.from | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</b></ion-label><br>
-                      <ion-label>von {{ timeframe.from | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ) }} bis {{ timeframe.until | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ) }}</ion-label>
+                      <ion-label color="primary"><b>{{ timeframe.from | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</b></ion-label><br>
+                      <ion-label>von {{ timeframe.from | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }} bis {{ timeframe.until | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>
                     </div>
                   </ng-container>
                   <br>

@@ -15,7 +15,7 @@
                         {{ event.title }}
                       </ion-card-title>
                       <ion-card-subtitle>
-                        {{ event.from | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }} - {{ event.until | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}
+                        {{ event.from | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }} - {{ event.until | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}
                       </ion-card-subtitle>
                     </ion-card-header>
                     <ion-card-content>
@@ -70,15 +70,15 @@
                   <app-form-error [errors]="addEventErrorControl.description.errors"></app-form-error>
 
                   <ion-item color="light" lines="none">
-                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.from' | translate }} {{ addEventForm.value.from | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
+                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.from' | translate }} {{ addEventForm.value.from | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>
                   </ion-item>
-                  <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="from" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                  <ion-datetime presentation="date" [locale]="( 'GENERAL.locale' | translate )" formControlName="from" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
                   <app-form-error [errors]="addEventErrorControl.from.errors"></app-form-error>
 
                   <ion-item color="light" lines="none">
-                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.until' | translate }} {{ addEventForm.value.until | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
+                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.until' | translate }} {{ addEventForm.value.until | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>
                   </ion-item>
-                  <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="until" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                  <ion-datetime presentation="date" [locale]="( 'GENERAL.locale' | translate )" formControlName="until" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
                   <app-form-error [errors]="addEventErrorControl.until.errors"></app-form-error>
 
                   <ion-list *ngIf="addEventPermissions.length > 0">
@@ -114,15 +114,15 @@
                   <app-form-error [errors]="updateEventErrorControl.description.errors"></app-form-error>
 
                   <ion-item color="light" lines="none">
-                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.from' | translate }} {{ updateEventForm.value.from | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
+                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.from' | translate }} {{ updateEventForm.value.from | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>
                   </ion-item>
-                  <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="from" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                  <ion-datetime presentation="date" [locale]="( 'GENERAL.locale' | translate )" formControlName="from" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
                   <app-form-error [errors]="updateEventErrorControl.from.errors"></app-form-error>
 
                   <ion-item color="light" lines="none">
-                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.until' | translate }} {{ updateEventForm.value.until | date:( 'GENERAL.timeDisplayFormat' | translate ):'UTC':translateService.currentLang }}</ion-label>
+                    <ion-label>{{ 'ACTIONS.MANAGE_SCHEDULE.INPUT.until' | translate }} {{ updateEventForm.value.until | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>
                   </ion-item>
-                  <ion-datetime presentation="date" [locale]="translateService.currentLang" formControlName="until" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                  <ion-datetime presentation="date" [locale]="( 'GENERAL.locale' | translate )" formControlName="until" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
                   <app-form-error [errors]="updateEventErrorControl.until.errors"></app-form-error>
 
                   <ion-list *ngIf="updateEventPermissions.length > 0">

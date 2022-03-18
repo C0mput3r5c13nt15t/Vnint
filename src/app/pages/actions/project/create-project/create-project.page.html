@@ -54,16 +54,16 @@
                               <ion-col sizeXl="6" sizeLg="6" sizeMd="12" sizeSm="12" sizeXs="12">
                                 <ion-card color="light">
                                   <ion-card-content>
-                                    <ion-label class="ion-padding-start">{{ 'ACTIONS.CREATE_PROJECT.INPUT.on' | translate }} {{ timeframe.from | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label>
-                                    <ion-datetime presentation="date" color="primary" [locale]="translateService.currentLang" [(ngModel)]="timeframe.from" [ngModelOptions]="{standalone: true}" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                                    <ion-label class="ion-padding-start">{{ 'ACTIONS.CREATE_PROJECT.INPUT.on' | translate }} {{ timeframe.from | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>
+                                    <ion-datetime presentation="date" color="primary" [locale]="( 'GENERAL.locale' | translate )" [(ngModel)]="timeframe.from" [ngModelOptions]="{standalone: true}" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
 
                                     <br><br>
 
                                     <ion-label class="ion-padding-start">{{ 'ACTIONS.CREATE_PROJECT.INPUT.from' | translate }} {{ timeframe.from | date:'hh:mm' }}</ion-label>
-                                    <ion-datetime presentation="time" color="primary" [locale]="translateService.currentLang" [(ngModel)]="timeframe.from" [ngModelOptions]="{standalone: true}" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                                    <ion-datetime presentation="time" color="primary" [locale]="( 'GENERAL.locale' | translate )" [(ngModel)]="timeframe.from" [ngModelOptions]="{standalone: true}" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
 
                                     <ion-label class="ion-padding-start">{{ 'ACTIONS.CREATE_PROJECT.INPUT.until' | translate }} {{ timeframe.until | date:'hh:mm' }}</ion-label>
-                                    <ion-datetime color="primary" presentation="time" [locale]="translateService.currentLang" [(ngModel)]="timeframe.until" [ngModelOptions]="{standalone: true}" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
+                                    <ion-datetime color="primary" presentation="time" [locale]="( 'GENERAL.locale' | translate )" [(ngModel)]="timeframe.until" [ngModelOptions]="{standalone: true}" doneText="{{ 'GENERAL.POPUPS.done' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}"></ion-datetime>
                                   </ion-card-content>
 
                                   <div class="ion-padding">

@@ -14,9 +14,11 @@
               </ion-select>
             </ion-item>
             <div *ngIf="notSupported">
-              <span class="error">
-                <ion-label color="danger">{{ 'SETTINGS.notSupported' | translate }}</ion-label><br>
-              </span>
+              <div class="error">
+                <span>
+                  <ion-label color="danger">{{ 'SETTINGS.notSupported' | translate }}</ion-label><br>
+                </span>
+              </div>
             </div>
           </ion-card-content>
         </ion-card>

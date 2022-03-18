@@ -9,6 +9,8 @@
     "ERROR": {
       "sessionExpired": "Session expired"
     },
+    "timezone": "+0",
+    "locale": "en",
     "timeDisplayFormat": "MMM d, YYYY",
     "exactTimeDisplayFormat": "MMM d, YYYY, hh:mm a",
     "hoursAndMinutesTimeDisplayFormat": "h:mm a",
@@ -241,6 +243,7 @@
       },
       {
         "title": "Your profile",
+        "requiredPermissions": [],
         "icon_name": "person",
         "BUTTONS": [
           {
@@ -277,6 +280,7 @@
       },
       {
         "title": "Others",
+        "requiredPermissions": [],
         "icon_name": "information",
         "BUTTONS": [
           {

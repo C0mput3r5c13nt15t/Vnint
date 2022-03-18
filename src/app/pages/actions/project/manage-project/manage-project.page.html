@@ -6,7 +6,7 @@
         <app-card-title-bar *ngIf="project" [title]="project.title"></app-card-title-bar>
         <app-card-title-bar *ngIf="!project" title="{{ 'ACTIONS.MANAGE_PROJECT.title' | translate }}"></app-card-title-bar>
         <ion-card *ngIf="project" color="light">
-          <img *ngIf="project.image" src="/images/{{ project.image }}" alt="Just imagine a very cool image ...">
+          <img class="project-thumbnail" *ngIf="project.image" src="/images/{{ project.image }}" alt="Just imagine a very cool image ...">
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row>
@@ -23,8 +23,8 @@
                   <br><br>
                   <ng-container *ngIf="project.timeframes.length > 0">
                     <div *ngFor="let timeframe of project.timeframes">
-                      <ion-label color="primary"><b>{{ timeframe.from | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</b></ion-label><br>
-                      <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.from' | translate }} {{ timeframe.from | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ) }} {{ 'ACTIONS.MANAGE_PROJECT.until' | translate }} {{ timeframe.until | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ) }}</ion-label>
+                      <ion-label color="primary"><b>{{ timeframe.from | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</b></ion-label><br>
+                      <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.from' | translate }} {{ timeframe.from | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }} {{ 'ACTIONS.MANAGE_PROJECT.until' | translate }} {{ timeframe.until | date:( 'GENERAL.hoursAndMinutesTimeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>
                     </div>
                   </ng-container>
                   <br>
@@ -36,8 +36,8 @@
                   <br>
                   <ion-label>{{ 'ACTIONS.MANAGE_PROJECT.capacity' | translate }} </ion-label><ion-label><b>{{ project.min_participants }}</b></ion-label><b>-</b><ion-label><b>{{ project.max_participants }}</b></ion-label>
                   <br><br>
-                  <ion-label>{{ 'GENERAL.createdAt' | translate }} </ion-label><ion-label>{{ project.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label><br>
-                  <ion-label>{{ 'GENERAL.updatedAt' | translate }} </ion-label><ion-label>{{ project.updated_at | date:( 'GENERAL.timeDisplayFormat' | translate ) }}</ion-label>
+                  <ion-label>{{ 'GENERAL.createdAt' | translate }} </ion-label><ion-label>{{ project.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label><br>
+                  <ion-label>{{ 'GENERAL.updatedAt' | translate }} </ion-label><ion-label>{{ project.updated_at | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>
                 </ion-col>
               </ion-row>
               <br>

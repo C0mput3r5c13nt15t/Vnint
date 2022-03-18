@@ -9,6 +9,8 @@
     "ERROR": {
       "sessionExpired": "Die Session ist bereits abgelaufen"
     },
+    "timezone": "+0",
+    "locale": "de",
     "timeDisplayFormat": "d. MMM YYYY",
     "exactTimeDisplayFormat": "d. MMM YYYY, H:mm",
     "hoursAndMinutesTimeDisplayFormat": "H:mm 'Uhr'",
