@@ -9,10 +9,6 @@
             <ion-grid class="inside-card-grid">
               <ion-row>
                 <ion-col>
-                  <ion-label>
-                    {{ 'ACTIONS.ADMINISTRATE.explanation' | translate }}
-                  </ion-label><br>
-                  <br><hr><br>
                   <ng-container *ngIf="roles.length > 0">
                     <ion-card *ngFor="let role of roles">
                       <ion-card-header>

@@ -74,11 +74,7 @@ export class LoginPage implements OnInit {
               this.errorService.errorOccurred.emit(error);
             }
             this.isProcessed = false;
-            this.loginForm.patchValue(
-                {
-                  password: ''
-                }
-            );
+            this.loginForm.reset();
           },
           next: () => {},
           complete: () => {

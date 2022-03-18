@@ -44,7 +44,7 @@
       "feedback.show": "feedback.show",
       "feedback.store": "feedback.store",
       "friendships.accept": "friendships.accept",
-      "friendships.authorize": "friendships.authorize",
+      "friendships.authorise": "friendships.authorise",
       "friendships.decline": "friendships.decline",
       "friendships.destroy": "friendships.destroy",
       "friendships.index": "friendships.index",
@@ -98,8 +98,8 @@
       "logout": "Ausloggen"
     },
     "LOGOUT_POPUP": {
-      "alertHeader": "Bist du dir sicher?",
-      "alertText": "Möchtest du dich abmelden?",
+      "alertHeader": "Sind Sie sich sicher?",
+      "alertText": "Möchten Sie sich abmelden?",
       "logoutButton": "Abmelden"
     }
   },
@@ -137,7 +137,7 @@
       "passwordConfirmation": "Passwortbestätigung",
       "registerButton": "Registrieren"
     },
-    "alreadyAccount": "Du hast bereits einen Account?"
+    "alreadyAccount": "Sie haben bereits einen Account?"
   },
   "DASHBOARD": {
     "GREETING1S": {
@@ -184,7 +184,7 @@
           ["users.index", "roles.index"],
           ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"],
           ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
-          ["friendships.index", "friendships.show", "friendships.authorize", "friendships.decline"],
+          ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"],
           ["feedback.index", "feedback.show", "feedback.destroy"]
         ],
         "icon_name": "options",
@@ -217,7 +217,7 @@
             "icon": "people",
             "title": "Freundschaften verwalten",
             "link": "/manage-friendships",
-            "requiredPermissions": ["friendships.index", "friendships.show", "friendships.authorize", "friendships.decline"]
+            "requiredPermissions": ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"]
           },
           {
             "icon": "chatbubble",
@@ -308,7 +308,7 @@
     "title": "Account ℹ️",
     "UPDATE_ACCOUNT_INFORMATION": {
       "title": "Profil aktualisieren",
-      "warning": "Wenn du deine E-Mail änderst, musst du sie anschließend erneut verifizieren. Der Link dazu wird automatisch an deine neue E-Mail-Adresse gesendet.",
+      "warning": "Wenn Sie ihre E-Mail ändern, müssen Sie sie anschließend erneut verifizieren. Der Link dazu wird automatisch an Ihre neue E-Mail-Adresse gesendet.",
       "INPUT":  {
         "name": "Name",
         "email": "E-Mail",
@@ -328,10 +328,10 @@
     },
     "DELETE_ACCOUNT": {
       "title": "Account löschen",
-      "warning": "Aktuell können Accounts noch nicht automatisch gelöscht werden, wende dich zum Löschen bitte an den Administrator.",
+      "warning": "Aktuell können Accounts noch nicht automatisch gelöscht werden, wenden Sie sich zum Löschen bitte an den Administrator.",
       "INPUT": {
-        "alertHeader": "Bist du dir sicher?",
-        "alertText": "Bist du dir sicher, dass du deinen Account unwiderruflich löschen willst?",
+        "alertHeader": "Sind Sie sich sicher?",
+        "alertText": "Sind Sie sich sicher, dass Sie ihren Account unwiderruflich löschen wollen?",
         "deleteButton": "Account löschen"
       }
     }
@@ -352,8 +352,8 @@
       "deleteRole": "Löschen",
       "addRole": "Rolle hinzufügen",
       "REMOVE_ROLE_ALERT": {
-        "alertHeader": "Bist du dir sicher?",
-        "alertText": "Möchtest du wirklich diese Rolle löschen?",
+        "alertHeader": "Sind Sie sich sicher?",
+        "alertText": "Möchten Sie wirklich diese Rolle löschen?",
         "deleteButton": "Löschen"
       },
       "ADD_ROLE_ALERT": {
@@ -377,8 +377,8 @@
       "published_by": "Veröffentlicht von",
       "delete": "Löschen",
       "INPUT": {
-        "alertHeader": "Bist du dir sicher?",
-        "alertText": "Bist du dir sicher, dass du dieses Feedback unwiderruflich löschen willst?",
+        "alertHeader": "Sind Sie sich sicher?",
+        "alertText": "Sind Sie sich sicher, dass Sie dieses Feedback unwiderruflich löschen wollen?",
         "deleteButton": "Feedback löschen"
       }
     },
@@ -393,9 +393,9 @@
         "title": "Titel",
         "description": "Beschreibung",
         "from": "vom",
-        "fromPlaceholder": "Wähle ein Startdatum",
+        "fromPlaceholder": "Wählen Sie ein Startdatum",
         "until": "bis",
-        "untilPlaceholder": "Wähle ein Enddatum",
+        "untilPlaceholder": "Wählen Sie ein Enddatum",
         "addEventButton": "Event hinzufügen",
         "updateEventButton": "Event aktualisieren"
       }
@@ -417,7 +417,7 @@
         "image": "Bild",
         "timeframe": "Zeitrahmen [UTC]",
         "date": "Datum",
-        "datePlaceholder": "Wähle ein Datum",
+        "datePlaceholder": "Wählen Sie ein Datum",
         "fromPlaceholder": "Beginn",
         "untilPlaceholder": "Ende",
         "cost": "Kosten [€]",
@@ -438,7 +438,7 @@
         "description": "Beschreibung",
         "timeframe": "Zeitrahmen [UTC]",
         "date": "Datum",
-        "datePlaceholder": "Wähle ein Datum",
+        "datePlaceholder": "Wählen Sie ein Datum",
         "fromPlaceholder": "Beginn",
         "untilPlaceholder": "Ende",
         "cost": "Kosten [€]",
@@ -471,7 +471,7 @@
       "isPreference": "⭐ Projektwunsch",
       "noProjects": "Es gibt noch keine Projekte ...",
       "INPUT": {
-        "searchProjectPlaceholder": "Suche nach Projekttitel"
+        "searchProjectPlaceholder": "Nach Projekttitel suchen"
       }
     },
     "VIEW_PROJECT": {
@@ -496,18 +496,16 @@
         "submitButton": "Feedback senden"
       },
       "SUCCESS": {
-        "thankYou": "Vielen Dank für dein Feedback ❤️",
-        "importanceOfFeedback": "Dein Feedback hilft uns diese Seite zu verbessern und so letztlich auch dein Benutzererlebnis und das aller anderen!"
+        "thankYou": "Vielen Dank für Ihr Feedback ❤️"
       }
     },
     "MANAGE_FRIENDS": {
       "title": "Freunde",
-      "explanation": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.",
       "LEGEND": {
-        "yourFriendshipRequest": "Deine Freundschaftsanfrage ...",
-        "hourglass": "... wurde weder angenommen noch abgelehnt.",
-        "check": "... wurde angenommen, muss aber noch autorisiert werden.",
-        "doubleCheck": "... wurde autorisiert und wird bei der Zuordnung beachtet werden."
+        "yourFriendshipRequest": "Ihre Freundschaftsanfrage ...",
+        "hourglass": "... muss noch angenommen werden",
+        "check": "... muss noch autorisiert werden.",
+        "doubleCheck": "... wird bei der Zuordnung beachtet werden."
       },
       "proposedFriendships": "Gestellte Freundschaftsanfragen",
       "receivedFriendships": "Empfangene Freundschaftsanfragen",
@@ -531,16 +529,15 @@
     "MANAGE_PREFERENCES": {
       "title": "Projektwünsche verwalten",
       "removePreference": "Projektwunsch entfernen",
-      "noPreferences": "Du hast noch keine Projektwünsche angegeben ..."
+      "noPreferences": "Sie haben noch keine Projektwünsche angegeben ..."
     },
     "MANAGE_FRIENDSHIPS": {
       "title": "Freundschaften verwalten",
-      "explanation": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.",
       "LEGEND": {
         "theFriendshipRequest": "Die Freundschaftsanfrage ...",
-        "hourglass": "... wurde weder angenommen noch abgelehnt.",
-        "check": "... wurde angenommen, muss aber noch autorisiert werden.",
-        "doubleCheck": "... wurde autorisiert und wird bei der Zuordnung beachtet werden."
+        "hourglass": "... muss noch angenommen werden",
+        "check": "... muss noch von Ihnen autorisiert werden.",
+        "doubleCheck": "... wird bei der Zuordnung beachtet werden."
       },
       "noFriends": "Es gibt aktuell keine offenen Freundschaftsanfragen ...",
       "FRIENDS": {
@@ -554,11 +551,11 @@
     "VERIFY_EMAIL": {
       "title": "E-Mail-Adresse verifizieren",
       "resendButton": "Verifizierung erneut versenden",
-      "explanation": "Damit wir sicherstellen können, dass die angegebene E-Mail auch wirklich dir gehört haben wir dir bei deiner Anmeldung eine E-Mail gesendet. In ihr ist ein Link enthalten mit dessen Hilfe du deine E-Mail-Adresse verifizieren kasst. Klicke dafür einfach auf den Knopf in der E-Mail.",
-      "verified": "Bereits verifiziert - Es scheint als wäre deine E-Mail-Adresse bereits verifiziert. Du solltest nun eigentlich vollen Zugriff auf deinen Account haben. Falls das nicht der Fall ist, versuche die Seite einmal neu zu laden. Sollte der Fehler bestehen, melde ihn bitte als Bug ( siehe Feedback Tab ).",
-      "notVerified": "Verifizierung ausstehend - Deine E-Mail-Adresse scheint noch nicht verifiziert zu sein. Falls du die E-Mail nicht finden kannst schau vielleicht einmal im Spam-Ordner nach, oder prüfe deine Internetverbindung. Falls du die E-Mail bereits erhalten und bestätigt hast, drücke das Nachlade-Symbol.",
+      "explanation": "Damit wir sicherstellen können, dass die angegebene E-Mail auch wirklich Ihnen gehört haben wir Ihnen bei deiner Anmeldung eine E-Mail gesendet. In ihr ist ein Link enthalten mit dessen Hilfe Sie ihre E-Mail-Adresse verifizieren können. Klicken Sie dafür einfach auf den Knopf in der E-Mail.",
+      "verified": "Bereits verifiziert - Es scheint als wäre Ihre E-Mail-Adresse bereits verifiziert. Sie sollten nun eigentlich vollen Zugriff auf Ihren Account haben. Falls das nicht der Fall ist, versuchen Sie die Seite einmal neu zu laden. Sollte der Fehler bestehen, melden Sie ihn bitte als Bug (siehe Feedback Tab).",
+      "notVerified": "Verifizierung ausstehend - Ihre E-Mail-Adresse scheint noch nicht verifiziert zu sein. Falls Sie die E-Mail nicht finden können, schauen Sie vielleicht einmal im Spam-Ordner nach, oder prüfen Sie Ihre Internetverbindung. Falls Sie die E-Mail bereits erhalten und bestätigt haben, drücken Sie das Nachlade-Symbol.",
       "sent_title": "E-Mail versandt",
-      "sent": "Eine weitere E-Mail mit dem Link wurde nun an deine E-Mail-Adresse gesandt. Lade nach dem Verifizieren der E-Mail mit dem dafüt vorgesehenen Knopf nach."
+      "sent": "Eine weitere E-Mail mit dem Link wurde nun an Ihre E-Mail-Adresse gesandt. Laden Sie nach dem Verifizieren der E-Mail mit dem dafüt vorgesehenen Knopf nach."
     },
     "VIEW_SCHEDULE": {
       "title": "Zeitplan",
@@ -584,10 +581,6 @@
     "DATA_USE": {
       "title": "Informationen zur Datennutzung",
       "transparencyExplanation": "Es ist uns sehr wichtig transparent zu sein, welche Daten wir wie und zu welchem Zweck nutzen. In diesem Abschnitt kann ein guter Überblick darüber gewonnen werden, es ist jedoch zu beachten, dass die Angaben nach bestem Gewissen, jedoch ohne Gewähr sind. Rechtlich bindende Informationen dazu sind nur den Nutzungsbedingungen zu entnehmen."
-    },
-    "HELP": {
-      "title": "Hilfe",
-      "help": "Hier soll ein Text um dir zu helfen hin"
     },
     "IMPRESSUM": {
       "title": "Impressum",
@@ -677,7 +670,6 @@
       "terms": "AGBs",
       "impressum": "Impressum",
       "about": "About",
-      "help": "Hilfe",
       "settings": "Einstellungen"
     }
   }

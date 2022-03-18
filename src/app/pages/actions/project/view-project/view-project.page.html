@@ -46,11 +46,11 @@
                   <ion-label>project not authorized</ion-label>
                 </ion-chip>
                 <ion-chip *ngIf="permissions.includes('preferences.store') && project.id != user.project_id && !preference_ids.includes(project.id) && project.authorized" (click)="addProjectToPreferences()">
-                  <ion-icon name="star"></ion-icon>
+                  <ion-icon name="star" color="warning"></ion-icon>
                   <ion-label>{{ 'ACTIONS.VIEW_PROJECT.addToPreferences' | translate }}</ion-label>
                 </ion-chip>
-                <ion-chip *ngIf="permissions.includes('preferences.store') && project.id != user.project_id && preference_ids.includes(project.id)" (click)="removeProjectFromPreferences(this.project.id)">
-                  <ion-icon name="star" color="warning"></ion-icon>
+                <ion-chip color="danger" *ngIf="permissions.includes('preferences.store') && project.id != user.project_id && preference_ids.includes(project.id)" (click)="removeProjectFromPreferences(this.project.id)">
+                  <ion-icon name="close"></ion-icon>
                   <ion-label>{{ 'ACTIONS.VIEW_PROJECT.removeFromPreferences' | translate }}</ion-label>
                 </ion-chip>
                 <ion-chip *ngIf="permissions.includes('projects.toggleAuthorized') && !project.authorized" (click)="toggleAuthorized()" color="success">

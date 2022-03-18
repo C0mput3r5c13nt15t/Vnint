@@ -109,7 +109,10 @@ export class ViewProjectPage implements OnInit {
       error: error => {
         this.errorService.errorOccurred.emit(error);
       },
-      next: () => { },
+      next: response => {
+        const resp: any = response;
+        this.alertService.alert("success", this.translate.instant('ACTIONS.VIEW_PROJECT.title'), resp.message, "checkmark")
+      },
       complete: () => {
         this.getPreferences();
       }
@@ -124,7 +127,10 @@ export class ViewProjectPage implements OnInit {
       error: error => {
         this.errorService.errorOccurred.emit(error);
       },
-      next: () => { },
+      next: response => {
+        const resp: any = response;
+        this.alertService.alert("success", this.translate.instant('ACTIONS.VIEW_PROJECT.title'), resp.message, "checkmark")
+      },
       complete: () => {
         this.getPreferences();
       }

@@ -35,7 +35,7 @@ export class FriendshipService {
   }
 
   public authorizeFriendship(friendshipId: number): Observable<object> {
-    return this.http.put('/api/friendships/authorize/' + friendshipId, this.options);
+    return this.http.put('/api/friendships/authorise/' + friendshipId, this.options);
   }
 
   public declineFriendship(friendshipId: number): Observable<object> {

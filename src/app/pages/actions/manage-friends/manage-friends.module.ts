@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 import { IonicModule } from '@ionic/angular';
@@ -18,20 +18,21 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ManageFriendsPageRoutingModule,
-    ComponentsModule,
-    TranslateModule.forChild({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        ManageFriendsPageRoutingModule,
+        ComponentsModule,
+        TranslateModule.forChild({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
+        ReactiveFormsModule
+    ],
   declarations: [ManageFriendsPage]
 })
 export class ManageFriendsPageModule {}

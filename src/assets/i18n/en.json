@@ -44,7 +44,7 @@
       "feedback.show": "feedback.show",
       "feedback.store": "feedback.store",
       "friendships.accept": "friendships.accept",
-      "friendships.authorize": "friendships.authorize",
+      "friendships.authorise": "friendships.authorise",
       "friendships.decline": "friendships.decline",
       "friendships.destroy": "friendships.destroy",
       "friendships.index": "friendships.index",
@@ -179,7 +179,7 @@
           ["users.index", "roles.index"],
           ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"],
           ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
-          ["friendships.index", "friendships.show", "friendships.authorize", "friendships.decline"],
+          ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"],
           ["feedback.index", "feedback.show", "feedback.destroy"]
         ],
         "icon_name": "options",
@@ -212,7 +212,7 @@
             "icon": "people",
             "title": "Manage friendships",
             "link": "/manage-friendships",
-            "requiredPermissions": ["friendships.index", "friendships.show", "friendships.authorize", "friendships.decline"]
+            "requiredPermissions": ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"]
           },
           {
             "icon": "chatbubble",
@@ -490,18 +490,16 @@
         "submitButton": "Send Feedback"
       },
       "SUCCESS": {
-        "thankYou": "Thank you for your feedback ❤️",
-        "importanceOfFeedback": "Your feedback helps us to improve this site and ultimately also your and everybody else's user experience!"
+        "thankYou": "Thank you for your feedback ❤️"
       }
     },
     "MANAGE_FRIENDS": {
       "title": "Friends",
-      "explanation": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.",
       "LEGEND": {
         "yourFriendshipRequest": "Your friendship request ...",
-        "hourglass": "... hasn't yet been accepted nor declined.",
-        "check": "... has been accepted but still needs to be authorized.",
-        "doubleCheck": "... has been authorized and will be taken into account when computing the matchings."
+        "hourglass": "... still has to be accepted.",
+        "check": "... still has to be authorized.",
+        "doubleCheck": "... will be taken into account."
       },
       "proposedFriendships": "Proposed friendship requests",
       "receivedFriendships": "Received friendship requests",
@@ -529,12 +527,11 @@
     },
     "MANAGE_FRIENDSHIPS": {
       "title": "Manage Friendships",
-      "explanation": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.",
       "LEGEND": {
         "theFriendshipRequest": "The friendship request ...",
-        "hourglass": "... hasn't yet been accepted nor declined.",
-        "check": "... has been accepted but still needs to be authorized.",
-        "doubleCheck": "... has been authorized and will be taken into account when computing the matchings."
+        "hourglass": "... still has to be accepted.",
+        "check": "... still has to be authorized by you.",
+        "doubleCheck": "... will be taken into account."
       },
       "noFriends": "There currently aren't any open friendship requests ...",
       "FRIENDS": {
@@ -578,10 +575,6 @@
     "DATA_USE": {
       "title": "Information regarding data usage",
       "transparencyExplanation": "It is very important to us to be transparent about what data we use, how we use it and for what purpose. In this section, you can get a good overview, but it should be noted that the information is given to the best of our knowledge, but without liability. Legally binding information on this can only be found in the terms of use."
-    },
-    "HELP": {
-      "title": "Hilfe",
-      "help": "Just imagine a helpful text!"
     },
     "IMPRESSUM": {
       "title": "Impressum ☎️",
@@ -668,7 +661,6 @@
       "terms": "Terms",
       "impressum": "Impressum",
       "about": "About",
-      "help": "Help",
       "settings": "Settings"
     }
   }
