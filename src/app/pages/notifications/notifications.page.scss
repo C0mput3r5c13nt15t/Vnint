@@ -1,0 +1,12 @@
+.dashboard-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+  margin-top: 30px;
+  margin-left: 15px;
+  margin-bottom: 30px;
+  flex-grow: 1;
+  width: calc(100% - 30px);
+}

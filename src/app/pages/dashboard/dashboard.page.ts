@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Permission } from 'src/app/interfaces/permission';
 import { AuthService } from 'src/app/services/auth.service';
 import {AlertService} from "../../services/alert.service";
-import {element} from "protractor";
 
 @Component({
   selector: 'app-dashboard',

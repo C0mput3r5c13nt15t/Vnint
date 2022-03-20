@@ -15,7 +15,11 @@ export class AlertService {
               private errorService: ErrorService,
               private router: Router) {
     this.errorService.errorOccurred.subscribe(error => {
-      this.alert('danger', error.name, error.message, 'warning')
+      if (error.error.message) {
+        this.alert('danger', error.error.message, '', 'warning')
+      } else {
+        this.alert('danger', error.name, error.message, 'warning')
+      }
     });
   }
 
@@ -27,12 +31,8 @@ export class AlertService {
       message: message,
       created_at: new Date()
     };
-    if (type == 'success') {
-      this.successToast(alert);
-    } else {
-      this.alerts.push(alert)
-      this.alertToast(alert);
-    }
+    this.alerts.push(alert)
+    this.alertToast(alert);
   }
 
   public close(alertCreatedAt: Date): void {
@@ -48,6 +48,7 @@ export class AlertService {
       message: alert.message,
       icon: alert.icon,
       color: alert.color,
+      duration: 5000,
       position: 'top',
       buttons: [
         {
@@ -55,24 +56,8 @@ export class AlertService {
           handler: () => {
             this.router.navigate(['/give-feedback']);
           }
-        },
-        {
-          icon: 'close',
-          role: 'cancel'
-        },
+        }
       ]
-    });
-    await this.toast.present();
-  }
-
-  private async successToast(alert: Alert) {
-    this.toast = await this.toastController.create({
-      header: alert.title,
-      message: alert.message,
-      icon: alert.icon,
-      color: alert.color,
-      duration: 5000,
-      position: 'top',
     });
     await this.toast.present();
   }
@@ -91,11 +76,19 @@ export class AlertService {
     )
   }
 
-  get others(): Alert[] {
+  get primaries(): Alert[] {
     return this.alerts.filter(alert => {
         return alert.color == 'primary'
       }
     )
   }
+
+  get successes(): Alert[] {
+    return this.alerts.filter(alert => {
+        return alert.color == 'success'
+      }
+    )
+  }
+
 
 }

@@ -34,6 +34,8 @@
       "other": "❓ Other"
     },
     "PERMISSIONS": {
+      "applicationsettings.show": "View application settings",
+      "applicationsettings.update": "Update application settings",
       "events.destroy": "Event löschen",
       "events.index": "events.index",
       "events.store": "events.store",
@@ -92,6 +94,11 @@
         "title": "Settings",
         "url": "/settings",
         "icon": "settings"
+      },
+      {
+        "title": "Notifications",
+        "url": "/notifications",
+        "icon": "notifications"
       }
     ],
     "ACTIONS": {
@@ -169,12 +176,14 @@
     "ALERTS": {
       "danger": "Errors",
       "warning": "Warnings",
-      "primary": "Others"
+      "primary": "Others",
+      "success": "Successes"
     },
     "CARDS": [
       {
         "title": "Administrate",
         "requiredPermissions": [
+          ["applicationSettings.show", "applicationsettings.update"],
           ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"],
           ["users.index", "roles.index"],
           ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"],
@@ -185,14 +194,20 @@
         "icon_name": "options",
         "BUTTONS": [
           {
-            "icon": "create",
-            "title": "Administrate",
-            "link": "/administrate",
+            "icon": "settings",
+            "title": "Manage application settings",
+            "link": "/manage-application-settings",
+            "requiredPermissions": ["applicationsettings.show"]
+          },
+          {
+            "icon": "people",
+            "title": "Manage user roles",
+            "link": "/manage-user-roles",
             "requiredPermissions": ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"]
           },
           {
             "icon": "people",
-            "title": "Manage users",
+            "title": "View users",
             "link": "/manage-users",
             "requiredPermissions": ["users.index", "roles.index"]
           },
@@ -341,9 +356,12 @@
       "darkMode": "Dark mode"
     }
   },
+  "NOTIFICATIONS": {
+    "title": "Notifications"
+  },
   "ACTIONS": {
-    "ADMINISTRATE": {
-      "title": "Administrate",
+    "MANAGE_USER_ROLES": {
+      "title": "Manage user roles",
       "deleteRole": "Delete",
       "addRole": "Add role",
       "REMOVE_ROLE_ALERT": {
@@ -540,6 +558,16 @@
         "from": "from",
         "authorizeFriendship": "Authorize friendship",
         "declineFriendship": "Decline friendship"
+      }
+    },
+    "MANAGE_APPLICATION_SETTINGS": {
+      "title": "Manage application settings",
+      "INPUT": {
+        "non_guest_email_domain": "Email domain of non guest attendants (students)",
+        "max_friends": "Maximum amount of friends",
+        "min_preferences": "Minimum amount of project preferences",
+        "max_preferences": "Maximum amount of project preferences",
+        "submitButton": "Update settings"
       }
     },
     "VERIFY_EMAIL": {

@@ -1,0 +1,56 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <app-card-title-bar title="{{ 'ACTIONS.MANAGE_APPLICATION_SETTINGS.title' | translate }}"></app-card-title-bar>
+        <ion-card color="light">
+          <ion-card-content>
+            <ion-grid class="inside-card-grid">
+              <ion-row>
+                <ion-col>
+                  <form [formGroup]="updateApplicationSettingsForm" (ngSubmit)="updateApplicationSettings()">
+                    <ion-item color="light">
+                      <ion-label position="floating">{{ 'ACTIONS.MANAGE_APPLICATION_SETTINGS.INPUT.non_guest_email_domain' | translate }}</ion-label>
+                      <ion-input formControlName="non_guest_email_domain" type="text"></ion-input>
+                    </ion-item>
+                    <app-form-error [errors]="errorControl.non_guest_email_domain.errors"></app-form-error>
+
+                    <br>
+
+                    <ion-item color="light">
+                      <ion-label position="floating">{{ 'ACTIONS.MANAGE_APPLICATION_SETTINGS.INPUT.max_friends' | translate }}</ion-label>
+                      <ion-input formControlName="max_friends" type="number"></ion-input>
+                    </ion-item>
+                    <app-form-error [errors]="errorControl.max_friends.errors"></app-form-error>
+
+                    <br>
+
+                    <ion-item color="light">
+                      <ion-label position="floating">{{ 'ACTIONS.MANAGE_APPLICATION_SETTINGS.INPUT.min_preferences' | translate }}</ion-label>
+                      <ion-input formControlName="min_preferences" type="number"></ion-input>
+                    </ion-item>
+                    <app-form-error [errors]="errorControl.min_preferences.errors"></app-form-error>
+
+                    <br>
+
+                    <ion-item color="light">
+                      <ion-label position="floating">{{ 'ACTIONS.MANAGE_APPLICATION_SETTINGS.INPUT.max_preferences' | translate }}</ion-label>
+                      <ion-input formControlName="max_preferences" type="number"></ion-input>
+                    </ion-item>
+                    <app-form-error [errors]="errorControl.max_preferences.errors"></app-form-error>
+
+                    <div class="ion-padding">
+                      <ion-button *ngIf="!isProcessed" type="submit" [disabled]="updateApplicationSettingsForm.invalid || isProcessed || !permissions.includes('applicationsettings.update') || !eventPermissions.includes('applicationsettings.update')" class="ion-no-margin" expand="block" color="primary">{{ 'ACTIONS.MANAGE_APPLICATION_SETTINGS.INPUT.submitButton' | translate }}</ion-button>
+                      <ion-button *ngIf="isProcessed" type="submit" [disabled]="updateApplicationSettingsForm.invalid || isProcessed" class="ion-no-margin" expand="block" color="primary"><ion-spinner name="crescent"></ion-spinner></ion-button>
+                    </div>
+                  </form>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

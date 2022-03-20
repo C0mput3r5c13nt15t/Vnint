@@ -49,6 +49,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
   {
+    path: 'notifications',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
     path: 'account',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/account/account.module').then( m => m.AccountPageModule)
@@ -84,9 +89,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/other/data-use/data-use.module').then( m => m.DataUsePageModule)
   },
   {
-    path: 'administrate',
+    path: 'manage-user-roles',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/actions/admin/administrate/administrate.module').then( m => m.AdministratePageModule)
+    loadChildren: () => import('./pages/actions/admin/manage-user-roles/manage-user-roles.module').then(m => m.AdministratePageModule)
+  },
+  {
+    path: 'manage-application-settings',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/actions/admin/manage-application-settings/manage-application-settings.module').then( m => m.ManageApplicationSettingsPageModule)
   },
   {
     path: 'view-feedback',
@@ -137,6 +147,14 @@ const routes: Routes = [
     path: 'manage-users',
     canActivate: [AuthGuard],
     loadChildren: () => import('./pages/actions/admin/manage-users/manage-users.module').then( m => m.ManageUsersPageModule)
+  },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'manage-application-settings',
+    loadChildren: () => import('./pages/actions/admin/manage-application-settings/manage-application-settings.module').then( m => m.ManageApplicationSettingsPageModule)
   }
 ];
 

@@ -8,10 +8,10 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { AdministratePageRoutingModule } from './administrate-routing.module';
+import { AdministratePageRoutingModule } from './manage-user-roles-routing.module';
 import { ComponentsModule } from '../../../../components/components.module';
 
-import { AdministratePage } from './administrate.page';
+import { ManageUserRolesPage } from './manage-user-roles.page';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,6 +32,6 @@ export function createTranslateLoader(http: HttpClient) {
       }
     })
   ],
-  declarations: [AdministratePage]
+  declarations: [ManageUserRolesPage]
 })
 export class AdministratePageModule {}

@@ -5,7 +5,7 @@ ion-card {
   flex-direction: row;
   align-items: flex-start;
   transition: all 0.1s;
-  margin: 0 15px 15px;
+  margin: 7.5px 15px;
   flex-grow: 1 !important;
   text-align: left;
   height: calc(100% - 30px);
@@ -28,10 +28,6 @@ ion-card {
 
 ion-card:hover {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
-}
-
-ion-card:hover {
-  transform: scale(1.02);
 }
 
 .number {

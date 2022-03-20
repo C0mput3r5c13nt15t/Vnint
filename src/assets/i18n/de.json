@@ -34,6 +34,8 @@
       "other": "❓ Sonstiges"
     },
     "PERMISSIONS": {
+      "applicationsettings.show": "Applikationseinstellungen einsehen",
+      "applicationsettings.update": "Applikationseinstellungen aktualisieren",
       "events.destroy": "Event löschen",
       "events.index": "events.index",
       "events.store": "events.store",
@@ -92,6 +94,11 @@
         "title": "Einstellungen",
         "url": "/settings",
         "icon": "settings"
+      },
+      {
+        "title": "Benachrichtigungen",
+        "url": "/notifications",
+        "icon": "notifications"
       }
     ],
     "ACTIONS": {
@@ -174,12 +181,14 @@
     "ALERTS": {
       "danger": "Fehler",
       "warning": "Warnungen",
-      "primary": "Andere"
+      "primary": "Andere",
+      "success": "Erfolgreiche"
     },
     "CARDS": [
       {
         "title": "Administrieren",
         "requiredPermissions": [
+          ["applicationsettings.show"],
           ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"],
           ["users.index", "roles.index"],
           ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"],
@@ -190,14 +199,20 @@
         "icon_name": "options",
         "BUTTONS": [
           {
-            "icon": "create",
-            "title": "Administrieren",
-            "link": "/administrate",
+            "icon": "settings",
+            "title": "Applikationseinstellungen",
+            "link": "/manage-application-settings",
+            "requiredPermissions": ["applicationsettings.show"]
+          },
+          {
+            "icon": "people",
+            "title": "Benutzerrollen verwalten",
+            "link": "/manage-user-roles",
             "requiredPermissions": ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"]
           },
           {
             "icon": "people",
-            "title": "Benutzer verwalten",
+            "title": "Benutzer einsehen",
             "link": "/manage-users",
             "requiredPermissions": ["users.index", "roles.index"]
           },
@@ -346,9 +361,12 @@
       "darkMode": "Dunkler Modus"
     }
   },
+  "NOTIFICATIONS": {
+    "title": "Benachrichtigungen"
+  },
   "ACTIONS": {
-    "ADMINISTRATE": {
-      "title": "Administrieren",
+    "MANAGE_USER_ROLES": {
+      "title": "Benutzerrollen verwalten",
       "deleteRole": "Löschen",
       "addRole": "Rolle hinzufügen",
       "REMOVE_ROLE_ALERT": {
@@ -530,6 +548,16 @@
       "title": "Projektwünsche verwalten",
       "removePreference": "Projektwunsch entfernen",
       "noPreferences": "Sie haben noch keine Projektwünsche angegeben ..."
+    },
+    "MANAGE_APPLICATION_SETTINGS": {
+      "title": "Applikationseinstellungen verwalten",
+      "INPUT": {
+        "non_guest_email_domain": "Email Domain von nicht-Gast Nutzern (Schülern)",
+        "max_friends": "Maximale Anzahl Freunde",
+        "min_preferences": "Minimale Anzahl Projektwünsche",
+        "max_preferences": "Maximale Anzahl Projektwünsche",
+        "submitButton": "Einstellungen aktualisieren"
+      }
     },
     "MANAGE_FRIENDSHIPS": {
       "title": "Freundschaften verwalten",

@@ -14,6 +14,6 @@ export class ErrorService {
   }
 
   private showError(error: Error): void {
-    console.log(error.name + ': ' + error.message);
+    console.log(error);
   }
 }

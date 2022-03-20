@@ -3,7 +3,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <app-card-title-bar title="{{ 'ACTIONS.ADMINISTRATE.title' | translate }}"></app-card-title-bar>
+        <app-card-title-bar title="{{ 'ACTIONS.MANAGE_USER_ROLES.title' | translate }}"></app-card-title-bar>
         <ion-card color="light">
           <ion-card-content>
             <ion-grid class="inside-card-grid">
@@ -26,10 +26,11 @@
                             <ion-icon name="chevron-up"></ion-icon>
                             <ion-label>{{ 'GENERAL.showLess' | translate }}</ion-label>
                           </ion-chip>
-                          <ion-chip color="danger" (click)="removeRole(role.id)">
+                          <ion-chip disabled="true" color="danger" (click)="removeRole(role.id)">
                             <ion-icon name="trash"></ion-icon>
-                            <ion-label>{{ 'ACTIONS.ADMINISTRATE.deleteRole' | translate }}</ion-label>
+                            <ion-label>{{ 'ACTIONS.MANAGE_USER_ROLES.deleteRole' | translate }}</ion-label>
                           </ion-chip>
+                          <!-- TODO enable role deletion again (as soon as role creation is updated) -->
                           <app-form-error [errors]="role.errors"></app-form-error>
                           <ion-list [@openClose]="role.show_permissions ? 'open' : 'closed'" *ngIf="permissions.length > 0">
                             <ion-item lines="none" *ngFor="let permission of permissions">
@@ -43,7 +44,8 @@
                     <br>
                   </ng-container>
                   <div class="ion-padding">
-                    <ion-button color="primary" (click)="addRole()" expand="block" type="submit" class="ion-no-margin">+ {{ 'ACTIONS.ADMINISTRATE.addRole' | translate }}</ion-button>
+                    <ion-button disabled="true" color="primary" (click)="addRole()" expand="block" type="submit" class="ion-no-margin">+ {{ 'ACTIONS.MANAGE_USER_ROLES.addRole' | translate }}</ion-button>
+                    <!-- TODO Convert the popup to an html form which can display the returned error messages and has a isProcessed variable (see manage friends) -->
                   </div>
                 </ion-col>
               </ion-row>

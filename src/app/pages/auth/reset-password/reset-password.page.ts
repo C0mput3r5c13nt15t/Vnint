@@ -92,7 +92,7 @@ export class ResetPasswordPage implements OnInit {
           },
           next: response => {
             let resp: any = response;
-            this.alert.alert("success", this.translate.instant('RESET_PASSWORD.title'), resp.message, "send");
+            this.alert.alert("success", this.translate.instant('RESET_PASSWORD.title'), resp.message, "checkmark");
           },
           complete: () => {
             this.resetPasswordForm.reset();

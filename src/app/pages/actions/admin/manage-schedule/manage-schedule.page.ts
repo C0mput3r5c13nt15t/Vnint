@@ -195,7 +195,7 @@ export class ManageSchedulePage implements OnInit {
               for (const errorMessage in error.error.errors[errorType]) {
                 errors.push({[error.error.errors[errorType][errorMessage]]: true});
               }
-              this.addEventForm.controls[errorType].setErrors(errors);
+              this.updateEventForm.controls[errorType].setErrors(errors);
             }
           } else {
             this.errorService.errorOccurred.emit(error);

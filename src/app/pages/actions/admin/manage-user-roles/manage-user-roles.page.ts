@@ -8,9 +8,9 @@ import { Permission } from 'src/app/interfaces/permission';
 import { ErrorService } from 'src/app/services/error.service';
 
 @Component({
-  selector: 'app-administrate',
-  templateUrl: './administrate.page.html',
-  styleUrls: ['./administrate.page.scss'],
+  selector: 'app-manage-user-roles',
+  templateUrl: './manage-user-roles.page.html',
+  styleUrls: ['./manage-user-roles.page.scss'],
   animations: [
     trigger('openClose', [
       state('open', style({
@@ -29,7 +29,7 @@ import { ErrorService } from 'src/app/services/error.service';
     ]),
   ],
 })
-export class AdministratePage implements OnInit {
+export class ManageUserRolesPage implements OnInit {
   roles: Role[] = [];
   permissions: Permission[] = [];
 
@@ -77,12 +77,12 @@ export class AdministratePage implements OnInit {
 
   addRole() {
     let alert = this.alertCtrl.create({
-      header: this.translate.instant('ACTIONS.ADMINISTRATE.ADD_ROLE_ALERT.header'),
+      header: this.translate.instant('ACTIONS.MANAGE_USER_ROLES.ADD_ROLE_ALERT.header'),
       backdropDismiss: true,
       inputs: [
         {
           name: 'name',
-          placeholder: this.translate.instant('ACTIONS.ADMINISTRATE.ADD_ROLE_ALERT.name'),
+          placeholder: this.translate.instant('ACTIONS.MANAGE_USER_ROLES.ADD_ROLE_ALERT.name'),
         }
       ],
       buttons: [
@@ -92,7 +92,7 @@ export class AdministratePage implements OnInit {
           role: 'cancel'
         },
         {
-          text: this.translate.instant('ACTIONS.ADMINISTRATE.ADD_ROLE_ALERT.addButton'),
+          text: this.translate.instant('ACTIONS.MANAGE_USER_ROLES.ADD_ROLE_ALERT.addButton'),
           handler: input => {
             this.rolesAndPermissionsService.createRole({name: input.name}).subscribe({
               error: error => {
@@ -108,6 +108,7 @@ export class AdministratePage implements OnInit {
                 }
               },
               next: response => {
+                // TODO make a success alert
                 const resp: any = response;
                 if (resp.created_role) {
                   resp.created_role.permissions_names = resp.created_role.permissions.map(permission => permission.name);
@@ -132,21 +133,23 @@ export class AdministratePage implements OnInit {
       error: error => {
         this.errorService.errorOccurred.emit(error);
       },
-      next: () => {}
+      next: () => {
+        // TODO make a success alert
+      }
     });
   }
 
   async removeRole(roleId) {
     const alert = await this.alertController.create({
-      header: this.translate.instant('ACTIONS.ADMINISTRATE.REMOVE_ROLE_ALERT.alertHeader'),
-      message: this.translate.instant('ACTIONS.ADMINISTRATE.REMOVE_ROLE_ALERT.alertText'),
+      header: this.translate.instant('ACTIONS.MANAGE_USER_ROLES.REMOVE_ROLE_ALERT.alertHeader'),
+      message: this.translate.instant('ACTIONS.MANAGE_USER_ROLES.REMOVE_ROLE_ALERT.alertText'),
       buttons: [
         {
           cssClass: 'cancel-text',
           text: this.translate.instant('GENERAL.POPUPS.cancel'),
           role: 'cancel',
         }, {
-          text: this.translate.instant('ACTIONS.ADMINISTRATE.REMOVE_ROLE_ALERT.deleteButton'),
+          text: this.translate.instant('ACTIONS.MANAGE_USER_ROLES.REMOVE_ROLE_ALERT.deleteButton'),
           handler: () => {
             this.rolesAndPermissionsService.deleteRole(roleId).subscribe({
               error: error => {
@@ -162,7 +165,9 @@ export class AdministratePage implements OnInit {
                   this.errorService.errorOccurred.emit(error);
                 }
               },
-              next: () => { },
+              next: () => {
+                // TODO make a success alert
+              },
               complete: () => {
                 this.roles = this.roles.filter(role => role.id != roleId);
               },

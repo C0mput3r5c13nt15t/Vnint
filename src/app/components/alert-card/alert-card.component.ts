@@ -25,7 +25,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   ],
 })
 export class AlertCardComponent implements OnInit {
-  @Input()  type: 'warning' | 'danger' | 'primary';
+  @Input()  type: 'warning' | 'danger' | 'primary' | 'success';
   @Input()  alerts: Alert[];
 
   details = false;

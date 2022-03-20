@@ -22,13 +22,6 @@
       </ng-container>
     </ng-container>
   </div>
-  <ng-container *ngIf="alertService.alerts.length > 0">
-    <div class="dashboard-row">
-      <app-alert-card type="danger" [alerts]="alertService.errors"></app-alert-card>
-      <app-alert-card type="warning" [alerts]="alertService.warnings"></app-alert-card>
-      <app-alert-card type="primary" [alerts]="alertService.others"></app-alert-card>
-    </div>
-  </ng-container>
   <div class="dashboard-row">
     <ng-container  *ngIf="error || ('DASHBOARD.CARDS' | translate) == 'DASHBOARD.CARDS'">
       <app-nav-card cardTitle="⚠️ Error" cardLink="/give-feedback" cardDescription="We are sorry but there seems to be some kind of error. Click here to report it."></app-nav-card>
