@@ -11,10 +11,11 @@
                   {{ greeting.title }}
                 </ion-card-title>
               </ion-card-header>
-              <ion-card-content>
+              <ion-card-content *ngIf="quoteOfTheDay">
                 <ion-label>
-                  {{ greeting.description }}
-                </ion-label>
+                  {{ quoteOfTheDay.quote }} <b>- {{ quoteOfTheDay.author }}</b>
+                </ion-label><br>
+                <ion-label class="copyright">{{ quoteOfTheDay.copyright }}</ion-label>
               </ion-card-content>
             </ion-card-content>
           </ion-card>

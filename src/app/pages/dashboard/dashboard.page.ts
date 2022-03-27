@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Permission } from 'src/app/interfaces/permission';
 import { AuthService } from 'src/app/services/auth.service';
-import {AlertService} from "../../services/alert.service";
+import {AlertService} from 'src/app/services/alert.service';
+import {QuoteService} from 'src/app/services/quote.service';
+import {Quote} from 'src/app/interfaces/quote';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,14 +15,26 @@ export class DashboardPage implements OnInit {
   error = false;
   permissions: Permission[] = [];
   eventPermissions: Permission[] = [];
-  today = new Date()
-  curHr = this.today.getHours()
+  today = new Date();
+  curHr = this.today.getHours();
+  quoteOfTheDay: Quote;
 
   constructor(private auth: AuthService,
               private router: Router,
-              public alertService: AlertService) { }
+              public alertService: AlertService,
+              private quoteService: QuoteService) { }
 
   ngOnInit() {
+    this.quoteService.getQuote().subscribe({
+      next: response => {
+        const resp: any = response;
+        this.quoteOfTheDay = {
+          quote: resp.contents.quotes[0].quote,
+          author: resp.contents.quotes[0].author,
+          copyright: 'Copyright © ' + resp.copyright.year.toString() + ' ' + resp.copyright.url,
+        }
+      }
+    })
   }
 
   ionViewWillEnter() {

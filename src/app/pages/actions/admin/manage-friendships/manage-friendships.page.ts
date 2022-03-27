@@ -47,7 +47,6 @@ export class ManageFriendshipsPage implements OnInit {
         this.alertService.alert("success", this.translate.instant('ACTIONS.MANAGE_FRIENDSHIPS.title'), resp.message, "checkmark")
       },
       complete: () => {
-        console.log('Friendship authorized');
         this.getFriendships();
       },
     });
@@ -63,7 +62,6 @@ export class ManageFriendshipsPage implements OnInit {
         this.alertService.alert("success", this.translate.instant('ACTIONS.MANAGE_FRIENDSHIPS.title'), resp.message, "checkmark")
       },
       complete: () => {
-        console.log('Friendship declined');
         this.getFriendships();
       },
     });

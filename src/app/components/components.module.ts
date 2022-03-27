@@ -20,15 +20,14 @@ import { CardTitleBarComponent } from "./card-title-bar/card-title-bar.component
 import {FormErrorComponent} from "./form-error/form-error.component";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import {createTranslateLoader} from "src/app/app.module";
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     RouterModule,
+    FontAwesomeModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,

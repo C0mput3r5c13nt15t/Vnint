@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class EventService {
   private headers = new HttpHeaders({
     accept: 'application/json',
-    aontentType: 'application/json',
+    contentType: 'application/json',
   });
   private options = { this:this.headers, withCredentials: true };
 

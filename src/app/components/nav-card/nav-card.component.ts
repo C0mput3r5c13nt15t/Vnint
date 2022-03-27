@@ -13,7 +13,7 @@ export class NavCardComponent implements OnInit {
   @Input()  cardButtons: string;
   @Input()  permissions: Permission[] = [];
   @Input()  eventPermissions: Permission[] = [];
-  cardButtonsArray: object[];
+  cardButtonsArray: any[];
 
 
   constructor(private router: Router) { }
@@ -23,7 +23,6 @@ export class NavCardComponent implements OnInit {
   }
 
   route(route) {
-    console.log(route);
     this.router.navigate([route]);
   }
 

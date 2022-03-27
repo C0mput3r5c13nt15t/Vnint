@@ -6,16 +6,13 @@ import { HttpClient } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { ManageFriendshipsPageRoutingModule } from './manage-friendships-routing.module';
 import { ComponentsModule } from '../../../../components/components.module';
 
 import { ManageFriendshipsPage } from './manage-friendships.page';
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import {createTranslateLoader} from "src/app/app.module";
 
 @NgModule({
   imports: [

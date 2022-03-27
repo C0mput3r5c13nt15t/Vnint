@@ -3,23 +3,11 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <app-card-title-bar backButton="false" title="{{ 'NOTIFICATIONS.title' | translate }}"></app-card-title-bar>
-        <ion-card color="light">
-          <ion-card-content>
-            <ion-grid class="inside-card-grid">
-              <ion-row>
-                <ion-col>
-                  <div>
-                    <app-alert-card type="danger" [alerts]="alertService.errors"></app-alert-card>
-                    <app-alert-card type="warning" [alerts]="alertService.warnings"></app-alert-card>
-                    <app-alert-card type="primary" [alerts]="alertService.primaries"></app-alert-card>
-                    <app-alert-card type="success" [alerts]="alertService.successes"></app-alert-card>
-                  </div>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-card-content>
-        </ion-card>
+        <app-card-title-bar [backButton]="false" title="{{ 'NOTIFICATIONS.title' | translate }}"></app-card-title-bar>
+          <app-alert-card type="danger" [alerts]="alertService.errors"></app-alert-card>
+          <app-alert-card type="warning" [alerts]="alertService.warnings"></app-alert-card>
+          <app-alert-card type="primary" [alerts]="alertService.primaries"></app-alert-card>
+          <app-alert-card type="success" [alerts]="alertService.successes"></app-alert-card>
       </ion-col>
     </ion-row>
   </ion-grid>

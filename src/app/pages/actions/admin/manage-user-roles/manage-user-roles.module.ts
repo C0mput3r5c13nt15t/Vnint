@@ -12,10 +12,7 @@ import { AdministratePageRoutingModule } from './manage-user-roles-routing.modul
 import { ComponentsModule } from '../../../../components/components.module';
 
 import { ManageUserRolesPage } from './manage-user-roles.page';
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import {createTranslateLoader} from "src/app/app.module";
 
 @NgModule({
   imports: [

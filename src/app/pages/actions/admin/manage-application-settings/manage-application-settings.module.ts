@@ -10,7 +10,7 @@ import { ManageApplicationSettingsPage } from './manage-application-settings.pag
 import {ComponentsModule} from "../../../../components/components.module";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpClient} from "@angular/common/http";
-import {createTranslateLoader} from "../manage-user-roles/manage-user-roles.module";
+import {createTranslateLoader} from "src/app/app.module";
 
 @NgModule({
   imports: [

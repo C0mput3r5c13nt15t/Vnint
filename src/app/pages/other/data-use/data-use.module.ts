@@ -13,9 +13,7 @@ import { DataUsePageRoutingModule } from './data-use-routing.module';
 import { DataUsePage } from './data-use.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import {createTranslateLoader} from "src/app/app.module";
 
 @NgModule({
   imports: [

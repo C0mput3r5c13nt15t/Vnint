@@ -52,14 +52,6 @@ ion-grid {
   margin-top: 0;
 }
 
-ion-router-outlet {
-  margin-left: -15px;
-}
-
-app-login, app-register, app-forgot-password, app-reset-password, app-settings, app-terms, app-impressum {
-  margin-left: 15px;
-}
-
 .fixed-footer div {
   position: fixed;
   bottom: 0;
@@ -69,12 +61,6 @@ app-login, app-register, app-forgot-password, app-reset-password, app-settings, 
 @media (max-width: 991px) {
   ion-grid {
     margin-top: calc(25px + 2.5rem);
-  }
-  ion-router-outlet {
-    margin-left: 0;
-  }
-  app-login, app-register, app-forgot-password, app-reset-password, app-settings, app-terms, app-impressum {
-    margin-left: 0;
   }
   .fixed-footer div {
     position: relative;

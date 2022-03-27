@@ -3,7 +3,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <app-card-title-bar backButton="false" title="{{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.title' | translate }}"></app-card-title-bar>
+        <app-card-title-bar [backButton]="false" title="{{ 'ACCOUNT.UPDATE_ACCOUNT_INFORMATION.title' | translate }}"></app-card-title-bar>
         <ion-card color="light">
           <ion-card-content>
             <ion-grid class="inside-card-grid">
@@ -48,7 +48,7 @@
           </ion-card-content>
         </ion-card>
         <br><br><br>
-        <app-card-title-bar backButton="false" title="{{ 'ACCOUNT.CHANGE_PASSWORD.title' | translate }}"></app-card-title-bar>
+        <app-card-title-bar [backButton]="false" title="{{ 'ACCOUNT.CHANGE_PASSWORD.title' | translate }}"></app-card-title-bar>
         <ion-card color="light">
           <ion-card-content>
             <ion-grid class="inside-card-grid">
@@ -83,7 +83,7 @@
           </ion-card-content>
         </ion-card>
         <br><br><br>
-        <app-card-title-bar color="danger" backButton="false" title="{{ 'ACCOUNT.DELETE_ACCOUNT.title' | translate }}"></app-card-title-bar>
+        <app-card-title-bar color="danger" [backButton]="false" title="{{ 'ACCOUNT.DELETE_ACCOUNT.title' | translate }}"></app-card-title-bar>
         <ion-card color="light">
           <ion-card-content>
             <ion-grid class="inside-card-grid">

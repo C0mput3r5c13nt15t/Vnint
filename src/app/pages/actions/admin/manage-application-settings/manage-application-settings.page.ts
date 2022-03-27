@@ -16,8 +16,8 @@ import {Router} from "@angular/router";
 export class ManageApplicationSettingsPage implements OnInit {
   updateApplicationSettingsForm: FormGroup;
   isProcessed = false;
-  permissions: Permission[] = [];
-  eventPermissions: Permission[] = [];
+  permissions: string[] = [];
+  eventPermissions: string[] = [];
 
   constructor(private formBuilder: FormBuilder,
               private errorService: ErrorService,

@@ -74,7 +74,7 @@ export class CreateProjectPage implements OnInit {
             }
 
           } else if (error.error.message == 'alreadyHasProject') {
-            console.log('You already have a project!');
+            this.alertService.alert("danger", this.translate.instant('ACTIONS.CREATE_PROJECT.title'), this.translate.instant('ACTIONS.CREATE_PROJECT.ERRORS.alreadyHasProject'), "close")
           } else {
             this.errorService.errorOccurred.emit(error);
           }

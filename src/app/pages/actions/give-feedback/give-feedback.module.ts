@@ -13,9 +13,7 @@ import { ComponentsModule } from '../../../components/components.module';
 
 import { GiveFeedbackPage } from './give-feedback.page';
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+import {createTranslateLoader} from "src/app/app.module";
 
 @NgModule({
   imports: [
