@@ -6,14 +6,16 @@
     "showLess": "Weniger anzeigen",
     "createdAt": "Erstellt am",
     "updatedAt": "Zuletzt aktualisiert am",
-    "ERROR": {
+    "ERRORS": {
+      "missingPermissions": "Sie sind nicht berechtigt diese Aktion durchzuführen",
       "sessionExpired": "Die Session ist bereits abgelaufen"
     },
     "timezone": "+0",
     "locale": "de",
     "timeDisplayFormat": "d. MMM YYYY",
-    "exactTimeDisplayFormat": "d. MMM YYYY, H:mm",
+    "exactTimeDisplayFormat": "d. MMM YYYY, H:mm 'Uhr'",
     "hoursAndMinutesTimeDisplayFormat": "H:mm 'Uhr'",
+    "hourCycle": "h23",
     "POPUPS": {
       "ok": "Ok",
       "done": "Fertig",
@@ -433,7 +435,7 @@
         "leader": "Leiter",
         "description": "Beschreibung",
         "image": "Bild",
-        "timeframe": "Zeitrahmen [UTC]",
+        "timeframe": "Zeitrahmen",
         "date": "Datum",
         "datePlaceholder": "Wählen Sie ein Datum",
         "fromPlaceholder": "Beginn",
@@ -447,7 +449,8 @@
         "submitButton": "Projekt erstellen"
       },
       "ERRORS": {
-        "alreadyHasProject": "Du hast bereits ein Projekt erstellt."
+        "alreadyHasProject": "Ihr hast bereits ein Projekt erstellt.",
+        "uploadTooLarge": "Ihr Titelbild ist zu groß."
       }
     },
     "EDIT_PROJECT": {
@@ -457,7 +460,7 @@
         "title": "Titel",
         "leader": "Leiter",
         "description": "Beschreibung",
-        "timeframe": "Zeitrahmen [UTC]",
+        "timeframe": "Zeitrahmen",
         "date": "Datum",
         "datePlaceholder": "Wählen Sie ein Datum",
         "fromPlaceholder": "Beginn",
@@ -474,12 +477,13 @@
     "MANAGE_PROJECT": {
       "title": "Projekt verwalten",
       "topic": "Thema",
+      "timeframes": "Zeiträume",
       "leader": "Leiter",
       "cost": "Kosten",
       "grade": "Klassenstufe",
       "capacity": "Kapazität",
-      "from": "von",
-      "until": "bis",
+      "from": "Vom",
+      "until": "Bis",
       "edit": "Bearbeiten",
       "delete": "Löschen"
     },
@@ -498,6 +502,7 @@
     "VIEW_PROJECT": {
       "title": "Projekt einsehen",
       "topic": "Thema",
+      "timeframes": "Zeiträume",
       "leader": "Leiter",
       "cost": "Kosten",
       "grade": "Klassenstufe",
@@ -530,7 +535,7 @@
       },
       "proposedFriendships": "Gestellte Freundschaftsanfragen",
       "receivedFriendships": "Empfangene Freundschaftsanfragen",
-      "noFriends": "Du hast aktuell keine offenen Freundschaftsanfragen ...",
+      "noFriends": "Sie haben aktuell keine offenen Freundschaftsanfragen ...",
       "FRIENDS": {
         "proposedOn": "Gestellt am",
         "receivedOn": "Empfangen am",

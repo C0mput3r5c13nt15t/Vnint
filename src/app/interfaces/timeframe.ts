@@ -6,6 +6,7 @@
  export interface Timeframe {
   id?: number;
   project_id?: number;
+  date: Date;
   from: Date;
   until: Date;
   created_at?: Date;

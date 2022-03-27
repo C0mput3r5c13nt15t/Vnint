@@ -8,6 +8,8 @@ import {User} from 'src/app/interfaces/user';
 import {Preference} from 'src/app/interfaces/preference';
 import {PreferencesService} from 'src/app/services/preference.service';
 import {ErrorService} from 'src/app/services/error.service';
+import {TranslateService} from "@ngx-translate/core";
+import {AlertService} from "../../../../services/alert.service";
 
 @Component({
   selector: 'app-view-projects',
@@ -28,7 +30,9 @@ export class ViewProjectsPage implements OnInit {
               private auth: AuthService,
               private router: Router,
               private preferencesService: PreferencesService,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private translate: TranslateService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.searchProjectForm = this.formBuilder.group({
@@ -55,7 +59,11 @@ export class ViewProjectsPage implements OnInit {
 
           this.auth.permissions().subscribe({
             error: error => {
-              this.errorService.errorOccurred.emit(error);
+              if (error.error.message == 'missingPermissions') {
+                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+              } else {
+                this.errorService.errorOccurred.emit(error);
+              }
             },
             next: response => {
               const resp: any = response;

@@ -7,7 +7,7 @@ import { Timeframe } from 'src/app/interfaces/timeframe';
 import { TimeframeService } from 'src/app/services/timeframe.service';
 import { ErrorService } from 'src/app/services/error.service';
 import {TranslateService} from '@ngx-translate/core';
-import {format, formatISO, parseISO} from 'date-fns';
+import {formatISO, parseISO} from "date-fns";
 import {AlertService} from "../../../../services/alert.service";
 
 @Component({
@@ -60,8 +60,12 @@ export class EditProjectPage implements OnInit {
       next: response => {
         const resp: any = response;
         for (const timeframe of resp.project.timeframes) {
-          timeframe.from = formatISO(parseISO(timeframe.from));
-          timeframe.until = formatISO(parseISO(timeframe.until));
+          const fromCopy = new Date(parseISO(timeframe.from).getTime());
+          fromCopy.setHours(fromCopy.getHours() - 2);
+          timeframe.from = formatISO(fromCopy);
+          const untilCopy = new Date(parseISO(timeframe.until).getTime());
+          untilCopy.setHours(untilCopy.getHours() - 2);
+          timeframe.until = formatISO(untilCopy);
         }
         this.editProjectForm.patchValue(resp.project);
         if (resp.project.timeframes) {
@@ -76,44 +80,41 @@ export class EditProjectPage implements OnInit {
     if (!this.isProcessed && this.editProjectForm.valid) {
       this.isProcessed = true;
 
-      this.projectService.updateProject(this.editProjectForm.value).subscribe({
-        error: error => {
-          if (error.error.message == 'The given data was invalid.') {
-            for (const errorType in error.error.errors) {
-              const errors: any = [];
-              for (const errorMessage in error.error.errors[errorType]) {
-                errors.push({[error.error.errors[errorType][errorMessage]]: true});
-              }
-              this.editProjectForm.controls[errorType].setErrors(errors);
-            }
-
-          } else {
-            this.errorService.errorOccurred.emit(error);
-          }
-          this.isProcessed = false;
-        },
-        next: response => {
-          const resp: any = response;
-          this.alertService.alert("success", this.translate.instant('ACTIONS.EDIT_PROJECT.title'), resp.message, "checkmark")
-        },
-        complete: () => {
-          this.editProjectForm.reset();
-          this.isProcessed = false;
-          this.router.navigate(['/manage-project']);
-        },
-      });
+      this.updateProject();
 
       this.timeframes.forEach(timeframe => {
         if (!timeframe.id) {
           this.timeframeService.createTimeframe(timeframe).subscribe({
             error: error => {
-              this.errorService.errorOccurred.emit(error);
+              if (error.error.message == 'The given data was invalid.') {
+                for (const errorType in error.error.errors) {
+                  for (const errorMessage in error.error.errors[errorType]) {
+                    this.alertService.alert("danger", this.translate.instant('ACTIONS.EDIT_PROJECT.title'), error.error.errors[errorType][errorMessage], 'close');
+                  }
+                }
+
+              } else if (error.error.message == 'missingPermissions') {
+                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+              } else {
+                this.errorService.errorOccurred.emit(error);
+              }
             }
           });
         } else {
           this.timeframeService.updateTimeframe(timeframe).subscribe({
             error: error => {
-              this.errorService.errorOccurred.emit(error);
+              if (error.error.message == 'The given data was invalid.') {
+                for (const errorType in error.error.errors) {
+                  for (const errorMessage in error.error.errors[errorType]) {
+                    this.alertService.alert("danger", this.translate.instant('ACTIONS.EDIT_PROJECT.title'), error.error.errors[errorType][errorMessage], 'close');
+                  }
+                }
+
+              } else if (error.error.message == 'missingPermissions') {
+                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+              } else {
+                this.errorService.errorOccurred.emit(error);
+              }
             }
           });
         }
@@ -122,15 +123,57 @@ export class EditProjectPage implements OnInit {
       this.deleteTimeframes.forEach(timeframe => {
         this.timeframeService.deleteTimeframe(timeframe.id).subscribe({
           error: error => {
-            this.errorService.errorOccurred.emit(error);
+            if (error.error.message == 'The given data was invalid.') {
+              for (const errorType in error.error.errors) {
+                for (const errorMessage in error.error.errors[errorType]) {
+                  this.alertService.alert("danger", this.translate.instant('ACTIONS.EDIT_PROJECT.title'), error.error.errors[errorType][errorMessage], 'close');
+                }
+              }
+
+            } else if (error.error.message == 'missingPermissions') {
+              this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+            } else {
+              this.errorService.errorOccurred.emit(error);
+            }
           }
         });
       });
     }
   }
 
+  updateProject() {
+    this.projectService.updateProject(this.editProjectForm.value).subscribe({
+      error: error => {
+        if (error.error.message == 'The given data was invalid.') {
+          for (const errorType in error.error.errors) {
+            const errors: any = [];
+            for (const errorMessage in error.error.errors[errorType]) {
+              errors.push({[error.error.errors[errorType][errorMessage]]: true});
+            }
+            this.editProjectForm.controls[errorType].setErrors(errors);
+          }
+
+        } else if (error.error.message == 'missingPermissions') {
+          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+        } else {
+          this.errorService.errorOccurred.emit(error);
+        }
+        this.isProcessed = false;
+      },
+      next: response => {
+        const resp: any = response;
+        this.alertService.alert("success", this.translate.instant('ACTIONS.EDIT_PROJECT.title'), resp.message, "checkmark")
+      },
+      complete: () => {
+        this.editProjectForm.reset();
+        this.isProcessed = false;
+        this.router.navigate(['/manage-project']);
+      },
+    });
+  }
+
   addTimeframe() {
-    this.timeframes.push({from: null, until: null});
+    this.timeframes.push({date: null, from: null, until: null});
   }
 
   deleteTimeframe(timeframe) {

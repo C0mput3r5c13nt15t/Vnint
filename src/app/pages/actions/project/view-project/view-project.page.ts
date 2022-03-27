@@ -59,7 +59,11 @@ export class ViewProjectPage implements OnInit {
 
           this.auth.permissions().subscribe({
             error: error => {
-              this.errorService.errorOccurred.emit(error);
+              if (error.error.message == 'missingPermissions') {
+                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+              } else {
+                this.errorService.errorOccurred.emit(error);
+              }
             },
             next: response => {
               const resp: any = response;
@@ -79,7 +83,11 @@ export class ViewProjectPage implements OnInit {
   getProject(projectId) {
     this.projectService.getProject(projectId).subscribe({
       error: error => {
-        this.errorService.errorOccurred.emit(error);
+        if (error.error.message == 'missingPermissions') {
+          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+        } else {
+          this.errorService.errorOccurred.emit(error);
+        }
       },
       next: response => {
         const resp: any = response;
@@ -91,7 +99,11 @@ export class ViewProjectPage implements OnInit {
   getPreferences() {
     this.preferencesService.getAssociatedPreferences().subscribe({
       error: error => {
-        this.errorService.errorOccurred.emit(error);
+        if (error.error.message == 'missingPermissions') {
+          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+        } else {
+          this.errorService.errorOccurred.emit(error);
+        }
       },
       next: response => {
         const resp: any = response;
@@ -107,7 +119,11 @@ export class ViewProjectPage implements OnInit {
   addProjectToPreferences() {
     this.preferencesService.createPreference(this.project.id).subscribe({
       error: error => {
-        this.errorService.errorOccurred.emit(error);
+        if (error.error.message == 'missingPermissions') {
+          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+        } else {
+          this.errorService.errorOccurred.emit(error);
+        }
       },
       next: response => {
         const resp: any = response;
@@ -125,7 +141,11 @@ export class ViewProjectPage implements OnInit {
     preferenceId = preference.id;
     this.preferencesService.deletePreference(preferenceId).subscribe({
       error: error => {
-        this.errorService.errorOccurred.emit(error);
+        if (error.error.message == 'missingPermissions') {
+          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+        } else {
+          this.errorService.errorOccurred.emit(error);
+        }
       },
       next: response => {
         const resp: any = response;
@@ -140,7 +160,11 @@ export class ViewProjectPage implements OnInit {
   toggleAuthorized() {
     this.projectService.toggleAuthorizedOfProject(this.project.id).subscribe({
       error: error => {
-        this.errorService.errorOccurred.emit(error);
+        if (error.error.message == 'missingPermissions') {
+          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+        } else {
+          this.errorService.errorOccurred.emit(error);
+        }
       },
       next: response => {
         const resp: any = response;
@@ -155,7 +179,11 @@ export class ViewProjectPage implements OnInit {
   deleteProject() {
     this.projectService.deleteProject(this.project.id).subscribe({
       error: error => {
-        this.errorService.errorOccurred.emit(error);
+        if (error.error.message == 'missingPermissions') {
+          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+        } else {
+          this.errorService.errorOccurred.emit(error);
+        }
       },
       next: response => {
         const resp: any = response;

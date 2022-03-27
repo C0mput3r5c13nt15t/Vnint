@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Feedback} from 'src/app/interfaces/feedback';
 import {FeedbackService} from 'src/app/services/feedback.service';
 import {ErrorService} from 'src/app/services/error.service';
+import {TranslateService} from "@ngx-translate/core";
+import {AlertService} from "../../../../services/alert.service";
 
 @Component({
   selector: 'app-view-feedback',
@@ -16,7 +18,9 @@ export class ViewFeedbackPage implements OnInit {
 
   constructor(private feedbackService: FeedbackService,
               private formBuilder: FormBuilder,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private translate: TranslateService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.searchFeedbackForm = this.formBuilder.group({

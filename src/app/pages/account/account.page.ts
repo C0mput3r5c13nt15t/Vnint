@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/services/auth.service'
 import { TranslateService } from '@ngx-translate/core';
 import { User } from 'src/app/interfaces/user';
 import { ErrorService } from 'src/app/services/error.service';
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-account',
@@ -30,7 +31,8 @@ export class AccountPage implements OnInit {
               private auth: AuthService,
               private alertController: AlertController,
               private translate: TranslateService,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.updateProfileForm = this.formBuilder.group({
@@ -88,6 +90,8 @@ export class AccountPage implements OnInit {
                 }
                 this.updateProfileForm.controls[errorType].setErrors(errors)
               }
+            } else if (error.error.message == 'missingPermissions') {
+              this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
             } else {
               this.errorService.errorOccurred.emit(error);
             }
@@ -121,6 +125,8 @@ export class AccountPage implements OnInit {
                 }
                 this.changePasswordForm.controls[errorType].setErrors(errors)
               }
+            } else if (error.error.message == 'missingPermissions') {
+              this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
             } else {
               this.errorService.errorOccurred.emit(error);
             }

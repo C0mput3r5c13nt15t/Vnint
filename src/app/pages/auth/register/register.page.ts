@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorService } from 'src/app/services/error.service';
+import {TranslateService} from "@ngx-translate/core";
+import {AlertService} from "../../../services/alert.service";
 
 @Component({
   selector: 'app-register',
@@ -16,7 +18,9 @@ export class RegisterPage implements OnInit {
   constructor(public formBuilder: FormBuilder,
               private auth: AuthService,
               private router: Router,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private translate: TranslateService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -70,6 +74,8 @@ export class RegisterPage implements OnInit {
                 }
                 this.registerForm.controls[errorType].setErrors(errors)
               }
+            } else if (error.error.message == 'missingPermissions') {
+              this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
             } else {
               this.errorService.errorOccurred.emit(error);
             }
@@ -81,6 +87,7 @@ export class RegisterPage implements OnInit {
             this.auth.setLoggedIn = true;
             this.router.navigate(['/dashboard']);
             this.isProcessed = false;
+            this.auth.authChanged.emit('register');
           },
         });
       }

@@ -11,7 +11,7 @@
                 <ion-col>
                   <form [formGroup]="loginForm" (ngSubmit)="login()">
                     <ion-label color="danger" class="ion-padding" *ngIf="sessionExpired">
-                      {{ 'GENERAL.ERROR.sessionExpired' | translate }}
+                      {{ 'GENERAL.ERRORS.sessionExpired' | translate }}
                       <br>
                     </ion-label>
 

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorService } from 'src/app/services/error.service';
+import {TranslateService} from "@ngx-translate/core";
+import {AlertService} from "../../../services/alert.service";
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,9 @@ export class LoginPage implements OnInit {
   constructor(public formBuilder: FormBuilder,
               private auth: AuthService,
               private router: Router,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private translate: TranslateService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -70,6 +74,8 @@ export class LoginPage implements OnInit {
                 }
                 this.loginForm.controls[errorType].setErrors(errors);
               }
+            } else if (error.error.message == 'missingPermissions') {
+              this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
             } else {
               this.errorService.errorOccurred.emit(error);
             }

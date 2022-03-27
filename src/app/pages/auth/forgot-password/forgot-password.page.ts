@@ -19,7 +19,7 @@ export class ForgotPasswordPage implements OnInit {
               private auth: AuthService,
               private router: Router,
               private errorService: ErrorService,
-              private alert: AlertService,
+              private alertService: AlertService,
               private translate: TranslateService) {
   }
 
@@ -66,6 +66,8 @@ export class ForgotPasswordPage implements OnInit {
                 }
                 this.forgotPasswordForm.controls[errorType].setErrors(errors);
               }
+            } else if (error.error.message == 'missingPermissions') {
+              this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
             } else {
               this.errorService.errorOccurred.emit(error);
             }
@@ -73,7 +75,7 @@ export class ForgotPasswordPage implements OnInit {
           },
           next: response => {
             let resp: any = response;
-            this.alert.alert("success", this.translate.instant('FORGOT_PASSWORD.title'), resp.message, "send");
+            this.alertService.alert("success", this.translate.instant('FORGOT_PASSWORD.title'), resp.message, "send");
           },
           complete: () => {
             this.forgotPasswordForm.reset();

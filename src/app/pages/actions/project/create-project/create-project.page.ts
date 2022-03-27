@@ -7,6 +7,7 @@ import { TimeframeService } from 'src/app/services/timeframe.service';
 import { ErrorService } from 'src/app/services/error.service';
 import { TranslateService } from '@ngx-translate/core';
 import {AlertService} from "../../../../services/alert.service";
+import {formatISO, parseISO} from "date-fns";
 
 @Component({
   selector: 'app-create-project',
@@ -74,7 +75,11 @@ export class CreateProjectPage implements OnInit {
             }
 
           } else if (error.error.message == 'alreadyHasProject') {
-            this.alertService.alert("danger", this.translate.instant('ACTIONS.CREATE_PROJECT.title'), this.translate.instant('ACTIONS.CREATE_PROJECT.ERRORS.alreadyHasProject'), "close")
+            this.alertService.alert("danger", this.translate.instant('ACTIONS.CREATE_PROJECT.title'), this.translate.instant('ACTIONS.CREATE_PROJECT.ERRORS.alreadyHasProject'), 'close')
+          } else if (error.status == 413) {
+            this.alertService.alert("danger", this.translate.instant('ACTIONS.CREATE_PROJECT.title'), this.translate.instant('ACTIONS.CREATE_PROJECT.ERRORS.uploadTooLarge'), 'cloud-upload');
+          } else if (error.error.message == 'missingPermissions') {
+            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }
@@ -102,7 +107,7 @@ export class CreateProjectPage implements OnInit {
   }
 
   addTimeframe() {
-    this.timeframes.push({from: null, until: null});
+    this.timeframes.push({date: null, from: null, until: null});
   }
 
   deleteTimeframe(timeframe) {

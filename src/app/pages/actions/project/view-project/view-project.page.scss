@@ -3,3 +3,9 @@
 hr {
   background-color: var(--ion-color-step-550, #737373);
 }
+
+.timeframe-card {
+  display: inline-block;
+  margin-bottom: 0;
+  box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+}

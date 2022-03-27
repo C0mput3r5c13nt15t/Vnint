@@ -62,7 +62,11 @@ export class ViewSingleFeedbackPage implements OnInit {
           handler: () => {
             this.feedbackService.deleteFeedback(this.feedback.id).subscribe({
               error: error => {
-                this.errorService.errorOccurred.emit(error);
+                if (error.error.message == 'missingPermissions') {
+                  this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+                } else {
+                  this.errorService.errorOccurred.emit(error);
+                }
               },
               next: response => {
                 const resp: any = response;

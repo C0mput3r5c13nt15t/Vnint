@@ -56,7 +56,11 @@ export class ManageFriendsPage implements OnInit {
   removeFriend(friendshipId) {
     this.friendshipService.deleteFriendship(friendshipId).subscribe({
       error: error => {
-        this.errorService.errorOccurred.emit(error);
+        if (error.error.message == 'missingPermissions') {
+          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+        } else {
+          this.errorService.errorOccurred.emit(error);
+        }
       },
       next: response => {
         const resp: any = response;
@@ -70,33 +74,6 @@ export class ManageFriendsPage implements OnInit {
 
   addFriend() {
     this.isProcessed = true;
-/*    let alert = this.alertCtrl.create({
-      header: this.translate.instant('ACTIONS.MANAGE_FRIENDS.FRIENDS.ADD_FRIEND_ALERT.header'),
-      backdropDismiss: true,
-      inputs: [
-        {
-          name: 'email',
-          placeholder: this.translate.instant('ACTIONS.MANAGE_FRIENDS.FRIENDS.ADD_FRIEND_ALERT.email'),
-        }
-      ],
-      buttons: [
-        {
-          cssClass: 'cancel-text',
-          text: this.translate.instant('GENERAL.POPUPS.cancel'),
-          role: 'cancel'
-        },
-        {
-          text: this.translate.instant('ACTIONS.MANAGE_FRIENDS.FRIENDS.ADD_FRIEND_ALERT.addButton'),
-          handler: input => {
-
-            return false;
-          }
-        }
-      ]
-    });
-    alert.then(addFriendAlert => {
-      addFriendAlert.present();
-    });*/
     if (!this.addFriendForm.value.fax && this.addFriendForm.valid) {
       this.friendshipService.createFriendship({respondent_email: this.addFriendForm.value.respondent_email}).subscribe({
         error: error => {
@@ -109,6 +86,8 @@ export class ManageFriendsPage implements OnInit {
               console.log(this.addFriendForm.controls)
               this.addFriendForm.controls[errorType].setErrors(errors);
             }
+          } else if (error.error.message == 'missingPermissions') {
+            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }
@@ -130,7 +109,11 @@ export class ManageFriendsPage implements OnInit {
   acceptFriend(friendshipId) {
     this.friendshipService.acceptFriendship(friendshipId).subscribe({
       error: error => {
-        this.errorService.errorOccurred.emit(error);
+        if (error.error.message == 'missingPermissions') {
+          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+        } else {
+          this.errorService.errorOccurred.emit(error);
+        }
       },
       next: response => {
         const resp: any = response;

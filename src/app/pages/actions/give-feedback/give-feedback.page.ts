@@ -20,7 +20,7 @@ export class GiveFeedbackPage implements OnInit {
               private formBuilder: FormBuilder,
               private errorService: ErrorService,
               private alertService: AlertService,
-              private translateService: TranslateService,
+              private translate: TranslateService,
               private router: Router) { }
 
   ngOnInit() {
@@ -53,6 +53,8 @@ export class GiveFeedbackPage implements OnInit {
               }
               this.giveFeedbackForm.controls[errorType].setErrors(errors)
             }
+          } else if (error.error.message == 'missingPermissions') {
+            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }
@@ -60,7 +62,7 @@ export class GiveFeedbackPage implements OnInit {
         },
         next: response => {
           const resp: any = response;
-          this.alertService.alert("success", this.translateService.instant('ACTIONS.GIVE_FEEDBACK.SUCCESS.thankYou'), resp.message, "heart")
+          this.alertService.alert("success", this.translate.instant('ACTIONS.GIVE_FEEDBACK.SUCCESS.thankYou'), resp.message, "heart")
         },
         complete: () => {
           this.success = true;

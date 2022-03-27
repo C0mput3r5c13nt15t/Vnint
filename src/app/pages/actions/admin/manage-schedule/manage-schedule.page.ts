@@ -141,6 +141,8 @@ export class ManageSchedulePage implements OnInit {
               }
               this.addEventForm.controls[errorType].setErrors(errors);
             }
+          } else if (error.error.message == 'missingPermissions') {
+            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }
@@ -153,7 +155,11 @@ export class ManageSchedulePage implements OnInit {
           const addEventPermissionsNames = this.addEventPermissions.filter(permission => permission.isChecked).map(permissions => permissions.name);
           this.eventService.syncPermissions(resp.event.id, {permissions: addEventPermissionsNames}).subscribe({
             error: error => {
-              this.errorService.errorOccurred.emit(error);
+              if (error.error.message == 'missingPermissions') {
+                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+              } else {
+                this.errorService.errorOccurred.emit(error);
+              }
             },
             complete: () => {
               this.getEvents();
@@ -197,6 +203,8 @@ export class ManageSchedulePage implements OnInit {
               }
               this.updateEventForm.controls[errorType].setErrors(errors);
             }
+          } else if (error.error.message == 'missingPermissions') {
+            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }

@@ -7,6 +7,8 @@ import {User} from "../../../../interfaces/user";
 import {Preference} from "../../../../interfaces/preference";
 import {AuthService} from "../../../../services/auth.service";
 import {PreferencesService} from "../../../../services/preference.service";
+import {AlertService} from "../../../../services/alert.service";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-manage-project',
@@ -24,7 +26,9 @@ export class ManageProjectPage implements OnInit {
               private router: Router,
               private errorService: ErrorService,
               private auth: AuthService,
-              private preferencesService: PreferencesService) { }
+              private preferencesService: PreferencesService,
+              private alertService: AlertService,
+              private translate: TranslateService) { }
 
   ngOnInit() {
   }
@@ -48,7 +52,11 @@ export class ManageProjectPage implements OnInit {
 
           this.auth.permissions().subscribe({
             error: error => {
-              this.errorService.errorOccurred.emit(error);
+              if (error.error.message == 'missingPermissions') {
+                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+              } else {
+                this.errorService.errorOccurred.emit(error);
+              }
             },
             next: response => {
               const resp: any = response;

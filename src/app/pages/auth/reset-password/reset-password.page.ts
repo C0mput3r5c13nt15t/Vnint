@@ -21,7 +21,7 @@ export class ResetPasswordPage implements OnInit {
               private router: Router,
               private errorService: ErrorService,
               private translate: TranslateService,
-              private alert: AlertService) { }
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.resetPasswordForm = this.formBuilder.group({
@@ -85,6 +85,8 @@ export class ResetPasswordPage implements OnInit {
                 }
                 this.resetPasswordForm.controls[errorType].setErrors(errors)
               }
+            } else if (error.error.message == 'missingPermissions') {
+              this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
             } else {
               this.errorService.errorOccurred.emit(error);
             }
@@ -92,7 +94,7 @@ export class ResetPasswordPage implements OnInit {
           },
           next: response => {
             let resp: any = response;
-            this.alert.alert("success", this.translate.instant('RESET_PASSWORD.title'), resp.message, "checkmark");
+            this.alertService.alert("success", this.translate.instant('RESET_PASSWORD.title'), resp.message, "checkmark");
           },
           complete: () => {
             this.resetPasswordForm.reset();

@@ -6,7 +6,8 @@
     "showLess": "Show less",
     "createdAt": "Created at",
     "updatedAt": "Last updated at",
-    "ERROR": {
+    "ERRORS": {
+      "missingPermissions": "You do not have the required permissions to permform this action.",
       "sessionExpired": "Session expired"
     },
     "timezone": "+0",
@@ -14,6 +15,7 @@
     "timeDisplayFormat": "MMM d, YYYY",
     "exactTimeDisplayFormat": "MMM d, YYYY, hh:mm a",
     "hoursAndMinutesTimeDisplayFormat": "h:mm a",
+    "hourCycle": "h12",
     "POPUPS": {
       "ok": "Ok",
       "done": "Done",
@@ -428,7 +430,7 @@
         "leader": "Leader",
         "description": "Description",
         "image": "Image",
-        "timeframe": "Timeframe  [UTC]",
+        "timeframe": "Timeframe",
         "date": "Date",
         "datePlaceholder": "Choose a date",
         "fromPlaceholder": "Beginning",
@@ -442,7 +444,8 @@
         "submitButton": "Create project"
       },
       "ERRORS": {
-        "alreadyHasProject": "Du hast bereits ein Projekt erstellt."
+        "alreadyHasProject": "You have already created a project.",
+        "uploadTooLarge": "Your title image is too large."
       }
     },
     "EDIT_PROJECT": {
@@ -452,7 +455,7 @@
         "title": "Title",
         "leader": "Leader",
         "description": "Description",
-        "timeframe": "Timeframe  [UTC]",
+        "timeframe": "Timeframe",
         "datePlaceholder": "Choose a date",
         "fromPlaceholder": "Beginning",
         "untilPlaceholder": "End",
@@ -468,12 +471,13 @@
     "MANAGE_PROJECT": {
       "title": "Manage project",
       "topic": "Topic",
+      "timeframes": "Timeframes",
       "leader": "Leader",
       "cost": "Cost",
       "grade": "Grade",
       "capacity": "Capacity",
-      "from": "from",
-      "until": "until",
+      "from": "From",
+      "until": "Until",
       "edit": "Edit",
       "delete": "Delete"
     },
@@ -492,6 +496,7 @@
     "VIEW_PROJECT": {
       "title": "Projekt einsehen",
       "topic": "Topic",
+      "timeframes": "Timeframes",
       "leader": "Leader",
       "cost": "Cost",
       "grade": "Grade",

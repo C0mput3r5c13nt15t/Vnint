@@ -6,6 +6,7 @@ import { RolesAndPermissionsService } from 'src/app/services/roles-and-permissio
 import { Role } from 'src/app/interfaces/role';
 import { Permission } from 'src/app/interfaces/permission';
 import { ErrorService } from 'src/app/services/error.service';
+import {AlertService} from "../../../../services/alert.service";
 
 @Component({
   selector: 'app-manage-user-roles',
@@ -37,7 +38,8 @@ export class ManageUserRolesPage implements OnInit {
               private alertCtrl: AlertController,
               private rolesAndPermissionsService: RolesAndPermissionsService,
               private alertController: AlertController,
-              private errorService: ErrorService) { }
+              private errorService: ErrorService,
+              private alertService: AlertService) { }
 
   ngOnInit() {
   }
@@ -103,6 +105,8 @@ export class ManageUserRolesPage implements OnInit {
                       errors.push(error.error.errors[errorType][errorMessage] + '\n');
                     }
                   }
+                } else if (error.error.message == 'missingPermissions') {
+                  this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
                 } else {
                   this.errorService.errorOccurred.emit(error);
                 }
@@ -161,6 +165,8 @@ export class ManageUserRolesPage implements OnInit {
                       role.errors.push({[error.error.errors[errorType][errorMessage]]: true})
                     }
                   }
+                } else if (error.error.message == 'missingPermissions') {
+                  this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
                 } else {
                   this.errorService.errorOccurred.emit(error);
                 }

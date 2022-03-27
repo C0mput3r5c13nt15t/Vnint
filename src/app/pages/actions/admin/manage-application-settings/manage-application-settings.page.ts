@@ -84,6 +84,8 @@ export class ManageApplicationSettingsPage implements OnInit {
               }
               this.updateApplicationSettingsForm.controls[errorType].setErrors(errors);
             }
+          } else if (error.error.message == 'missingPermissions') {
+            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }

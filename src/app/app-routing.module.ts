@@ -65,7 +65,6 @@ const routes: Routes = [
   },
   {
     path: 'give-feedback',
-    canActivate: [AuthGuard],
     loadChildren: () => import('./pages/actions/give-feedback/give-feedback.module').then( m => m.GiveFeedbackPageModule)
   },
   {
