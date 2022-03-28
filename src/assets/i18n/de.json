@@ -278,7 +278,7 @@
         "BUTTONS": [
           {
             "icon": "shield-checkmark",
-            "title": "E-Mail-Adress verifizieren",
+            "title": "E-Mail-Adresse verifizieren",
             "link": "/verify-email",
             "requiredPermissions": []
           },
@@ -505,7 +505,7 @@
       "ROLES": {
         "leader": "Projektleiter",
         "assistent": "Assistent",
-        "participant": "Teilnemher"
+        "participant": "Teilnehmer"
       },
       "REMOVE_ASSISTANT_POPUP": {
         "alertHeader": "Sind Sie sich sicher?",
@@ -617,7 +617,7 @@
       "verified": "Bereits verifiziert - Es scheint als wäre Ihre E-Mail-Adresse bereits verifiziert. Sie sollten nun eigentlich vollen Zugriff auf Ihren Account haben. Falls das nicht der Fall ist, versuchen Sie die Seite einmal neu zu laden. Sollte der Fehler bestehen, melden Sie ihn bitte als Bug (siehe Feedback Tab).",
       "notVerified": "Verifizierung ausstehend - Ihre E-Mail-Adresse scheint noch nicht verifiziert zu sein. Falls Sie die E-Mail nicht finden können, schauen Sie vielleicht einmal im Spam-Ordner nach, oder prüfen Sie Ihre Internetverbindung. Falls Sie die E-Mail bereits erhalten und bestätigt haben, drücken Sie das Nachlade-Symbol.",
       "sent_title": "E-Mail versandt",
-      "sent": "Eine weitere E-Mail mit dem Link wurde nun an Ihre E-Mail-Adresse gesandt. Laden Sie nach dem Verifizieren der E-Mail mit dem dafüt vorgesehenen Knopf nach."
+      "sent": "Eine weitere E-Mail mit dem Link wurde nun an Ihre E-Mail-Adresse gesandt. Laden Sie nach dem Verifizieren der E-Mail mit dem dafür vorgesehenen Knopf nach."
     },
     "VIEW_SCHEDULE": {
       "title": "Zeitplan",

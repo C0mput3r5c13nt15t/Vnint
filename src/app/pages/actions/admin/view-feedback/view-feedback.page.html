@@ -11,7 +11,7 @@
                 <ion-col>
                   <form [formGroup]="searchFeedbackForm">
                     <ion-searchbar color="light" (ionChange)="searchFeedback()" placeholder="{{ 'ACTIONS.VIEW_FEEDBACK.INPUT.searchFeedbackPlaceholder' | translate }}" formControlName="short_description" showCancelButton="focus"></ion-searchbar>
-                    <ion-select (ionChange)="searchFeedback()" multiple formControlName="type" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}">
+                    <ion-select (ionChange)="searchFeedback()" multiple="true" formControlName="type" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}">
                       <ion-select-option value="general">{{ 'GENERAL.FEEDBACK_TYPES.general' | translate }}</ion-select-option>
                       <ion-select-option value="feature">{{ 'GENERAL.FEEDBACK_TYPES.feature' | translate }}</ion-select-option>
                       <ion-select-option value="translation">{{ 'GENERAL.FEEDBACK_TYPES.translation' | translate }}</ion-select-option>

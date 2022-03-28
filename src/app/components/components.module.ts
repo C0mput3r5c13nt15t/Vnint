@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 import { IonicModule } from '@ionic/angular';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { EmptyCardComponent } from './empty-card/empty-card.component';
 import { FooterComponent } from './footer/footer.component';

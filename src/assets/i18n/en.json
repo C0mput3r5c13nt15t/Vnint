@@ -7,7 +7,7 @@
     "createdAt": "Created at",
     "updatedAt": "Last updated at",
     "ERRORS": {
-      "missingPermissions": "You currently do not have the required permissions to permform this action.",
+      "missingPermissions": "You currently do not have the required permissions to perform this action.",
       "sessionExpired": "Session expired"
     },
     "timezone": "+0",
@@ -574,7 +574,7 @@
     },
     "MANAGE_PREFERENCES": {
       "title": "Manage project wishes",
-      "removePreference": "Remove projet wish",
+      "removePreference": "Remove project wish",
       "noPreferences": "You don't yet have any project wishes ..."
     },
     "MANAGE_FRIENDSHIPS": {
