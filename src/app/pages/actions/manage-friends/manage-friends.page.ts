@@ -18,7 +18,7 @@ export class ManageFriendsPage implements OnInit {
   offered_friendships: Friendship[] = [];
   received_friendships: Friendship[] = [];
 
-  constructor(public formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
               private alertCtrl: AlertController,
               private translate: TranslateService,
               private friendshipService: FriendshipService,
@@ -57,7 +57,7 @@ export class ManageFriendsPage implements OnInit {
     this.friendshipService.deleteFriendship(friendshipId).subscribe({
       error: error => {
         if (error.error.message == 'missingPermissions') {
-          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+          this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
         } else {
           this.errorService.errorOccurred.emit(error);
         }
@@ -87,7 +87,7 @@ export class ManageFriendsPage implements OnInit {
               this.addFriendForm.controls[errorType].setErrors(errors);
             }
           } else if (error.error.message == 'missingPermissions') {
-            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+            this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }
@@ -110,7 +110,7 @@ export class ManageFriendsPage implements OnInit {
     this.friendshipService.acceptFriendship(friendshipId).subscribe({
       error: error => {
         if (error.error.message == 'missingPermissions') {
-          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+          this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
         } else {
           this.errorService.errorOccurred.emit(error);
         }

@@ -1,7 +1,7 @@
 <ion-content>
   <app-toolbar></app-toolbar>
   <div class="dashboard-row">
-    <ng-container *ngIf="('DASHBOARD.GREETINGS' | translate) != 'DASHBOARD.CARDS'">
+    <ng-container *ngIf="('DASHBOARD.GREETINGS' | translate) != 'DASHBOARD.GREETINGS'">
       <ng-container *ngFor="let greeting of ('DASHBOARD.GREETINGS' | translate)">
         <ng-container>
           <ion-card class="greeting-card" color="light" *ngIf="curHr >= greeting.hours[0] && curHr < greeting.hours[1]">
@@ -17,6 +17,12 @@
                 </ion-label><br>
                 <ion-label class="copyright">{{ quoteOfTheDay.copyright }}</ion-label>
               </ion-card-content>
+              <ion-card-content *ngIf="!quoteOfTheDay">
+                <ion-label>
+                  Loading inspirational quote ...
+                </ion-label><br>
+                <ion-label class="copyright">Copyright © 2024 https://theysaidso.com</ion-label>
+              </ion-card-content>
             </ion-card-content>
           </ion-card>
         </ng-container>
@@ -25,7 +31,18 @@
   </div>
   <div class="dashboard-row">
     <ng-container  *ngIf="error || ('DASHBOARD.CARDS' | translate) == 'DASHBOARD.CARDS'">
-      <app-nav-card cardTitle="⚠️ Error" cardLink="/give-feedback" cardDescription="We are sorry but there seems to be some kind of error. Click here to report it."></app-nav-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            Error
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-label>
+            We are sorry but there seems to be some kind of error. Click <a routerLink="/give-feedback">here</a> to report it.
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
     </ng-container>
     <ng-container *ngIf="('DASHBOARD.CARDS' | translate) != 'DASHBOARD.CARDS'">
       <ng-container *ngFor="let card of ('DASHBOARD.CARDS' | translate)">

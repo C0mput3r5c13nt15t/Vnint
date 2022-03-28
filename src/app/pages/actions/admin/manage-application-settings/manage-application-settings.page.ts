@@ -5,7 +5,6 @@ import {ErrorService} from "../../../../services/error.service";
 import {AlertService} from "../../../../services/alert.service";
 import {TranslateService} from "@ngx-translate/core";
 import {AuthService} from "../../../../services/auth.service";
-import {Permission} from "../../../../interfaces/permission";
 import {Router} from "@angular/router";
 
 @Component({
@@ -85,7 +84,7 @@ export class ManageApplicationSettingsPage implements OnInit {
               this.updateApplicationSettingsForm.controls[errorType].setErrors(errors);
             }
           } else if (error.error.message == 'missingPermissions') {
-            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+            this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }

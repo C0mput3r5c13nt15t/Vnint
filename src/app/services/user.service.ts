@@ -17,4 +17,8 @@ export class UserService {
   public getUsers(): Observable<object> {
     return this.http.get('/api/users', this.options);
   }
+
+  public convertToGuestAttendant(id: number): Observable<object> {
+    return this.http.patch('/api/users/convert_to_guestAttendant/' + id, null, this.options);
+  }
 }

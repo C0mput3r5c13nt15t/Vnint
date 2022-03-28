@@ -11,7 +11,7 @@
                 <ion-col>
                   <form [formGroup]="searchUsersForm">
                     <ion-searchbar color="light" (ionChange)="searchUsers()" placeholder="{{ 'ACTIONS.MANAGE_USERS.INPUT.searchUsersPlaceholder' | translate }}" formControlName="email" showCancelButton="focus"></ion-searchbar>
-                    <ion-select (ionChange)="searchUsers()" multiple formControlName="roles" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}" placeholder="{{ role_names }}">
+                    <ion-select (ionChange)="searchUsers()" multiple="true" formControlName="roles" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}" placeholder="{{ role_names }}">
                       <ion-select-option *ngFor="let role_name of role_names" value="{{ role_name }}">{{ role_name }}</ion-select-option>
                     </ion-select>
                   </form>
@@ -26,6 +26,18 @@
                             <ion-label class="subtitle-labels" color="primary"><b>{{ role.name }} </b></ion-label>
                           </ng-container>
                           <ion-label class="subtitle-labels">- {{ user.created_at | date :( 'GENERAL.exactTimeDisplayFormat' | translate ) }}</ion-label>
+                          <ng-container *ngFor="let role of user.roles">
+                            <ng-container *ngIf="role.name == 'attendant'">
+                              <br>
+                              <hr>
+                              <ion-row>
+                                <ion-chip (click)="convertToGuestAttendant(user.id)">
+                                  <ion-icon name="sync"></ion-icon>
+                                  <ion-label>Convert to guestAttendant</ion-label>
+                                </ion-chip>
+                              </ion-row>
+                            </ng-container>
+                          </ng-container>
                         </ion-card-subtitle>
                       </ion-card-header>
                     </ion-card>

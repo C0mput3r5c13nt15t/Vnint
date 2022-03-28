@@ -12,6 +12,8 @@ import { Timeframe } from './timeframe';
   title: string;
   leader_id: number;
   leader?: any;
+  assistants?: any[];
+  participants?: any[];
   description: string;
   cost: number;
   min_grade: number;

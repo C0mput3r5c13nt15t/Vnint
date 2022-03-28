@@ -94,7 +94,7 @@ export class EditProjectPage implements OnInit {
                 }
 
               } else if (error.error.message == 'missingPermissions') {
-                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+                this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
               } else {
                 this.errorService.errorOccurred.emit(error);
               }
@@ -111,7 +111,7 @@ export class EditProjectPage implements OnInit {
                 }
 
               } else if (error.error.message == 'missingPermissions') {
-                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+                this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
               } else {
                 this.errorService.errorOccurred.emit(error);
               }
@@ -131,7 +131,7 @@ export class EditProjectPage implements OnInit {
               }
 
             } else if (error.error.message == 'missingPermissions') {
-              this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+              this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
             } else {
               this.errorService.errorOccurred.emit(error);
             }
@@ -154,7 +154,7 @@ export class EditProjectPage implements OnInit {
           }
 
         } else if (error.error.message == 'missingPermissions') {
-          this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+          this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
         } else {
           this.errorService.errorOccurred.emit(error);
         }
@@ -173,7 +173,7 @@ export class EditProjectPage implements OnInit {
   }
 
   addTimeframe() {
-    this.timeframes.push({date: null, from: null, until: null});
+    this.timeframes.push({from: null, until: null});
   }
 
   deleteTimeframe(timeframe) {

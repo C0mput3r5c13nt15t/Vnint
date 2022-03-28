@@ -60,7 +60,7 @@ export class ViewProjectsPage implements OnInit {
           this.auth.permissions().subscribe({
             error: error => {
               if (error.error.message == 'missingPermissions') {
-                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+                this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
               } else {
                 this.errorService.errorOccurred.emit(error);
               }

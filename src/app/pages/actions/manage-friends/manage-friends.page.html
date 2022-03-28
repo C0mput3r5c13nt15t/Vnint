@@ -104,7 +104,7 @@
 
                     <div class="ion-padding">
                       <ion-button *ngIf="isProcessed" type="submit" [disabled]="addFriendForm.invalid || isProcessed" class="ion-no-margin" expand="block" color="primary"><ion-spinner name="crescent"></ion-spinner></ion-button>
-                      <ion-button *ngIf="!isProcessed" color="primary" (click)="addFriend()" expand="block" type="submit" class="ion-no-margin">+ {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.add' | translate }}</ion-button>
+                      <ion-button *ngIf="!isProcessed" color="primary" [disabled]="addFriendForm.invalid" (click)="addFriend()" expand="block" type="submit" class="ion-no-margin">+ {{ 'ACTIONS.MANAGE_FRIENDS.FRIENDS.add' | translate }}</ion-button>
                     </div>
                   </form>
                 </ion-col>

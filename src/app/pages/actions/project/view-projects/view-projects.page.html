@@ -17,7 +17,7 @@
                   </form>
                   <ng-container *ngIf="projects.length > 0">
                     <ng-container *ngFor="let project of filteredProjects">
-                      <ion-card color="light" button=true routerLink="/project/{{ project.id }}" [disabled]="!permissions.includes('projects.toggleAuthorized') && !project.authorized">
+                      <ion-card color="light" button=true routerLink="/project/{{ project.id }}" [disabled]="!permissions.includes('projects.toggle_authorized') && !project.authorized">
                         <ion-card-header>
                           <ion-card-title>
                             {{ project.title }}
@@ -34,8 +34,8 @@
                             {{ project.description }}
                           </ion-label>
                           <ion-card-subtitle>
-                            <ion-badge color="danger" *ngIf="permissions.includes('projects.toggleAuthorized') && !project.authorized"><ion-label class="white-font">{{ 'ACTIONS.VIEW_PROJECTS.unauthorized' | translate }}</ion-label></ion-badge>
-                            <ion-badge color="success" *ngIf="permissions.includes('projects.toggleAuthorized') && project.authorized"><ion-label class="white-font">{{ 'ACTIONS.VIEW_PROJECTS.authorized' | translate }}</ion-label></ion-badge>
+                            <ion-badge color="danger" *ngIf="permissions.includes('projects.toggle_authorized') && !project.authorized"><ion-label class="white-font">{{ 'ACTIONS.VIEW_PROJECTS.unauthorized' | translate }}</ion-label></ion-badge>
+                            <ion-badge color="success" *ngIf="permissions.includes('projects.toggle_authorized') && project.authorized"><ion-label class="white-font">{{ 'ACTIONS.VIEW_PROJECTS.authorized' | translate }}</ion-label></ion-badge>
                             <ion-badge color="light" *ngIf="permissions.includes('preferences.store') && preference_ids.includes(project.id)"><ion-label>{{ 'ACTIONS.VIEW_PROJECTS.isPreference' | translate }}</ion-label></ion-badge>
                           </ion-card-subtitle>
                         </ion-card-header>

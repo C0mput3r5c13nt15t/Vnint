@@ -46,6 +46,14 @@ export class ProjectService {
     return this.http.post('/api/user/project', formData, options);
   }
 
+  public promoteAssistant(assistantCredentials): Observable<object> {
+    return this.http.post('/api/user/project/assistant', assistantCredentials, this.options);
+  }
+
+  public demoteAssistant(userId): Observable<object> {
+    return this.http.delete('/api/user/project/assistant/' + userId, this.options);
+  }
+
   public updateProject(projectCredentials): Observable<object> {
     return this.http.put('/api/user/project', projectCredentials, this.options);
   }

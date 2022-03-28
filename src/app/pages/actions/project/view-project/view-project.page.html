@@ -19,8 +19,9 @@
                   <ion-label>
                     {{ project.description }}
                   </ion-label>
-                  <br><br>
+                  <br>
                   <ng-container *ngIf="project.timeframes.length > 0">
+                    <br>
                     <ion-label>{{ 'ACTIONS.VIEW_PROJECT.timeframes' | translate }}</ion-label>
                     <div *ngFor="let timeframe of project.timeframes">
                       <ion-card class="timeframe-card" color="light">
@@ -57,11 +58,11 @@
                   <ion-icon name="close"></ion-icon>
                   <ion-label>{{ 'ACTIONS.VIEW_PROJECT.removeFromPreferences' | translate }}</ion-label>
                 </ion-chip>
-                <ion-chip *ngIf="permissions.includes('projects.toggleAuthorized') && !project.authorized" (click)="toggleAuthorized()" color="success">
+                <ion-chip *ngIf="permissions.includes('projects.toggle_authorized') && !project.authorized" (click)="toggleAuthorized()" color="success">
                   <ion-icon name="checkmark-circle"></ion-icon>
                   <ion-label>{{ 'ACTIONS.VIEW_PROJECT.authorize' | translate }}</ion-label>
                 </ion-chip>
-                <ion-chip *ngIf="permissions.includes('projects.toggleAuthorized') && project.authorized" (click)="toggleAuthorized()" color="danger">
+                <ion-chip *ngIf="permissions.includes('projects.toggle_authorized') && project.authorized" (click)="toggleAuthorized()" color="danger">
                   <ion-icon name="close-circle"></ion-icon>
                   <ion-label>{{ 'ACTIONS.VIEW_PROJECT.deauthorize' | translate }}</ion-label>
                 </ion-chip>
@@ -69,6 +70,57 @@
                   <ion-icon name="trash"></ion-icon>
                   <ion-label>{{ 'ACTIONS.VIEW_PROJECT.delete' | translate }}</ion-label>
                 </ion-chip>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="project">
+        <ion-card color="light">
+          <ion-card-header>
+            <ion-card-title>
+              {{ 'ACTIONS.MANAGE_PROJECT.participants' | translate }}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid class="inside-card-grid">
+              <ion-row>
+                <ion-col>
+                  <ion-card color="light">
+                    <ion-card-header>
+                      <ion-card-title class="user-email">
+                        {{ project.leader.email }}
+                      </ion-card-title>
+                      <ion-card-subtitle>
+                        <ion-label color="primary" class="subtitle-labels">{{ 'ACTIONS.MANAGE_PROJECT.ROLES.leader' | translate }}</ion-label>
+                      </ion-card-subtitle>
+                    </ion-card-header>
+                  </ion-card>
+                  <ng-container *ngIf="project.assistants.length > 0">
+                    <ion-card *ngFor="let assistant of project.assistants" color="light">
+                      <ion-card-header>
+                        <ion-card-title class="user-email">
+                          {{ assistant.email }}
+                        </ion-card-title>
+                        <ion-card-subtitle>
+                          <ion-label color="primary" class="subtitle-labels">{{ 'ACTIONS.MANAGE_PROJECT.ROLES.assistent' | translate }}</ion-label>
+                        </ion-card-subtitle>
+                      </ion-card-header>
+                    </ion-card>
+                  </ng-container>
+                  <ng-container *ngIf="project.participants.length > 0">
+                    <ion-card *ngFor="let participant of project.participants" color="light">
+                      <ion-card-header>
+                        <ion-card-title class="user-email">
+                          {{ participant.email }}
+                        </ion-card-title>
+                        <ion-label color="primary" class="subtitle-labels">{{ 'ACTIONS.MANAGE_PROJECT.ROLES.participant' | translate }}</ion-label>
+                      </ion-card-header>
+                    </ion-card>
+                  </ng-container>
+                </ion-col>
               </ion-row>
             </ion-grid>
           </ion-card-content>

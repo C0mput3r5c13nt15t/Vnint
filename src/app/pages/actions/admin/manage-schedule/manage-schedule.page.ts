@@ -142,7 +142,7 @@ export class ManageSchedulePage implements OnInit {
               this.addEventForm.controls[errorType].setErrors(errors);
             }
           } else if (error.error.message == 'missingPermissions') {
-            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+            this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }
@@ -156,7 +156,7 @@ export class ManageSchedulePage implements OnInit {
           this.eventService.syncPermissions(resp.event.id, {permissions: addEventPermissionsNames}).subscribe({
             error: error => {
               if (error.error.message == 'missingPermissions') {
-                this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+                this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
               } else {
                 this.errorService.errorOccurred.emit(error);
               }
@@ -204,7 +204,7 @@ export class ManageSchedulePage implements OnInit {
               this.updateEventForm.controls[errorType].setErrors(errors);
             }
           } else if (error.error.message == 'missingPermissions') {
-            this.alertService.alert("danger", this.translate.instant('GENERAL.missingPermissions'), '', 'lock-closed');
+            this.alertService.alert("danger", this.translate.instant('GENERAL.ERRORS.missingPermissions'), '', 'lock-closed');
           } else {
             this.errorService.errorOccurred.emit(error);
           }

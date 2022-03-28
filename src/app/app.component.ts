@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
     project_id: 0,
   };
 
-  constructor(private translateService: TranslateService,
+  constructor(private translate: TranslateService,
               public auth: AuthService,
               private cookieService: CookieService,
               private platform: Platform,
@@ -56,7 +56,8 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.screenSizeService.onResize(this.platform.width());
     });
-    this.translateService.setDefaultLang('de');
+    this.translate.setDefaultLang('de');
+    this.setApiLanguage('de');
     this.auth.authChanged.subscribe(() => this.authenticate());
   }
 
@@ -85,7 +86,7 @@ export class AppComponent implements OnInit {
   getCookies() {
     const cookieLanguage = this.cookieService.get('language');
     if (cookieLanguage) {
-      this.translateService.use(cookieLanguage);
+      this.translate.use(cookieLanguage);
       this.setApiLanguage(cookieLanguage);
     } else {
       this.setApiLanguage('de');
@@ -108,15 +109,15 @@ export class AppComponent implements OnInit {
 
   async logout() {
     const alert = await this.alertController.create({
-      header: this.translateService.instant('MENU.LOGOUT_POPUP.alertHeader'),
-      message: this.translateService.instant('MENU.LOGOUT_POPUP.alertText'),
+      header: this.translate.instant('MENU.LOGOUT_POPUP.alertHeader'),
+      message: this.translate.instant('MENU.LOGOUT_POPUP.alertText'),
       buttons: [
         {
           cssClass: 'cancel-text',
-          text: this.translateService.instant('GENERAL.POPUPS.cancel'),
+          text: this.translate.instant('GENERAL.POPUPS.cancel'),
           role: 'cancel',
         }, {
-          text: this.translateService.instant('MENU.LOGOUT_POPUP.logoutButton'),
+          text: this.translate.instant('MENU.LOGOUT_POPUP.logoutButton'),
           handler: () => {
             this.auth.logout().subscribe({
               next: () => {},

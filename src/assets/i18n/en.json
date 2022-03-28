@@ -7,7 +7,7 @@
     "createdAt": "Created at",
     "updatedAt": "Last updated at",
     "ERRORS": {
-      "missingPermissions": "You do not have the required permissions to permform this action.",
+      "missingPermissions": "You currently do not have the required permissions to permform this action.",
       "sessionExpired": "Session expired"
     },
     "timezone": "+0",
@@ -41,7 +41,7 @@
       "events.destroy": "Delete event",
       "events.index": "View all events",
       "events.store": "View single event",
-      "events.syncPermissions": "Change permissions of an event",
+      "events.sync_permissions": "Change permissions of an event",
       "events.update": "Update Event",
       "feedback.destroy": "Delete Feedback",
       "feedback.index": "View all feedbacks",
@@ -65,19 +65,27 @@
       "projects.destroy": "Delete project",
       "projects.index": "View all projects",
       "projects.show": "View single project",
+      "projects.promote_assistant": "Add assistants to project",
+      "projects.demote_assistant": "Remove assistants from project",
       "projects.show_associated": "View own projects",
       "projects.store": "Create Project",
-      "projects.toggleAuthorised": "Authorise project",
+      "projects.toggle_authorised": "Authorise project",
       "projects.update_associated": "Update own project",
       "roles.destroy": "Delete user role",
       "roles.index": "View all user roles",
       "roles.store": "Create user role",
-      "roles.togglePermission": "Change permissions of a user role",
+      "roles.toggle_permission": "Change permissions of a user role",
       "timeframes.destroy": "Delete timeframes",
       "timeframes.show": "View single time frame",
       "timeframes.store": "Create time window",
       "timeframes.update": "Update time frame",
-      "users.index": "Show all users"
+      "users.index": "Show all users",
+      "users.convert_to_guestAttendant": "Change role of a user to guestAttendant",
+      "sorting.show": "View individual sorting suggestion",
+      "sorting.store": "Create sorting proposal",
+      "sorting.update": "Update sorting proposal",
+      "sorting.destroy": "Delete sorting proposal",
+      "sorting.apply": "Apply sorting proposal"
     }
   },
   "MENU": {
@@ -186,9 +194,9 @@
         "title": "Administrate",
         "requiredPermissions": [
           ["applicationSettings.show", "applicationsettings.update"],
-          ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"],
+          ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"],
           ["users.index", "roles.index"],
-          ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"],
+          ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"],
           ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
           ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"],
           ["feedback.index", "feedback.show", "feedback.destroy"]
@@ -205,7 +213,7 @@
             "icon": "people",
             "title": "Manage user roles",
             "link": "/manage-user-roles",
-            "requiredPermissions": ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"]
+            "requiredPermissions": ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"]
           },
           {
             "icon": "people",
@@ -217,7 +225,7 @@
             "icon": "grid",
             "title": "View projects",
             "link": "/view-projects",
-            "requiredPermissions": ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"]
+            "requiredPermissions": ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"]
           },
           {
             "icon": "calendar",
@@ -291,7 +299,7 @@
             "icon": "create",
             "title": "Manage project",
             "link": "/manage-project",
-            "requiredPermissions": ["projects.show_associated", "projects.update_associated", "timeframes.show"]
+            "requiredPermissions": ["projects.show_associated", "timeframes.show"]
           }
         ]
       },
@@ -419,6 +427,11 @@
       "title": "Manage users",
       "INPUT": {
         "searchUsersPlaceholder": "Search for a users email"
+      },
+      "CONVERT_TO_GUEST_ATTENDANT_POPUP": {
+        "alertHeader": "Are you sure?",
+        "alertText": "Do you really want to convert the attendant to a guestAttendant? This action is irreversible!",
+        "convertButton": "Convert"
       }
     },
     "CREATE_PROJECT": {
@@ -479,7 +492,20 @@
       "from": "From",
       "until": "Until",
       "edit": "Edit",
-      "delete": "Delete"
+      "delete": "Delete",
+      "addAssistant": "Add assistent",
+      "participants": "Participants",
+      "removeAssistants": "Click the assistants in the participants list to remove them.",
+      "ROLES": {
+        "leader": "Leader",
+        "assistent": "Assistent",
+        "participant": "Participant"
+      },
+      "REMOVE_ASSISTANT_POPUP": {
+        "alertHeader": "Are you sure?",
+        "alertText": "Do you really want to remove the assistant?",
+        "removeButton": "Remove"
+      }
     },
     "VIEW_PROJECTS": {
       "title": "View projects",
