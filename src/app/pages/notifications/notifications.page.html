@@ -4,10 +4,14 @@
     <ion-row>
       <ion-col>
         <app-card-title-bar [backButton]="false" title="{{ 'NOTIFICATIONS.title' | translate }}"></app-card-title-bar>
-          <app-alert-card type="danger" [alerts]="alertService.errors"></app-alert-card>
-          <app-alert-card type="warning" [alerts]="alertService.warnings"></app-alert-card>
-          <app-alert-card type="primary" [alerts]="alertService.primaries"></app-alert-card>
-          <app-alert-card type="success" [alerts]="alertService.successes"></app-alert-card>
+        <ng-container *ngIf="alertService.alerts.length > 0">
+          <ng-container *ngFor="let alert of alertService.alerts">
+            <app-alert-card [alert]="alert"></app-alert-card>
+          </ng-container>
+        </ng-container>
+        <ng-container *ngIf="alertService.alerts.length == 0">
+          <app-empty-card message="{{ 'ACTIONS.VIEW_PROJECTS.noProjects' | translate }}"></app-empty-card><br>
+        </ng-container>
       </ion-col>
     </ion-row>
   </ion-grid>

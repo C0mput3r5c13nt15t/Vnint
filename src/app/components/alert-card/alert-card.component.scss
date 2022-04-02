@@ -14,11 +14,6 @@ ion-card {
 
   ion-card-title {
     font-size: 1.3rem;
-    margin-bottom: 0;
-  }
-
-  ion-card-header {
-    padding-bottom: 0;
   }
 
   ion-icon {
@@ -30,16 +25,10 @@ ion-card:hover {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
-.number {
-  color:white;
-  font-size: 3rem;
-}
-
 ion-list {
   background-color: transparent;
   padding: 0;
-  margin-bottom: 5px;
-  border-top: 2px solid white;
+  margin-top: 0;
 
   ion-item {
     ion-label {
@@ -48,4 +37,9 @@ ion-list {
       font-family: 'Source Code Pro', monospace;
     }
   }
+}
+
+ion-icon {
+  float: right;
+  margin-top: 3px;
 }

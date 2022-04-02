@@ -23,7 +23,7 @@ export class AlertService {
     });
   }
 
-  public alert(type: 'success' | 'warning' | 'danger' | 'primary', title: string, message: string, icon='alert') {
+  public alert(type: 'success' | 'danger' | 'primary', title: string, message: string, icon='alert') {
     const alert: Alert = {
       icon: icon,
       color: type,
@@ -61,34 +61,4 @@ export class AlertService {
     });
     await this.toast.present();
   }
-
-  get errors(): Alert[] {
-    return this.alerts.filter(alert => {
-      return alert.color == 'danger'
-      }
-    )
-  }
-
-  get warnings(): Alert[] {
-    return this.alerts.filter(alert => {
-        return alert.color == 'warning'
-      }
-    )
-  }
-
-  get primaries(): Alert[] {
-    return this.alerts.filter(alert => {
-        return alert.color == 'primary'
-      }
-    )
-  }
-
-  get successes(): Alert[] {
-    return this.alerts.filter(alert => {
-        return alert.color == 'success'
-      }
-    )
-  }
-
-
 }

@@ -1,23 +1,13 @@
 <div class="alerts-card-div">
-  <ion-card [color]="type" button="true" (click)="details = !details">
-    <ion-card-header>
+  <ion-card color="light" button="true" (click)="details = !details" [style]="alert.color == 'success' ? 'border-left: 10px var(--ion-color-success) solid;' : alert.color == 'danger' ? 'border-left: 10px var(--ion-color-danger) solid;' : 'border-left: 10px var(--ion-color-primary) solid;'">
+    <ion-card-header >
       <ion-card-title>
-        {{ ('DASHBOARD.ALERTS.' + type | translate) }}
+        {{ alert.title }} <ion-icon [name]="alert.icon" [color]="alert.color"></ion-icon>
       </ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      <ion-label class="number" *ngIf="alerts">
-        {{ alerts.length }}
-      </ion-label>
-      <ion-label class="number" *ngIf="!alerts">
-        0
-      </ion-label>
+    <ion-card-content [@openClose]="details ? 'open' : 'closed'">
+      <ion-label text-wrap>{{ alert.created_at | date:( 'GENERAL.exactTimeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}: {{ alert.message }}</ion-label>
     </ion-card-content>
-    <ion-list [@openClose]="details ? 'open' : 'closed'" *ngIf="alerts.length > 0">
-      <ion-item shape="round" [color]="type" lines="none" *ngFor="let alert of alerts">
-        <ion-label text-wrap>{{ alert.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }} <b>{{ alert.title }}</b> {{ alert.message }}</ion-label>
-      </ion-item>
-    </ion-list>
   </ion-card>
 </div>
 <!-- *ngIf="arrayContainsArray(permissions, button.requiredPermissions) && arrayContainsArray(eventPermissions, button.requiredPermissions)" -->

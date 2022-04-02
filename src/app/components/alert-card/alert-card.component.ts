@@ -14,6 +14,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
       state('closed', style({
         opacity: 0,
         height: '0px',
+        padding: '0px',
       })),
       transition('* => closed', [
         animate('0.3s')
@@ -25,8 +26,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   ],
 })
 export class AlertCardComponent implements OnInit {
-  @Input()  type: 'warning' | 'danger' | 'primary' | 'success';
-  @Input()  alerts: Alert[];
+  @Input()  alert: Alert;
 
   details = false;
 
