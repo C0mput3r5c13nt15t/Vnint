@@ -148,13 +148,18 @@ const routes: Routes = [
     loadChildren: () => import('./pages/actions/admin/manage-users/manage-users.module').then( m => m.ManageUsersPageModule)
   },
   {
+    path: 'manage-sorting',
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/actions/admin/manage-sorting/manage-sorting.module').then( m => m.ManageSortingPageModule)
+  },
+  {
     path: 'notifications',
     loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
   },
   {
     path: 'manage-application-settings',
     loadChildren: () => import('./pages/actions/admin/manage-application-settings/manage-application-settings.module').then( m => m.ManageApplicationSettingsPageModule)
-  }
+  },
 ];
 
 @NgModule({

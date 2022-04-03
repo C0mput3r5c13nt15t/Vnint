@@ -1,0 +1,108 @@
+<ion-content>
+  <app-toolbar></app-toolbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <app-card-title-bar title="{{ 'ACTIONS.MANAGE_SORTING.title' | translate }}"></app-card-title-bar>
+        <ion-card color="light">
+          <ion-card-content>
+            <ion-grid class="inside-card-grid">
+              <ion-row>
+                <ion-col>
+                  <ion-reorder-group (ionItemReorder)="reorderProjects($event)" *ngIf="projects.length > 0" disabled="false">
+                      <ion-card *ngFor="let project of projects" color="light">
+                        <ion-card-header>
+                          <ion-card-title>
+                            {{ project.id }} - {{ project.title }} <ion-reorder style="position:absolute; top: 0; right: 0;"><ion-icon name="move"></ion-icon></ion-reorder>
+                          </ion-card-title>
+                          <ion-card-subtitle>
+                            <ion-label class="subtitle-labels">{{ 'ACTIONS.VIEW_PROJECTS.by' | translate }} </ion-label>
+                            <ion-label class="subtitle-labels" color="primary"><b>{{ project.leader.email }}</b></ion-label><br>
+                            <ion-label class="subtitle-labels">{{ 'ACTIONS.VIEW_PROJECTS.topic' | translate }} </ion-label>
+                            <ng-container *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue">
+                              <ion-label class="subtitle-labels" color="primary" *ngIf="project.topic == topic.key"><b>{{ topic.value }}</b></ion-label>
+                            </ng-container>
+                          </ion-card-subtitle>
+                          <ion-label class="long-description-label">
+                            {{ project.description }}
+                          </ion-label>
+                          <ion-card-subtitle>
+                            <ion-badge color="danger" *ngIf="!project.authorized"><ion-label class="white-font">{{ 'ACTIONS.VIEW_PROJECTS.unauthorized' | translate }}</ion-label></ion-badge>
+                            <ion-badge color="success" *ngIf="project.authorized"><ion-label class="white-font">{{ 'ACTIONS.VIEW_PROJECTS.authorized' | translate }}</ion-label></ion-badge>
+
+                            <ion-badge color="danger" *ngIf="project.participants.length > project.max_participants"><ion-label class="white-font">{{ project.participants.length - project.max_participants }} Teilnehmer zu viel</ion-label></ion-badge>
+                            <ion-badge color="danger" *ngIf="project.participants.length < project.min_participants"><ion-label class="white-font">{{ project.min_participants - project.participants.length }} Teilnehmer zu wenig</ion-label></ion-badge>
+                            <ion-badge color="success" *ngIf="project.participants.length <= project.max_participants && project.participants.length >= project.min_participants"><ion-label class="white-font">Genau richtige Teilnehmerzahl</ion-label></ion-badge>
+                          </ion-card-subtitle>
+                        </ion-card-header>
+                        <ion-card-content>
+                          <ng-container *ngIf="project.leader">
+                            <ion-item color="light" lines="none">
+                              <ion-label>{{ project.leader.email }}</ion-label>
+                              <ion-icon size="small" name="star" slot="end" color="warning"></ion-icon>
+                            </ion-item>
+                          </ng-container>
+                          <ng-container *ngIf="project.assistants.length > 0">
+                            <ion-item *ngFor="let assistant of project.assistants" color="light" lines="none">
+                              <ion-label>{{ assistant.email }}</ion-label>
+                              <ion-icon size="small" name="star" slot="end" color="warning"></ion-icon>
+                            </ion-item>
+                          </ng-container>
+                          <ng-container *ngIf="project.participants.length > 0">
+                            <ion-item *ngFor="let participant of project.participants" color="light" lines="none">
+                              <ion-label>{{ participant.email }}</ion-label>
+                              <ion-select (ionChange)="moveUser(participant, $event.detail.value)" interface="popover">
+                                <ion-select-option [value]="project.id" *ngFor="let project of projects">{{ project.id }} - {{ project.title }}</ion-select-option>
+                                <ion-select-option value="0">{{ 'ACTIONS.MANAGE_SORTING.removeFromProject' | translate }}</ion-select-option>
+                              </ion-select>
+                            </ion-item>
+                          </ng-container>
+                        </ion-card-content>
+                      </ion-card>
+                  </ion-reorder-group>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col *ngIf="unsortedUsers.length > 0">
+        <ion-card>
+          <ion-card-content>
+            <ion-grid class="inside-card-grid">
+              <ion-row>
+                <ion-col>
+                  <ng-container>
+                    <ion-item *ngFor="let user of unsortedUsers" color="light" lines="none">
+                      <ion-label>{{ user.email }}</ion-label>
+                      <ion-select (ionChange)="moveUser(user, $event.detail.value)" interface="popover">
+                        <ion-select-option [value]="project.id" *ngFor="let project of projects">{{ project.id }} - {{ project.title }}</ion-select-option>
+                      </ion-select>
+                    </ion-item>
+                  </ng-container>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card color="light">
+          <ion-card-content>
+            <ion-grid class="inside-card-grid">
+              <ion-row>
+                <ion-col>
+                  <div class="ion-padding">
+                    <ion-button *ngIf="isProcessed" type="submit" [disabled]="isProcessed" class="ion-no-margin" expand="block" color="primary"><ion-spinner name="crescent"></ion-spinner></ion-button>
+                    <ion-button *ngIf="!isProcessed" color="primary" (click)="sortUsers()" expand="block" type="submit" class="ion-no-margin">{{ 'ACTIONS.MANAGE_SORTING.applySorting' | translate }}</ion-button>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

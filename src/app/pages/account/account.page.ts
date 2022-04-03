@@ -132,7 +132,10 @@ export class AccountPage implements OnInit {
             }
             this.isProcessed = false;
           },
-          next: () => {},
+          next: response => {
+            let resp: any = response;
+            this.alertService.alert("success", this.translate.instant('ACCOUNT.CHANGE_PASSWORD.title'), resp.message, 'checkmark')
+          },
           complete: () => {
             this.changePasswordForm.reset();
             this.isProcessed = false;

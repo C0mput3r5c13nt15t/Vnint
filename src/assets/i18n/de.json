@@ -157,6 +157,11 @@
     "alreadyAccount": "Sie haben bereits einen Account?"
   },
   "DASHBOARD": {
+    "SET_GRADE_POPUP": {
+      "alertHeader": "In welcher Klasse sind Sie?",
+      "alertMessage": "Bitte geben Sie an, welche Klassenstufe Sie aktuell besuchen. Falls Sie ein Elternteil oder Lehrer sind, klicken Sie bitte 'Ich bin kein Schüler'.",
+      "external": "Ich bin kein Schüler"
+    },
     "GREETING1S": {
       "morning": "Guten Morgen.",
       "afternoon": "Guten Nachmittag.",
@@ -225,6 +230,12 @@
             "title": "Benutzer einsehen",
             "link": "/manage-users",
             "requiredPermissions": ["users.index", "roles.index"]
+          },
+          {
+            "icon": "funnel",
+            "title": "Sortierung verwalten",
+            "link": "/manage-sorting",
+            "requiredPermissions": []
           },
           {
             "icon": "grid",
@@ -427,6 +438,11 @@
         "addEventButton": "Event hinzufügen",
         "updateEventButton": "Event aktualisieren"
       }
+    },
+    "MANAGE_SORTING": {
+      "title": "Sortierung verwalten",
+      "removeFromProject": "Aus Projekt entfernen",
+      "applySorting": "Sortierung anwenden"
     },
     "MANAGE_USERS": {
       "title": "Benutzer verwalten",

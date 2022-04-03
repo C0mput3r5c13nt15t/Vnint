@@ -5,6 +5,10 @@ import { AuthService } from 'src/app/services/auth.service';
 import {AlertService} from 'src/app/services/alert.service';
 import {QuoteService} from 'src/app/services/quote.service';
 import {Quote} from 'src/app/interfaces/quote';
+import {ErrorService} from "../../services/error.service";
+import {UserService} from "../../services/user.service";
+import {AlertController} from "@ionic/angular";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-dashboard',
@@ -21,8 +25,12 @@ export class DashboardPage implements OnInit {
 
   constructor(private auth: AuthService,
               private router: Router,
+              private translate: TranslateService,
               public alertService: AlertService,
-              private quoteService: QuoteService) { }
+              private alertController: AlertController,
+              private quoteService: QuoteService,
+              private errorService: ErrorService,
+              private userService: UserService) { }
 
   ngOnInit() {
     this.quoteService.getQuote().subscribe({
@@ -35,6 +43,7 @@ export class DashboardPage implements OnInit {
         }
       }
     })
+    this.getGradeLevel();
   }
 
   ionViewWillEnter() {
@@ -60,8 +69,8 @@ export class DashboardPage implements OnInit {
 
   getPermissions() {
     this.auth.permissions().subscribe({
-      error: () => {
-        this.error = true;
+      error: error => {
+        this.errorService.errorOccurred.emit(error);
       },
       next: response => {
         const resp: any = response;
@@ -72,14 +81,75 @@ export class DashboardPage implements OnInit {
 
   getEventPermissions() {
     this.auth.eventPermissions().subscribe({
-      error: () => {
-        this.error = true;
+      error: error => {
+        this.errorService.errorOccurred.emit(error);
       },
       next: response => {
         const resp: any = response;
         this.eventPermissions = resp.permissions;
       },
     });
+  }
+
+  getGradeLevel() {
+    this.userService.getGradeLevel().subscribe({
+      error: error => {
+        this.errorService.errorOccurred.emit(error);
+      },
+      next: response => {
+        const resp: any = response;
+
+        if (!resp.grade_level) {
+          this.setGradeAlert();
+        }
+      },
+    });
+  }
+
+  async setGradeAlert() {
+    const alert = await this.alertController.create({
+      header: this.translate.instant('DASHBOARD.SET_GRADE_POPUP.alertHeader'),
+      message: this.translate.instant('DASHBOARD.SET_GRADE_POPUP.alertMessage'),
+      inputs: [
+        {
+          name: 'grade_level',
+          type: 'number',
+          min: 0,
+          max: 14
+        }
+      ],
+      buttons: [
+        {
+          text: this.translate.instant('DASHBOARD.SET_GRADE_POPUP.external'),
+          handler: () => {
+            this.userService.convertSelfToGuestAttendant().subscribe({
+              error: error => {
+                this.errorService.errorOccurred.emit(error);
+              },
+              next: response => {
+                const resp: any = response;
+                this.alertService.alert("success", resp.message, "", "checkmark")
+              }
+            });
+          }
+        }, {
+          text: this.translate.instant('GENERAL.POPUPS.ok'),
+          handler: data => {
+            this.userService.setGradeLevel(data.grade_level).subscribe({
+              error: error => {
+                this.errorService.errorOccurred.emit(error);
+              },
+              next: response => {
+                const resp: any = response;
+                this.alertService.alert("success", resp.message, "", "checkmark")
+              }
+            });
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   hasOneSetOfPermissions(permissions, setsOfRequiredPermissions: Permission[][]) {

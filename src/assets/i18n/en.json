@@ -157,6 +157,11 @@
     "alreadyAccount": "Already have an account?"
   },
   "DASHBOARD": {
+    "SET_GRADE_POPUP": {
+      "alertHeader": "What grade are you in?",
+      "alertMessage": "Please tell us which grade level you are currently in. If you are a parent or teacher, please click 'I am not a student'.",
+      "external": "I am not a student"
+    },
     "GREETINGS": [
       {
         "title": "Good morning.",
@@ -220,6 +225,12 @@
             "title": "View users",
             "link": "/manage-users",
             "requiredPermissions": ["users.index", "roles.index"]
+          },
+          {
+            "icon": "funnel",
+            "title": "Manage sorting",
+            "link": "/manage-sorting",
+            "requiredPermissions": []
           },
           {
             "icon": "grid",
@@ -423,6 +434,11 @@
         "updateEventButton": "Update event"
       }
     },
+    "MANAGE_SORTING": {
+      "title": "Sortierung verwalten",
+      "removeFromProject": "Remove from project",
+      "applySorting": "Apply sorting"
+    },
     "MANAGE_USERS": {
       "title": "Manage users",
       "INPUT": {
@@ -452,7 +468,7 @@
         "on": "on",
         "from": "from",
         "until": "until",
-        "grade": "Grade",
+        "grade": "Grade level",
         "capacity": "Capacity",
         "submitButton": "Create project"
       },
@@ -476,7 +492,7 @@
         "on": "on",
         "from": "from",
         "until": "until",
-        "grade": "Grade",
+        "grade": "Grade level",
         "capacity": "Capacity",
         "submitButton": "Edit project"
       }
@@ -487,7 +503,7 @@
       "timeframes": "Timeframes",
       "leader": "Leader",
       "cost": "Cost",
-      "grade": "Grade",
+      "grade": "Grade level",
       "capacity": "Capacity",
       "from": "From",
       "until": "Until",
@@ -525,7 +541,7 @@
       "timeframes": "Timeframes",
       "leader": "Leader",
       "cost": "Cost",
-      "grade": "Grade",
+      "grade": "Grade level",
       "capacity": "Capacity",
       "addToPreferences": "Add to preferences",
       "removeFromPreferences": "Remove from preferences",

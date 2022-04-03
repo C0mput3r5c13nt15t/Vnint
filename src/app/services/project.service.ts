@@ -18,6 +18,10 @@ export class ProjectService {
     return this.http.get('/api/projects', this.options);
   }
 
+  public getProjectsDetailed(): Observable<object> {
+    return this.http.get('/api/projectsDetailed', this.options);
+  }
+
   public getProject(projectId: number): Observable<object> {
     return this.http.get('/api/projects/' + projectId, this.options);
   }
