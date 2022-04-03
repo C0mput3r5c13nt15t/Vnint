@@ -6,14 +6,16 @@
     "showLess": "Weniger anzeigen",
     "createdAt": "Erstellt am",
     "updatedAt": "Zuletzt aktualisiert am",
-    "ERROR": {
+    "ERRORS": {
+      "missingPermissions": "Sie sind derzeit nicht berechtigt diese Aktion durchzuführen",
       "sessionExpired": "Die Session ist bereits abgelaufen"
     },
     "timezone": "+0",
     "locale": "de",
     "timeDisplayFormat": "d. MMM YYYY",
-    "exactTimeDisplayFormat": "d. MMM YYYY, H:mm",
+    "exactTimeDisplayFormat": "d. MMM YYYY, H:mm 'Uhr'",
     "hoursAndMinutesTimeDisplayFormat": "H:mm 'Uhr'",
+    "hourCycle": "h23",
     "POPUPS": {
       "ok": "Ok",
       "done": "Fertig",
@@ -39,7 +41,7 @@
       "events.destroy": "Event löschen",
       "events.index": "Alle Events einsehen",
       "events.store": "Einzelnes Event anzeigen",
-      "events.syncPermissions": "Berechtigung eines Events ändern",
+      "events.sync_permissions": "Berechtigung eines Events ändern",
       "events.update": "Event aktualisieren",
       "feedback.destroy": "Feedback löschen",
       "feedback.index": "Alle Feedbacks einsehen",
@@ -62,20 +64,28 @@
       "projects.authorize_associated": "Projekt automatisch autorisieren",
       "projects.destroy": "Projekt löschen",
       "projects.index": "Alle Projekte einsehen",
+      "projects.promote_assistant": "Assistenten zu Projekt hinzufügen",
+      "projects.demote_assistant": "Assistenten von Projekt entfernen",
       "projects.show": "Einzelnes Projekt einsehen",
       "projects.show_associated": "Eigene Projekte einsehen",
       "projects.store": "Projekt erstellen",
-      "projects.toggleAuthorized": "Projekt autorisieren",
+      "projects.toggle_authorized": "Projekt autorisieren",
       "projects.update_associated": "Eigenes Projekt aktualisieren",
       "roles.destroy": "Benutzerrolle löschen",
       "roles.index": "Alle Benutzerrollen einsehen",
       "roles.store": "Benutzerrolle erstellen",
-      "roles.togglePermission": "Berechtigungen einer Benutzerrolle ändern",
+      "roles.toggle_permission": "Berechtigungen einer Benutzerrolle ändern",
       "timeframes.destroy": "Zeitfenster löschen",
       "timeframes.show": "Einzelnes Zeitfenster einsehen",
       "timeframes.store": "Zeitfenster erstellen",
       "timeframes.update": "Zeitfenster aktualisieren",
-      "users.index": "Alle Benutzer anzeigen"
+      "users.index": "Alle Benutzer anzeigen",
+      "users.convert_to_guestAttendant": "Rolle eines Benutzers zu guestAttendant ändern",
+      "sorting.show": "Einzelnen Sortiervorschlag einsehen",
+      "sorting.store": "Sortiervorschlag erstellen",
+      "sorting.update": "Sortiervorschlag aktualisieren",
+      "sorting.destroy": "Sortiervorschlag löschen",
+      "sorting.apply": "Sortiervorschlag anwenden"
     }
   },
   "MENU": {
@@ -147,6 +157,11 @@
     "alreadyAccount": "Sie haben bereits einen Account?"
   },
   "DASHBOARD": {
+    "SET_GRADE_POPUP": {
+      "alertHeader": "In welcher Klasse sind Sie?",
+      "alertMessage": "Bitte geben Sie an, welche Klassenstufe Sie aktuell besuchen. Falls Sie ein Elternteil oder Lehrer sind, klicken Sie bitte 'Ich bin kein Schüler'.",
+      "external": "Ich bin kein Schüler"
+    },
     "GREETING1S": {
       "morning": "Guten Morgen.",
       "afternoon": "Guten Nachmittag.",
@@ -189,9 +204,9 @@
         "title": "Administrieren",
         "requiredPermissions": [
           ["applicationsettings.show"],
-          ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"],
+          ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"],
           ["users.index", "roles.index"],
-          ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"],
+          ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"],
           ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
           ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"],
           ["feedback.index", "feedback.show", "feedback.destroy"]
@@ -208,7 +223,7 @@
             "icon": "people",
             "title": "Benutzerrollen verwalten",
             "link": "/manage-user-roles",
-            "requiredPermissions": ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"]
+            "requiredPermissions": ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"]
           },
           {
             "icon": "people",
@@ -217,10 +232,16 @@
             "requiredPermissions": ["users.index", "roles.index"]
           },
           {
+            "icon": "funnel",
+            "title": "Sortierung verwalten",
+            "link": "/manage-sorting",
+            "requiredPermissions": []
+          },
+          {
             "icon": "grid",
             "title": "Projekte einsehen",
             "link": "/view-projects",
-            "requiredPermissions": ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"]
+            "requiredPermissions": ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"]
           },
           {
             "icon": "calendar",
@@ -268,7 +289,7 @@
         "BUTTONS": [
           {
             "icon": "shield-checkmark",
-            "title": "E-Mail-Adress verifizieren",
+            "title": "E-Mail-Adresse verifizieren",
             "link": "/verify-email",
             "requiredPermissions": []
           },
@@ -294,7 +315,7 @@
             "icon": "create",
             "title": "Projekt verwalten",
             "link": "/manage-project",
-            "requiredPermissions": ["projects.show_associated", "projects.update_associated", "timeframes.show"]
+            "requiredPermissions": ["projects.show_associated", "timeframes.show"]
           }
         ]
       },
@@ -418,10 +439,24 @@
         "updateEventButton": "Event aktualisieren"
       }
     },
+    "MANAGE_SORTING": {
+      "title": "Sortierung verwalten",
+      "removeFromProject": "Aus Projekt entfernen",
+      "applySorting": "Sortierung anwenden",
+      "nthGrade": ". Klasse",
+      "tooMany": "Teilnehmer zu viel",
+      "tooFew": "Teilnehmer zu wenig",
+      "exact": "Genau richtige Teilnehmerzahl"
+    },
     "MANAGE_USERS": {
       "title": "Benutzer verwalten",
       "INPUT": {
         "searchUsersPlaceholder": "Nach E-Mail suchen"
+      },
+      "CONVERT_TO_GUEST_ATTENDANT_POPUP": {
+        "alertHeader": "Sind Sie sich sicher?",
+        "alertText": "Möchten Sie den attendant wirklich in einen guestAttendant konvertieren? Diese Aktion ist irreversibel!",
+        "convertButton": "Konvertieren"
       }
     },
     "CREATE_PROJECT": {
@@ -433,7 +468,7 @@
         "leader": "Leiter",
         "description": "Beschreibung",
         "image": "Bild",
-        "timeframe": "Zeitrahmen [UTC]",
+        "timeframe": "Zeitrahmen",
         "date": "Datum",
         "datePlaceholder": "Wählen Sie ein Datum",
         "fromPlaceholder": "Beginn",
@@ -447,7 +482,8 @@
         "submitButton": "Projekt erstellen"
       },
       "ERRORS": {
-        "alreadyHasProject": "Du hast bereits ein Projekt erstellt."
+        "alreadyHasProject": "Ihr hast bereits ein Projekt erstellt.",
+        "uploadTooLarge": "Ihr Titelbild ist zu groß."
       }
     },
     "EDIT_PROJECT": {
@@ -457,7 +493,7 @@
         "title": "Titel",
         "leader": "Leiter",
         "description": "Beschreibung",
-        "timeframe": "Zeitrahmen [UTC]",
+        "timeframe": "Zeitrahmen",
         "date": "Datum",
         "datePlaceholder": "Wählen Sie ein Datum",
         "fromPlaceholder": "Beginn",
@@ -474,14 +510,28 @@
     "MANAGE_PROJECT": {
       "title": "Projekt verwalten",
       "topic": "Thema",
+      "timeframes": "Zeiträume",
       "leader": "Leiter",
       "cost": "Kosten",
       "grade": "Klassenstufe",
       "capacity": "Kapazität",
-      "from": "von",
-      "until": "bis",
+      "from": "Vom",
+      "until": "Bis",
       "edit": "Bearbeiten",
-      "delete": "Löschen"
+      "delete": "Löschen",
+      "addAssistant": "Assistent hinzufügen",
+      "participants": "Teilnehmer",
+      "removeAssistants": "Klicken Sie die Assistenten in der Teilnehmerliste an, um sie zu entfernen.",
+      "ROLES": {
+        "leader": "Projektleiter",
+        "assistent": "Assistent",
+        "participant": "Teilnehmer"
+      },
+      "REMOVE_ASSISTANT_POPUP": {
+        "alertHeader": "Sind Sie sich sicher?",
+        "alertText": "Möchten Sie den Assistenten wirklich entfernen?",
+        "removeButton": "Entfernen"
+      }
     },
     "VIEW_PROJECTS": {
       "title": "Projekte einsehen",
@@ -498,6 +548,7 @@
     "VIEW_PROJECT": {
       "title": "Projekt einsehen",
       "topic": "Thema",
+      "timeframes": "Zeiträume",
       "leader": "Leiter",
       "cost": "Kosten",
       "grade": "Klassenstufe",
@@ -530,7 +581,7 @@
       },
       "proposedFriendships": "Gestellte Freundschaftsanfragen",
       "receivedFriendships": "Empfangene Freundschaftsanfragen",
-      "noFriends": "Du hast aktuell keine offenen Freundschaftsanfragen ...",
+      "noFriends": "Sie haben aktuell keine offenen Freundschaftsanfragen ...",
       "FRIENDS": {
         "proposedOn": "Gestellt am",
         "receivedOn": "Empfangen am",
@@ -586,7 +637,7 @@
       "verified": "Bereits verifiziert - Es scheint als wäre Ihre E-Mail-Adresse bereits verifiziert. Sie sollten nun eigentlich vollen Zugriff auf Ihren Account haben. Falls das nicht der Fall ist, versuchen Sie die Seite einmal neu zu laden. Sollte der Fehler bestehen, melden Sie ihn bitte als Bug (siehe Feedback Tab).",
       "notVerified": "Verifizierung ausstehend - Ihre E-Mail-Adresse scheint noch nicht verifiziert zu sein. Falls Sie die E-Mail nicht finden können, schauen Sie vielleicht einmal im Spam-Ordner nach, oder prüfen Sie Ihre Internetverbindung. Falls Sie die E-Mail bereits erhalten und bestätigt haben, drücken Sie das Nachlade-Symbol.",
       "sent_title": "E-Mail versandt",
-      "sent": "Eine weitere E-Mail mit dem Link wurde nun an Ihre E-Mail-Adresse gesandt. Laden Sie nach dem Verifizieren der E-Mail mit dem dafüt vorgesehenen Knopf nach."
+      "sent": "Eine weitere E-Mail mit dem Link wurde nun an Ihre E-Mail-Adresse gesandt. Laden Sie nach dem Verifizieren der E-Mail mit dem dafür vorgesehenen Knopf nach."
     },
     "VIEW_SCHEDULE": {
       "title": "Zeitplan",
@@ -597,16 +648,16 @@
     "ABOUT": {
       "title": "About",
       "SECTION1": {
-        "title": "The idea",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "title": "Die Idee",
+        "about": "Die Idee zu dieser App kam mir, als mir Frau Vogler eines Tages erzählte, wie sie die Schüler den Projekten händisch zuordnete. Ich bemerkte spaßhaft, dass ein Algorithmus das viel schneller könne und da meinte Frau Vogler ich solle doch dann einen programmieren. Es blieb aber keineswegs nur bei einem Algorithmus, größenwahnsinnig wie ich war, wollte ich den gesamten Prozess digitalisieren."
       },
       "SECTION2": {
-        "title": "The development",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "title": "Die Entwicklung",
+        "about": "Die Entwicklung stellte sich als deutlich umfangreicher heraus als anfangs gedacht. Ich entwickelte schließlich über ein Jahr an der Applikation. Aufgrund von Corona fielen die Projekttage 2021 dann aber aus und damit auch der Einsatz meiner App. Die gewonnene Zeit nutze ich, um die Applikation weiterzuentwickeln - die Version 2.0"
       },
       "SECTION3": {
-        "title": "Now we're here",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "title": "Jetzt sind wir hier",
+        "about": "Gerade in diesem Augenblick können Sie sehen, was aus der Applikation geworden ist. Ich selbst weiß zum Zeitpunkt des Schreibens dieses Textes noch nicht. Ich bin aber zuversichtlich und hoffe, dass Sie viel Freude mit der Nutzung haben werden."
       }
     },
     "DATA_USE": {

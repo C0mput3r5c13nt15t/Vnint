@@ -437,7 +437,11 @@
     "MANAGE_SORTING": {
       "title": "Sortierung verwalten",
       "removeFromProject": "Remove from project",
-      "applySorting": "Apply sorting"
+      "applySorting": "Apply sorting",
+      "nthGrade": "th grade",
+      "tooMany": "Participants too much",
+      "tooFew": "Too few participants",
+      "exact": "Right number of participants"
     },
     "MANAGE_USERS": {
       "title": "Manage users",
@@ -639,15 +643,15 @@
       "title": "About",
       "SECTION1": {
         "title": "The idea",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "about": "The idea for this app came to me when Mrs. Vogler told me one day how she assigned students to projects by hand. I jokingly remarked that an algorithm could do that much faster, so Mrs Vogler told me to programme one. But it was by no means just an algorithm; megalomaniac that I was, I wanted to digitise the entire process. Translated with www.DeepL.com/Translator"
       },
       "SECTION2": {
         "title": "The development",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "about": "The development turned out to be much more extensive than I had initially thought. I ended up developing the application for over a year. Due to Corona, however, the 2021 project days were cancelled and with them the use of my app. I used the time gained to further develop the application - version 2.0. Translated with www.DeepL.com/Translator"
       },
       "SECTION3": {
         "title": "Now we're here",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "about": "Right now you can see what the app has become. I myself do not know at the time of writing this text. But I am confident and hope that you will have a lot of fun using it. Translated with www.DeepL.com/Translator"
       }
     },
     "DATA_USE": {

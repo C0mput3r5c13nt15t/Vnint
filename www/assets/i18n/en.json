@@ -6,7 +6,8 @@
     "showLess": "Show less",
     "createdAt": "Created at",
     "updatedAt": "Last updated at",
-    "ERROR": {
+    "ERRORS": {
+      "missingPermissions": "You currently do not have the required permissions to perform this action.",
       "sessionExpired": "Session expired"
     },
     "timezone": "+0",
@@ -14,6 +15,7 @@
     "timeDisplayFormat": "MMM d, YYYY",
     "exactTimeDisplayFormat": "MMM d, YYYY, hh:mm a",
     "hoursAndMinutesTimeDisplayFormat": "h:mm a",
+    "hourCycle": "h12",
     "POPUPS": {
       "ok": "Ok",
       "done": "Done",
@@ -39,7 +41,7 @@
       "events.destroy": "Delete event",
       "events.index": "View all events",
       "events.store": "View single event",
-      "events.syncPermissions": "Change permissions of an event",
+      "events.sync_permissions": "Change permissions of an event",
       "events.update": "Update Event",
       "feedback.destroy": "Delete Feedback",
       "feedback.index": "View all feedbacks",
@@ -63,19 +65,27 @@
       "projects.destroy": "Delete project",
       "projects.index": "View all projects",
       "projects.show": "View single project",
+      "projects.promote_assistant": "Add assistants to project",
+      "projects.demote_assistant": "Remove assistants from project",
       "projects.show_associated": "View own projects",
       "projects.store": "Create Project",
-      "projects.toggleAuthorised": "Authorise project",
+      "projects.toggle_authorised": "Authorise project",
       "projects.update_associated": "Update own project",
       "roles.destroy": "Delete user role",
       "roles.index": "View all user roles",
       "roles.store": "Create user role",
-      "roles.togglePermission": "Change permissions of a user role",
+      "roles.toggle_permission": "Change permissions of a user role",
       "timeframes.destroy": "Delete timeframes",
       "timeframes.show": "View single time frame",
       "timeframes.store": "Create time window",
       "timeframes.update": "Update time frame",
-      "users.index": "Show all users"
+      "users.index": "Show all users",
+      "users.convert_to_guestAttendant": "Change role of a user to guestAttendant",
+      "sorting.show": "View individual sorting suggestion",
+      "sorting.store": "Create sorting proposal",
+      "sorting.update": "Update sorting proposal",
+      "sorting.destroy": "Delete sorting proposal",
+      "sorting.apply": "Apply sorting proposal"
     }
   },
   "MENU": {
@@ -147,6 +157,11 @@
     "alreadyAccount": "Already have an account?"
   },
   "DASHBOARD": {
+    "SET_GRADE_POPUP": {
+      "alertHeader": "What grade are you in?",
+      "alertMessage": "Please tell us which grade level you are currently in. If you are a parent or teacher, please click 'I am not a student'.",
+      "external": "I am not a student"
+    },
     "GREETINGS": [
       {
         "title": "Good morning.",
@@ -184,9 +199,9 @@
         "title": "Administrate",
         "requiredPermissions": [
           ["applicationSettings.show", "applicationsettings.update"],
-          ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"],
+          ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"],
           ["users.index", "roles.index"],
-          ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"],
+          ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"],
           ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
           ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"],
           ["feedback.index", "feedback.show", "feedback.destroy"]
@@ -203,7 +218,7 @@
             "icon": "people",
             "title": "Manage user roles",
             "link": "/manage-user-roles",
-            "requiredPermissions": ["permissions.index", "roles.index", "roles.store", "roles.togglePermission", "roles.destroy"]
+            "requiredPermissions": ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"]
           },
           {
             "icon": "people",
@@ -212,10 +227,16 @@
             "requiredPermissions": ["users.index", "roles.index"]
           },
           {
+            "icon": "funnel",
+            "title": "Manage sorting",
+            "link": "/manage-sorting",
+            "requiredPermissions": []
+          },
+          {
             "icon": "grid",
             "title": "View projects",
             "link": "/view-projects",
-            "requiredPermissions": ["projects.index", "projects.destroy", "projects.toggleAuthorized", "projects.show", "timeframes.show"]
+            "requiredPermissions": ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"]
           },
           {
             "icon": "calendar",
@@ -289,7 +310,7 @@
             "icon": "create",
             "title": "Manage project",
             "link": "/manage-project",
-            "requiredPermissions": ["projects.show_associated", "projects.update_associated", "timeframes.show"]
+            "requiredPermissions": ["projects.show_associated", "timeframes.show"]
           }
         ]
       },
@@ -413,10 +434,24 @@
         "updateEventButton": "Update event"
       }
     },
+    "MANAGE_SORTING": {
+      "title": "Sortierung verwalten",
+      "removeFromProject": "Remove from project",
+      "applySorting": "Apply sorting",
+      "nthGrade": "th grade",
+      "tooMany": "Participants too much",
+      "tooFew": "Too few participants",
+      "exact": "Right number of participants"
+    },
     "MANAGE_USERS": {
       "title": "Manage users",
       "INPUT": {
         "searchUsersPlaceholder": "Search for a users email"
+      },
+      "CONVERT_TO_GUEST_ATTENDANT_POPUP": {
+        "alertHeader": "Are you sure?",
+        "alertText": "Do you really want to convert the attendant to a guestAttendant? This action is irreversible!",
+        "convertButton": "Convert"
       }
     },
     "CREATE_PROJECT": {
@@ -428,7 +463,7 @@
         "leader": "Leader",
         "description": "Description",
         "image": "Image",
-        "timeframe": "Timeframe  [UTC]",
+        "timeframe": "Timeframe",
         "date": "Date",
         "datePlaceholder": "Choose a date",
         "fromPlaceholder": "Beginning",
@@ -437,12 +472,13 @@
         "on": "on",
         "from": "from",
         "until": "until",
-        "grade": "Grade",
+        "grade": "Grade level",
         "capacity": "Capacity",
         "submitButton": "Create project"
       },
       "ERRORS": {
-        "alreadyHasProject": "Du hast bereits ein Projekt erstellt."
+        "alreadyHasProject": "You have already created a project.",
+        "uploadTooLarge": "Your title image is too large."
       }
     },
     "EDIT_PROJECT": {
@@ -452,7 +488,7 @@
         "title": "Title",
         "leader": "Leader",
         "description": "Description",
-        "timeframe": "Timeframe  [UTC]",
+        "timeframe": "Timeframe",
         "datePlaceholder": "Choose a date",
         "fromPlaceholder": "Beginning",
         "untilPlaceholder": "End",
@@ -460,7 +496,7 @@
         "on": "on",
         "from": "from",
         "until": "until",
-        "grade": "Grade",
+        "grade": "Grade level",
         "capacity": "Capacity",
         "submitButton": "Edit project"
       }
@@ -468,14 +504,28 @@
     "MANAGE_PROJECT": {
       "title": "Manage project",
       "topic": "Topic",
+      "timeframes": "Timeframes",
       "leader": "Leader",
       "cost": "Cost",
-      "grade": "Grade",
+      "grade": "Grade level",
       "capacity": "Capacity",
-      "from": "from",
-      "until": "until",
+      "from": "From",
+      "until": "Until",
       "edit": "Edit",
-      "delete": "Delete"
+      "delete": "Delete",
+      "addAssistant": "Add assistent",
+      "participants": "Participants",
+      "removeAssistants": "Click the assistants in the participants list to remove them.",
+      "ROLES": {
+        "leader": "Leader",
+        "assistent": "Assistent",
+        "participant": "Participant"
+      },
+      "REMOVE_ASSISTANT_POPUP": {
+        "alertHeader": "Are you sure?",
+        "alertText": "Do you really want to remove the assistant?",
+        "removeButton": "Remove"
+      }
     },
     "VIEW_PROJECTS": {
       "title": "View projects",
@@ -492,9 +542,10 @@
     "VIEW_PROJECT": {
       "title": "Projekt einsehen",
       "topic": "Topic",
+      "timeframes": "Timeframes",
       "leader": "Leader",
       "cost": "Cost",
-      "grade": "Grade",
+      "grade": "Grade level",
       "capacity": "Capacity",
       "addToPreferences": "Add to preferences",
       "removeFromPreferences": "Remove from preferences",
@@ -543,7 +594,7 @@
     },
     "MANAGE_PREFERENCES": {
       "title": "Manage project wishes",
-      "removePreference": "Remove projet wish",
+      "removePreference": "Remove project wish",
       "noPreferences": "You don't yet have any project wishes ..."
     },
     "MANAGE_FRIENDSHIPS": {
@@ -592,15 +643,15 @@
       "title": "About",
       "SECTION1": {
         "title": "The idea",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "about": "The idea for this app came to me when Mrs. Vogler told me one day how she assigned students to projects by hand. I jokingly remarked that an algorithm could do that much faster, so Mrs Vogler told me to programme one. But it was by no means just an algorithm; megalomaniac that I was, I wanted to digitise the entire process. Translated with www.DeepL.com/Translator"
       },
       "SECTION2": {
         "title": "The development",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "about": "The development turned out to be much more extensive than I had initially thought. I ended up developing the application for over a year. Due to Corona, however, the 2021 project days were cancelled and with them the use of my app. I used the time gained to further develop the application - version 2.0. Translated with www.DeepL.com/Translator"
       },
       "SECTION3": {
         "title": "Now we're here",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "about": "Right now you can see what the app has become. I myself do not know at the time of writing this text. But I am confident and hope that you will have a lot of fun using it. Translated with www.DeepL.com/Translator"
       }
     },
     "DATA_USE": {

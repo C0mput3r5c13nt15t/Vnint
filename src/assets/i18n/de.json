@@ -442,7 +442,11 @@
     "MANAGE_SORTING": {
       "title": "Sortierung verwalten",
       "removeFromProject": "Aus Projekt entfernen",
-      "applySorting": "Sortierung anwenden"
+      "applySorting": "Sortierung anwenden",
+      "nthGrade": ". Klasse",
+      "tooMany": "Teilnehmer zu viel",
+      "tooFew": "Teilnehmer zu wenig",
+      "exact": "Genau richtige Teilnehmerzahl"
     },
     "MANAGE_USERS": {
       "title": "Benutzer verwalten",
@@ -644,16 +648,16 @@
     "ABOUT": {
       "title": "About",
       "SECTION1": {
-        "title": "The idea",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "title": "Die Idee",
+        "about": "Die Idee zu dieser App kam mir, als mir Frau Vogler eines Tages erzählte, wie sie die Schüler den Projekten händisch zuordnete. Ich bemerkte spaßhaft, dass ein Algorithmus das viel schneller könne und da meinte Frau Vogler ich solle doch dann einen programmieren. Es blieb aber keineswegs nur bei einem Algorithmus, größenwahnsinnig wie ich war, wollte ich den gesamten Prozess digitalisieren."
       },
       "SECTION2": {
-        "title": "The development",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "title": "Die Entwicklung",
+        "about": "Die Entwicklung stellte sich als deutlich umfangreicher heraus als anfangs gedacht. Ich entwickelte schließlich über ein Jahr an der Applikation. Aufgrund von Corona fielen die Projekttage 2021 dann aber aus und damit auch der Einsatz meiner App. Die gewonnene Zeit nutze ich, um die Applikation weiterzuentwickeln - die Version 2.0"
       },
       "SECTION3": {
-        "title": "Now we're here",
-        "about": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        "title": "Jetzt sind wir hier",
+        "about": "Gerade in diesem Augenblick können Sie sehen, was aus der Applikation geworden ist. Ich selbst weiß zum Zeitpunkt des Schreibens dieses Textes noch nicht. Ich bin aber zuversichtlich und hoffe, dass Sie viel Freude mit der Nutzung haben werden."
       }
     },
     "DATA_USE": {

@@ -19,7 +19,7 @@ export class ProjectService {
   }
 
   public getProjectsDetailed(): Observable<object> {
-    return this.http.get('/api/projectsDetailed', this.options);
+    return this.http.get('/api/projects_detailed', this.options);
   }
 
   public getProject(projectId: number): Observable<object> {
