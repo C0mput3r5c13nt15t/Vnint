@@ -55,18 +55,21 @@ export class ManageSortingPage implements OnInit {
     });
   }
 
-  moveUser(user: User, projectId) {
-    for(let i=0; i<this.projects.length; i++){
-      let index = this.projects[i].participants.findIndex(loopUser => loopUser == user)
-      index != -1 && this.projects[i].participants.splice(index, 1)
-    }
-    let indexInUnused = this.unsortedUsers.findIndex(loopUser => loopUser == user)
-    indexInUnused != -1 && this.unsortedUsers.splice(indexInUnused, 1);
-    if (projectId == 0) {
-      this.unsortedUsers.push(user)
-    } else {
-      let project = this.projects.find(loopProject => loopProject.id == projectId)
-      project.participants.push(user);
+  moveUser(user: User, event: any) {
+    if (event.detail.value) {
+      const projectId = event.detail.value;
+      for(let i=0; i<this.projects.length; i++){
+        let index = this.projects[i].participants.findIndex(loopUser => loopUser == user)
+        index != -1 && this.projects[i].participants.splice(index, 1)
+      }
+      let indexInUnused = this.unsortedUsers.findIndex(loopUser => loopUser == user)
+      indexInUnused != -1 && this.unsortedUsers.splice(indexInUnused, 1);
+      if (projectId == 0) {
+        this.unsortedUsers.push(user)
+      } else {
+        let project = this.projects.find(loopProject => loopProject.id == projectId)
+        project.participants.push(user);
+      }
     }
   }
 

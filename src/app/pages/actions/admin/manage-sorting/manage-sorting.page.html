@@ -49,7 +49,7 @@
                               <ng-container *ngFor="let preference of participant.preferences">
                                 <ion-badge [color]="preference.project_id == project.id ? 'success' : 'danger'"><ion-label class="white-font">{{ preference.project_id }}</ion-label></ion-badge>
                               </ng-container>
-                              <ion-select (ionChange)="moveUser(participant, $event.detail.value)" interface="popover">
+                              <ion-select (ionChange)="moveUser(participant, $event)" interface="popover">
                                 <ion-select-option [value]="project.id" *ngFor="let project of projects">{{ project.id }} - {{ project.title }}</ion-select-option>
                                 <ion-select-option value="0">{{ 'ACTIONS.MANAGE_SORTING.removeFromProject' | translate }}</ion-select-option>
                               </ion-select>
@@ -79,7 +79,7 @@
                       <ng-container *ngFor="let preference of user.preferences">
                         <ion-badge color="primary"><ion-label class="white-font">{{ preference.project_id }}</ion-label></ion-badge>
                       </ng-container>
-                      <ion-select (ionChange)="moveUser(user, $event.detail.value)" interface="popover">
+                      <ion-select (ionChange)="moveUser(user, $event)" interface="popover">
                         <ion-select-option [value]="project.id" *ngFor="let project of projects">{{ project.id }} - {{ project.title }}</ion-select-option>
                       </ion-select>
                     </ion-item>

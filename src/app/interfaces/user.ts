@@ -2,6 +2,7 @@
 
 import { Preference } from './preference';
 import { Role } from './role';
+import {Grade_level} from "./grade_level";
 
 /**
  * The basic user interface
@@ -16,6 +17,7 @@ import { Role } from './role';
   updated_at?: Date;
 
   roles?: Role[];
+  grade_level?: Grade_level;
   role_names?: string[];
   preferences?: Preference[];
 }
