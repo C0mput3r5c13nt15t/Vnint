@@ -29,6 +29,16 @@
       "bug": "Bug",
       "other": "Sonstiges"
     },
+    "USER_ROLES": {
+      "user": "Benutzer",
+      "attendant": "Schüler",
+      "guestAttendant": "Externer",
+      "participant": "Projektteilnehmer (Schüler)",
+      "leader": "Projektleiter (Schüler)",
+      "assistant": "Projektassistent (Schüler)",
+      "guestLeader": "Externer Projektleiter",
+      "admin": "Administrator"
+    },
     "PROJECT_TOPICS": {
       "sports": "⚽ Sport",
       "nature": "🌳 Natur",
@@ -383,7 +393,8 @@
     }
   },
   "NOTIFICATIONS": {
-    "title": "Benachrichtigungen"
+    "title": "Benachrichtigungen",
+    "noNotifications": "Noch keine Benachrichtigungen ..."
   },
   "ACTIONS": {
     "MANAGE_USER_ROLES": {
@@ -453,6 +464,7 @@
       "INPUT": {
         "searchUsersPlaceholder": "Nach E-Mail suchen"
       },
+      "convertToGuestAttendant": "Zu Externem umwandeln",
       "CONVERT_TO_GUEST_ATTENDANT_POPUP": {
         "alertHeader": "Sind Sie sich sicher?",
         "alertText": "Möchten Sie den attendant wirklich in einen guestAttendant konvertieren? Diese Aktion ist irreversibel!",
@@ -522,11 +534,6 @@
       "addAssistant": "Assistent hinzufügen",
       "participants": "Teilnehmer",
       "removeAssistants": "Klicken Sie die Assistenten in der Teilnehmerliste an, um sie zu entfernen.",
-      "ROLES": {
-        "leader": "Projektleiter",
-        "assistent": "Assistent",
-        "participant": "Teilnehmer"
-      },
       "REMOVE_ASSISTANT_POPUP": {
         "alertHeader": "Sind Sie sich sicher?",
         "alertText": "Möchten Sie den Assistenten wirklich entfernen?",
@@ -671,7 +678,11 @@
       "mobile": "Mobil",
       "CONTACT": [
         {
-          "name": "Paul Maier",
+          "name": "Support",
+          "email": "diribitio@gmail.com"
+        },
+        {
+          "name": "Paul Maier (Developer, Project Manager, Designer, Tester, Translator, etc.)",
           "address1": "Winziger Straße 2",
           "address2": "84181 Neufraunhofen",
           "telephone": "+49 1733 780289",

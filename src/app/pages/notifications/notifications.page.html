@@ -10,7 +10,8 @@
           </ng-container>
         </ng-container>
         <ng-container *ngIf="alertService.alerts.length == 0">
-          <app-empty-card message="{{ 'ACTIONS.VIEW_PROJECTS.noProjects' | translate }}"></app-empty-card><br>
+          <br>
+          <app-empty-card message="{{ 'NOTIFICATIONS.noNotifications' | translate }}"></app-empty-card><br>
         </ng-container>
       </ion-col>
     </ion-row>

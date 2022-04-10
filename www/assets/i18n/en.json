@@ -29,6 +29,16 @@
       "bug": "Bug report",
       "other": "Other"
     },
+    "USER_ROLES": {
+      "user": "User",
+      "attendant": "Pupil",
+      "guestAttendant": "External",
+      "participant": "Project participant (pupil)",
+      "leader": "Project leader (pupil)",
+      "assistant": "Project assistant (pupil)",
+      "guestLeader": "External Project Leader",
+      "admin": "Administrator"
+    },
     "PROJECT_TOPICS": {
       "sports": "⚽ Sports",
       "nature": "🌳 Nature",
@@ -378,7 +388,8 @@
     }
   },
   "NOTIFICATIONS": {
-    "title": "Notifications"
+    "title": "Notifications",
+    "noNotifications": "No notifications yet ..."
   },
   "ACTIONS": {
     "MANAGE_USER_ROLES": {
@@ -448,6 +459,7 @@
       "INPUT": {
         "searchUsersPlaceholder": "Search for a users email"
       },
+      "convertToGuestAttendant": "Convert to external",
       "CONVERT_TO_GUEST_ATTENDANT_POPUP": {
         "alertHeader": "Are you sure?",
         "alertText": "Do you really want to convert the attendant to a guestAttendant? This action is irreversible!",
@@ -516,11 +528,6 @@
       "addAssistant": "Add assistent",
       "participants": "Participants",
       "removeAssistants": "Click the assistants in the participants list to remove them.",
-      "ROLES": {
-        "leader": "Leader",
-        "assistent": "Assistent",
-        "participant": "Participant"
-      },
       "REMOVE_ASSISTANT_POPUP": {
         "alertHeader": "Are you sure?",
         "alertText": "Do you really want to remove the assistant?",
@@ -665,7 +672,11 @@
       "mobile": "Mobile",
       "CONTACT": [
         {
-          "name": "Paul Maier",
+          "name": "Support",
+          "email": "diribitio@gmail.com"
+        },
+        {
+          "name": "Paul Maier (Developer, Project Manager, Designer, Tester, Translator, etc.)",
           "address1": "Winziger Straße 2",
           "address2": "84181 Neufraunhofen",
           "telephone": "+49 1733 780289",

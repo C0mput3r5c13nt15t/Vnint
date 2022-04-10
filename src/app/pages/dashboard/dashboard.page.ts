@@ -99,7 +99,7 @@ export class DashboardPage implements OnInit {
       next: response => {
         const resp: any = response;
 
-        if (!resp.grade_level) {
+        if (!resp.grade_level && this.auth.getLoggedIn) {
           this.setGradeAlert();
         }
       },

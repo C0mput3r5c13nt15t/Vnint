@@ -82,7 +82,11 @@
                         {{ project.leader.email }}
                       </ion-card-title>
                       <ion-card-subtitle>
-                        <ion-label color="primary" class="subtitle-labels">{{ 'ACTIONS.MANAGE_PROJECT.ROLES.leader' | translate }}</ion-label>
+                        <ng-container *ngFor="let role of project.leader.roles">
+                          <ng-container *ngIf="role.name != 'user'">
+                            <ion-badge color="primary"><ion-label class="white-font">{{ 'GENERAL.USER_ROLES.' + role.name | translate }}</ion-label></ion-badge>
+                          </ng-container>
+                        </ng-container>
                       </ion-card-subtitle>
                     </ion-card-header>
                   </ion-card>
@@ -94,7 +98,7 @@
                             {{ assistant.email }}
                           </ion-card-title>
                           <ion-card-subtitle>
-                            <ion-label color="primary" class="subtitle-labels">{{ 'ACTIONS.MANAGE_PROJECT.ROLES.assistent' | translate }}</ion-label>
+                            <ion-badge color="primary"><ion-label class="white-font">{{ 'GENERAL.USER_ROLES.assistant' | translate }}</ion-label></ion-badge>
                           </ion-card-subtitle>
                         </ion-card-header>
                       </ion-card>
@@ -106,7 +110,7 @@
                             {{ assistant.email }}
                           </ion-card-title>
                           <ion-card-subtitle>
-                            <ion-label color="primary" class="subtitle-labels">{{ 'ACTIONS.MANAGE_PROJECT.ROLES.assistent' | translate }}</ion-label>
+                            <ion-badge color="primary"><ion-label class="white-font">{{ 'GENERAL.USER_ROLES.assistant' | translate }}</ion-label></ion-badge>
                           </ion-card-subtitle>
                         </ion-card-header>
                       </ion-card>
@@ -118,7 +122,7 @@
                         <ion-card-title class="user-email">
                           {{ participant.email }}
                         </ion-card-title>
-                        <ion-label color="primary" class="subtitle-labels">{{ 'ACTIONS.MANAGE_PROJECT.ROLES.participant' | translate }}</ion-label>
+                        <ion-badge color="primary"><ion-label class="white-font">{{ 'GENERAL.USER_ROLES.participant' | translate }}</ion-label></ion-badge>
                       </ion-card-header>
                     </ion-card>
                   </ng-container>

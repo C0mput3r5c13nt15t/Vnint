@@ -11,8 +11,8 @@
                 <ion-col>
                   <form [formGroup]="searchUsersForm">
                     <ion-searchbar color="light" (ionChange)="searchUsers()" placeholder="{{ 'ACTIONS.MANAGE_USERS.INPUT.searchUsersPlaceholder' | translate }}" formControlName="email" showCancelButton="focus"></ion-searchbar>
-                    <ion-select (ionChange)="searchUsers()" multiple="true" formControlName="roles" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}" placeholder="{{ role_names }}">
-                      <ion-select-option *ngFor="let role_name of role_names" value="{{ role_name }}">{{ role_name }}</ion-select-option>
+                    <ion-select interface="popover" (ionChange)="searchUsers()" multiple="true" formControlName="roles" okText="{{ 'GENERAL.POPUPS.ok' | translate }}" cancelText="{{ 'GENERAL.POPUPS.cancel' | translate }}" placeholder="{{ role_names }}">
+                      <ion-select-option *ngFor="let role_name of role_names" value="{{ role_name }}">{{ 'GENERAL.USER_ROLES.' + role_name | translate }}</ion-select-option>
                     </ion-select>
                   </form>
                   <ng-container *ngIf="users.length > 0">
@@ -23,9 +23,8 @@
                         </ion-card-title>
                         <ion-card-subtitle>
                           <ng-container *ngFor="let role of user.roles">
-                            <ion-label class="subtitle-labels" color="primary"><b>{{ role.name }} </b></ion-label>
+                            <ion-badge color="primary"><ion-label class="white-font">{{ 'GENERAL.USER_ROLES.' + role.name | translate }}</ion-label></ion-badge>
                           </ng-container>
-                          <ion-label class="subtitle-labels">- {{ user.created_at | date :( 'GENERAL.exactTimeDisplayFormat' | translate ) }}</ion-label>
                           <ng-container *ngFor="let role of user.roles">
                             <ng-container *ngIf="role.name == 'attendant'">
                               <br>
@@ -33,7 +32,7 @@
                               <ion-row>
                                 <ion-chip (click)="convertToGuestAttendant(user.id)">
                                   <ion-icon name="sync"></ion-icon>
-                                  <ion-label>Convert to guestAttendant</ion-label>
+                                  <ion-label>{{ 'ACTIONS.MANAGE_USERS.convertToGuestAttendant' | translate }}</ion-label>
                                 </ion-chip>
                               </ion-row>
                             </ng-container>

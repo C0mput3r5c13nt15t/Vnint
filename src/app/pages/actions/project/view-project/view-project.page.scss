@@ -13,6 +13,10 @@ hr {
 .user-email {
   font-size: 14pt;
 }
-.subtitle-labels {
-  font-size: 12pt;
+
+ion-badge {
+  margin-right: 5px;
+  ion-label {
+    font-weight: normal !important;
+  }
 }

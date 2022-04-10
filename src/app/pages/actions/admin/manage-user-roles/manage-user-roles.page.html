@@ -12,7 +12,7 @@
                   <ng-container *ngIf="roles.length > 0">
                     <ion-card *ngFor="let role of roles">
                       <ion-card-header>
-                        <ion-card-title>{{ role.name }}</ion-card-title>
+                        <ion-card-title>{{ 'GENERAL.USER_ROLES.' + role.name | translate}}</ion-card-title>
                         <ion-card-subtitle>
                           {{ 'GENERAL.createdAt' | translate }} <ion-label color="primary" class="subtitle-labels">{{ role.created_at | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>,
                           {{ 'GENERAL.updatedAt' | translate }} <ion-label color="primary" class="subtitle-labels">{{ role.updated_at | date:( 'GENERAL.timeDisplayFormat' | translate ):( 'GENERAL.timezone' | translate ):( 'GENERAL.locale' | translate ) }}</ion-label>
