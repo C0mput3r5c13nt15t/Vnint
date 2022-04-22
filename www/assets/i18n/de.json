@@ -74,6 +74,7 @@
       "projects.authorize_associated": "Projekt automatisch autorisieren",
       "projects.destroy": "Projekt löschen",
       "projects.index": "Alle Projekte einsehen",
+      "projects.index_detailed": "Alle Projekte detailliert einsehen",
       "projects.promote_assistant": "Assistenten zu Projekt hinzufügen",
       "projects.demote_assistant": "Assistenten von Projekt entfernen",
       "projects.show": "Einzelnes Projekt einsehen",
@@ -89,13 +90,13 @@
       "timeframes.show": "Einzelnes Zeitfenster einsehen",
       "timeframes.store": "Zeitfenster erstellen",
       "timeframes.update": "Zeitfenster aktualisieren",
+      "users.convert_self_to_guestAttendant": "Rolle des eigenen Benutzers zu Externer ändern",
       "users.index": "Alle Benutzer anzeigen",
-      "users.convert_to_guestAttendant": "Rolle eines Benutzers zu guestAttendant ändern",
-      "sorting.show": "Einzelnen Sortiervorschlag einsehen",
-      "sorting.store": "Sortiervorschlag erstellen",
-      "sorting.update": "Sortiervorschlag aktualisieren",
-      "sorting.destroy": "Sortiervorschlag löschen",
-      "sorting.apply": "Sortiervorschlag anwenden"
+      "users.convert_to_guestAttendant": "Rolle eines Benutzers zu Externer ändern",
+      "users.index_unsorted": "Alle unsortierten Benutzer einsehen",
+      "users.make_participant": "Benutzer zu Projektteilnehmer machen",
+      "users.show_grade_level": "Eigene Klassenstufen einsehen",
+      "users.store_grade_level": "Eigene Klassenstufen ändern"
     }
   },
   "MENU": {
@@ -172,11 +173,6 @@
       "alertMessage": "Bitte geben Sie an, welche Klassenstufe Sie aktuell besuchen. Falls Sie ein Elternteil oder Lehrer sind, klicken Sie bitte 'Ich bin kein Schüler'.",
       "external": "Ich bin kein Schüler"
     },
-    "GREETING1S": {
-      "morning": "Guten Morgen.",
-      "afternoon": "Guten Nachmittag.",
-      "evening": "Guten Abend."
-    },
     "GREETINGS": [
       {
         "title": "Guten Morgen.",
@@ -216,6 +212,7 @@
           ["applicationsettings.show"],
           ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"],
           ["users.index", "roles.index"],
+          ["projects.index_detailed", "users.index_unsorted", "users.make_participant"],
           ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"],
           ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
           ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"],
@@ -245,7 +242,7 @@
             "icon": "funnel",
             "title": "Sortierung verwalten",
             "link": "/manage-sorting",
-            "requiredPermissions": []
+            "requiredPermissions": ["projects.index_detailed", "users.index_unsorted", "users.make_participant"]
           },
           {
             "icon": "grid",
@@ -467,7 +464,7 @@
       "convertToGuestAttendant": "Zu Externem umwandeln",
       "CONVERT_TO_GUEST_ATTENDANT_POPUP": {
         "alertHeader": "Sind Sie sich sicher?",
-        "alertText": "Möchten Sie den attendant wirklich in einen guestAttendant konvertieren? Diese Aktion ist irreversibel!",
+        "alertText": "Möchten Sie den Schüler wirklich zu einem Externen konvertieren? Diese Aktion ist irreversibel!",
         "convertButton": "Konvertieren"
       }
     },
@@ -481,7 +478,6 @@
         "description": "Beschreibung",
         "image": "Bild",
         "timeframe": "Zeitrahmen",
-        "date": "Datum",
         "datePlaceholder": "Wählen Sie ein Datum",
         "fromPlaceholder": "Beginn",
         "untilPlaceholder": "Ende",

@@ -74,6 +74,7 @@
       "projects.authorise_associated": "Automatically authorise project",
       "projects.destroy": "Delete project",
       "projects.index": "View all projects",
+      "projects.index_detailed": "View all projects in detail",
       "projects.show": "View single project",
       "projects.promote_assistant": "Add assistants to project",
       "projects.demote_assistant": "Remove assistants from project",
@@ -89,13 +90,13 @@
       "timeframes.show": "View single time frame",
       "timeframes.store": "Create time window",
       "timeframes.update": "Update time frame",
+      "users.convert_self_to_guestAttendant": "Change role of own user to External",
       "users.index": "Show all users",
-      "users.convert_to_guestAttendant": "Change role of a user to guestAttendant",
-      "sorting.show": "View individual sorting suggestion",
-      "sorting.store": "Create sorting proposal",
-      "sorting.update": "Update sorting proposal",
-      "sorting.destroy": "Delete sorting proposal",
-      "sorting.apply": "Apply sorting proposal"
+      "users.convert_to_guestAttendant": "Change role of a user to External",
+      "users.index_unsorted": "View all unsorted users",
+      "users.make_participant": "Make user project participant",
+      "users.show_grade_level": "View own grade level",
+      "users.store_grade_level": "Change own class level"
     }
   },
   "MENU": {
@@ -211,6 +212,7 @@
           ["applicationSettings.show", "applicationsettings.update"],
           ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"],
           ["users.index", "roles.index"],
+          ["projects.index_detailed", "users.index_unsorted", "users.make_participant"],
           ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"],
           ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
           ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"],
@@ -240,7 +242,7 @@
             "icon": "funnel",
             "title": "Manage sorting",
             "link": "/manage-sorting",
-            "requiredPermissions": []
+            "requiredPermissions": ["projects.index_detailed", "users.index_unsorted", "users.make_participant"]
           },
           {
             "icon": "grid",
@@ -462,7 +464,7 @@
       "convertToGuestAttendant": "Convert to external",
       "CONVERT_TO_GUEST_ATTENDANT_POPUP": {
         "alertHeader": "Are you sure?",
-        "alertText": "Do you really want to convert the attendant to a guestAttendant? This action is irreversible!",
+        "alertText": "Do you really want to convert the Pupil to an External? This action is irreversible!",
         "convertButton": "Convert"
       }
     },
@@ -604,6 +606,16 @@
       "removePreference": "Remove project wish",
       "noPreferences": "You don't yet have any project wishes ..."
     },
+    "MANAGE_APPLICATION_SETTINGS": {
+      "title": "Manage application settings",
+      "INPUT": {
+        "non_guest_email_domain": "Email domain of non guest attendants (students)",
+        "max_friends": "Maximum amount of friends",
+        "min_preferences": "Minimum amount of project preferences",
+        "max_preferences": "Maximum amount of project preferences",
+        "submitButton": "Update settings"
+      }
+    },
     "MANAGE_FRIENDSHIPS": {
       "title": "Manage Friendships",
       "LEGEND": {
@@ -619,16 +631,6 @@
         "from": "from",
         "authorizeFriendship": "Authorize friendship",
         "declineFriendship": "Decline friendship"
-      }
-    },
-    "MANAGE_APPLICATION_SETTINGS": {
-      "title": "Manage application settings",
-      "INPUT": {
-        "non_guest_email_domain": "Email domain of non guest attendants (students)",
-        "max_friends": "Maximum amount of friends",
-        "min_preferences": "Minimum amount of project preferences",
-        "max_preferences": "Maximum amount of project preferences",
-        "submitButton": "Update settings"
       }
     },
     "VERIFY_EMAIL": {
@@ -666,7 +668,7 @@
       "transparencyExplanation": "It is very important to us to be transparent about what data we use, how we use it and for what purpose. In this section, you can get a good overview, but it should be noted that the information is given to the best of our knowledge, but without liability. Legally binding information on this can only be found in the terms of use."
     },
     "IMPRESSUM": {
-      "title": "Impressum ☎️",
+      "title": "Impressum",
       "telephone": "Tel.",
       "fax": "Fax",
       "mobile": "Mobile",
