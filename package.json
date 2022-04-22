@@ -1,12 +1,12 @@
 {
   "name": "Vnint",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "version": "2.0.0",
+  "author": "Paul Maier",
+  "homepage": "https://www.diribitio.digital/",
   "scripts": {
     "ng": "ng",
     "start": "ionic serve --external",
-    "build": "ionic build --configuration production --platform=android",
+    "build": "ionic build --configuration production --platform=android --engine=browser",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -74,5 +74,5 @@
     "ts-node": "~8.3.0",
     "typescript": "~4.4.4"
   },
-  "description": "An Ionic project"
+  "description": "This is Diribitio - a SaaS application for organizing all sorts of events."
 }
