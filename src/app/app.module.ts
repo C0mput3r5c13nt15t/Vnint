@@ -36,7 +36,9 @@ registerLocaleData(localeDe, localeDeExtra);
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      mode: 'md',
+    }),
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
