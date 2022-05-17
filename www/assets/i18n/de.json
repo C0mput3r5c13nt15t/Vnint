@@ -40,9 +40,15 @@
       "admin": "Administrator"
     },
     "PROJECT_TOPICS": {
-      "sports": "⚽ Sport",
+      "food": "🍽 Essen",
+      "arts": "\uD83C\uDFA8 Kunst",
+      "music": "🎵 Musik",
       "nature": "🌳 Natur",
       "games": "🎲 Spiele",
+      "sports": "⚽ Sport",
+      "technology": "💻 Technologie",
+      "entertainment": "🎥 Unterhaltung",
+      "science": "🔬 Wissenschaft",
       "other": "❓ Sonstiges"
     },
     "PERMISSIONS": {
