@@ -11,11 +11,6 @@
             <ion-grid class="inside-card-grid">
               <ion-row>
                 <ion-col>
-                  <ion-label>{{ 'ACTIONS.VIEW_PROJECT.topic' | translate }} </ion-label>
-                  <ng-container *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue">
-                    <ion-label class="subtitle-labels" color="primary" *ngIf="project.topic == topic.key"><b>{{ topic.value }}</b></ion-label>
-                  </ng-container>
-                  <br><br>
                   <ion-label>
                     {{ project.description }}
                   </ion-label>
@@ -32,6 +27,13 @@
                       </ion-card>
                     </div>
                   </ng-container>
+                  <br>
+                  <br>
+                  <ion-label>{{ 'ACTIONS.VIEW_PROJECT.topic' | translate }} </ion-label>
+                  <ng-container *ngFor="let topic of ('GENERAL.PROJECT_TOPICS' | translate) | keyvalue">
+                    <ion-label class="subtitle-labels" color="primary" *ngIf="project.topic == topic.key"><b>{{ topic.value }}</b></ion-label>
+                  </ng-container>
+                  <br>
                   <br>
                   <ion-label>{{ 'ACTIONS.VIEW_PROJECT.leader' | translate }} </ion-label><ion-label color="primary"><b>{{ project.leader.email }}</b></ion-label>
                   <br>
