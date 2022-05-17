@@ -36,7 +36,7 @@ export class ViewProjectsPage implements OnInit {
 
   ngOnInit() {
     this.searchProjectForm = this.formBuilder.group({
-      topic: [['sports', 'nature', 'games', 'other']],
+      topic: [['food', 'arts', 'music', 'nature', 'games', 'sports', 'technology', 'entertainment', 'science', 'other']],
       title: [''],
     });
   }
