@@ -1,0 +1,768 @@
+{
+  "GENERAL": {
+    "help": "Help",
+    "back": "Back",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "createdAt": "Created at",
+    "updatedAt": "Last updated at",
+    "ERRORS": {
+      "missingPermissions": "You currently do not have the required permissions to perform this action.",
+      "sessionExpired": "Session expired"
+    },
+    "timezone": "+0",
+    "locale": "en",
+    "timeDisplayFormat": "MMM d, YYYY",
+    "exactTimeDisplayFormat": "MMM d, YYYY, hh:mm a",
+    "hoursAndMinutesTimeDisplayFormat": "h:mm a",
+    "hourCycle": "h12",
+    "POPUPS": {
+      "ok": "Ok",
+      "done": "Done",
+      "cancel": "Cancel"
+    },
+    "FEEDBACK_TYPES": {
+      "general": "General",
+      "feature": "Feature request",
+      "translation": "Translation mistake",
+      "typo": "Typo",
+      "bug": "Bug report",
+      "other": "Other"
+    },
+    "USER_ROLES": {
+      "user": "User",
+      "attendant": "Pupil",
+      "guestAttendant": "External",
+      "participant": "Project participant (pupil)",
+      "leader": "Project leader (pupil)",
+      "assistant": "Project assistant (pupil)",
+      "guestLeader": "External Project Leader",
+      "admin": "Administrator"
+    },
+    "PROJECT_TOPICS": {
+      "food": "\uD83C\uDF7D Food",
+      "arts": "\uD83C\uDFA8 Art",
+      "music": "🎵 Music",
+      "nature":"🌳 Nature",
+      "games": "🎲 Games",
+      "sports":"⚽ Sports",
+      "technology":"💻 Technology",
+      "entertainment":"🎥 Entertainment",
+      "science":"🔬 Science",
+      "other": "❓ Other"
+    },
+    "PERMISSIONS": {
+      "applicationsettings.show": "View application settings",
+      "applicationsettings.update": "Update application settings",
+      "events.destroy": "Delete event",
+      "events.index": "View all events",
+      "events.store": "View single event",
+      "events.sync_permissions": "Change permissions of an event",
+      "events.update": "Update Event",
+      "feedback.destroy": "Delete Feedback",
+      "feedback.index": "View all feedbacks",
+      "feedback.show": "View Individual Feedback",
+      "feedback.store": "Give feedback",
+      "friendships.accept": "Accept friendship",
+      "friendships.authorise": "Authorise friendship",
+      "friendships.decline": "Decline friendship",
+      "friendships.destroy": "delete friendship",
+      "friendships.index": "View all friendships",
+      "friendships.show": "View individual friendships",
+      "friendships.show_associated": "View own friendships",
+      "friendships.store": "Create friend request",
+      "permissions.index": "Show all permissions",
+      "preferences.destroy": "Delete project request",
+      "preferences.index": "View all project preferences",
+      "preferences.show": "View individual project request",
+      "preferences.show_associated": "View own project preferences",
+      "preferences.store": "Express project wish",
+      "projects.authorise_associated": "Automatically authorise project",
+      "projects.destroy": "Delete project",
+      "projects.index": "View all projects",
+      "projects.index_detailed": "View all projects in detail",
+      "projects.show": "View single project",
+      "projects.promote_assistant": "Add assistants to project",
+      "projects.demote_assistant": "Remove assistants from project",
+      "projects.show_associated": "View own projects",
+      "projects.store": "Create Project",
+      "projects.toggle_authorised": "Authorise project",
+      "projects.update_associated": "Update own project",
+      "roles.destroy": "Delete user role",
+      "roles.index": "View all user roles",
+      "roles.store": "Create user role",
+      "roles.toggle_permission": "Change permissions of a user role",
+      "timeframes.destroy": "Delete timeframes",
+      "timeframes.show": "View single time frame",
+      "timeframes.store": "Create time window",
+      "timeframes.update": "Update time frame",
+      "users.convert_self_to_guestAttendant": "Change role of own user to External",
+      "users.index": "Show all users",
+      "users.convert_to_guestAttendant": "Change role of a user to External",
+      "users.index_unsorted": "View all unsorted users",
+      "users.make_participant": "Make user project participant",
+      "users.show_grade_level": "View own grade level",
+      "users.store_grade_level": "Change own class level"
+    }
+  },
+  "MENU": {
+    "PAGES": [
+      {
+        "title": "Dashboard",
+        "url": "/dashboard",
+        "icon": "home"
+      },
+      {
+        "title": "Account",
+        "url": "/account",
+        "icon": "person"
+      },
+      {
+        "title": "Settings",
+        "url": "/settings",
+        "icon": "settings"
+      },
+      {
+        "title": "Notifications",
+        "url": "/notifications",
+        "icon": "notifications"
+      }
+    ],
+    "ACTIONS": {
+      "logout": "Logout"
+    },
+    "LOGOUT_POPUP": {
+      "alertHeader": "Are you sure?",
+      "alertText": "Do you want to log out of your account?",
+      "logoutButton": "Logout"
+    }
+  },
+  "LOGIN": {
+    "title": "Login",
+    "INPUT": {
+      "email": "Email",
+      "password": "Password",
+      "loginButton": "Login"
+    },
+    "forgotPassword": "Forgot password?",
+    "or": "or",
+    "registerButton": "Register"
+  },
+  "FORGOT_PASSWORD": {
+    "title": "Forgot password",
+    "INPUT": {
+      "email": "Email",
+      "resetButton": "Send email"
+    }
+  },
+  "RESET_PASSWORD": {
+    "title": "Reset password",
+    "INPUT": {
+      "email": "Email",
+      "resetButton": "Reset password"
+    }
+  },
+  "REGISTER": {
+    "title": "Register",
+    "INPUT": {
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "passwordConfirmation": "Password confirmation",
+      "registerButton": "Register"
+    },
+    "alreadyAccount": "Already have an account?"
+  },
+  "DASHBOARD": {
+    "SET_GRADE_POPUP": {
+      "alertHeader": "What grade are you in?",
+      "alertMessage": "Please tell us which grade level you are currently in. If you are a parent or teacher, please click 'I am not a student'.",
+      "external": "I am not a student"
+    },
+    "GREETINGS": [
+      {
+        "title": "Good morning.",
+        "description": "Hallo",
+        "hours": [6, 11],
+        "actions": []
+      },
+      {
+        "title": "Good day.",
+        "description": "Wie geht's?",
+        "hours": [11, 15],
+        "actions": []
+      },
+      {
+        "title": "Good afternoon.",
+        "description": "Demo txt",
+        "hours": [15, 18],
+        "actions": []
+      },
+      {
+        "title": "Good evening.",
+        "description": "Es ist schon spät",
+        "hours": [18, 25],
+        "actions": []
+      }
+    ],
+    "ALERTS": {
+      "danger": "Errors",
+      "warning": "Warnings",
+      "primary": "Others",
+      "success": "Successes"
+    },
+    "CARDS": [
+      {
+        "title": "Administrate",
+        "requiredPermissions": [
+          ["applicationSettings.show", "applicationsettings.update"],
+          ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"],
+          ["users.index", "roles.index"],
+          ["projects.index_detailed", "users.index_unsorted", "users.make_participant"],
+          ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"],
+          ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"],
+          ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"],
+          ["feedback.index", "feedback.show", "feedback.destroy"]
+        ],
+        "icon_name": "options",
+        "BUTTONS": [
+          {
+            "icon": "settings",
+            "title": "Manage application settings",
+            "link": "/manage-application-settings",
+            "requiredPermissions": ["applicationsettings.show"]
+          },
+          {
+            "icon": "people",
+            "title": "Manage user roles",
+            "link": "/manage-user-roles",
+            "requiredPermissions": ["permissions.index", "roles.index", "roles.store", "roles.toggle_permission", "roles.destroy"]
+          },
+          {
+            "icon": "people",
+            "title": "View users",
+            "link": "/manage-users",
+            "requiredPermissions": ["users.index", "roles.index"]
+          },
+          {
+            "icon": "funnel",
+            "title": "Manage sorting",
+            "link": "/manage-sorting",
+            "requiredPermissions": ["projects.index_detailed", "users.index_unsorted", "users.make_participant"]
+          },
+          {
+            "icon": "grid",
+            "title": "View projects",
+            "link": "/view-projects",
+            "requiredPermissions": ["projects.index", "projects.destroy", "projects.toggle_authorized", "projects.show", "timeframes.show"]
+          },
+          {
+            "icon": "calendar",
+            "title": "Manage events",
+            "link": "/manage-events",
+            "requiredPermissions": ["events.index", "events.store", "events.update", "events.destroy", "permissions.index"]
+          },
+          {
+            "icon": "people",
+            "title": "Manage friendships",
+            "link": "/manage-friendships",
+            "requiredPermissions": ["friendships.index", "friendships.show", "friendships.authorise", "friendships.decline"]
+          },
+          {
+            "icon": "chatbubble",
+            "title": "View feedback",
+            "link": "/view-feedback",
+            "requiredPermissions": ["feedback.index", "feedback.show", "feedback.destroy"]
+          }
+        ]
+      },
+      {
+        "title": "Overview",
+        "requiredPermissions": [["events.index"], ["projects.index", "projects.show", "timeframes.show"]],
+        "icon_name": "calendar",
+        "BUTTONS": [
+          {
+            "icon": "calendar",
+            "title": "View schedule",
+            "link": "/view-schedule",
+            "requiredPermissions": ["events.index"]
+          },
+          {
+            "icon": "grid",
+            "title": "View projects",
+            "link": "/view-projects",
+            "requiredPermissions": ["projects.index", "projects.show", "timeframes.show"]
+          }
+        ]
+      },
+      {
+        "title": "Your profile",
+        "requiredPermissions": [],
+        "icon_name": "person",
+        "BUTTONS": [
+          {
+            "icon": "shield-checkmark",
+            "title": "Verify email address",
+            "link": "/verify-email",
+            "requiredPermissions": []
+          },
+          {
+            "icon": "people",
+            "title": "Manage friends",
+            "link": "/manage-friends",
+            "requiredPermissions": ["friendships.show_associated", "friendships.store", "friendships.accept", "friendships.destroy"]
+          },
+          {
+            "icon": "star",
+            "title": "Manage project wishes",
+            "link": "/manage-preferences",
+            "requiredPermissions": ["preferences.show_associated", "preferences.store", "preferences.destroy"]
+          },
+          {
+            "icon": "create",
+            "title": "Create project",
+            "link": "/create-project",
+            "requiredPermissions": ["projects.store"]
+          },
+          {
+            "icon": "create",
+            "title": "Manage project",
+            "link": "/manage-project",
+            "requiredPermissions": ["projects.show_associated", "timeframes.show"]
+          }
+        ]
+      },
+      {
+        "title": "Others",
+        "requiredPermissions": [],
+        "icon_name": "information",
+        "BUTTONS": [
+          {
+            "icon": "chatbubble",
+            "title": "Give feedback",
+            "link": "/give-feedback",
+            "requiredPermissions": ["feedback.store"]
+          },
+          {
+            "icon": "business",
+            "title": "About",
+            "link": "/about",
+            "requiredPermissions": []
+          }
+        ]
+      }
+    ]
+  },
+  "ACCOUNT": {
+    "title": "Account ℹ️",
+    "UPDATE_ACCOUNT_INFORMATION": {
+      "title": "Update profile",
+      "warning": "If you change your email you will have to verify it again. The according link will be sent to your new email address.",
+      "INPUT":  {
+        "name": "Name",
+        "email": "Email",
+        "updateButton": "Update profile"
+      },
+      "emailVerifiedAt": "Email verified at",
+      "emailNotVerified": "Email not yet verified"
+    },
+    "CHANGE_PASSWORD": {
+      "title": "Change password",
+      "INPUT": {
+        "password": "New password",
+        "passwordConfirmation": "Confirm new password",
+        "currentPassword": "Current password",
+        "changeButton": "Change password "
+      }
+    },
+    "DELETE_ACCOUNT": {
+      "title": "Delete account",
+      "warning": "Currently accounts can not be deleted automatically, please contact an administrator in order to have your account deleted.",
+      "INPUT": {
+        "alertHeader": "Are you sure?",
+        "alertText": "Are you sure you irreversibly want to delete your account?",
+        "deleteButton": "Delete account"
+      }
+    }
+  },
+  "SETTINGS": {
+    "title": "Settings",
+    "language": "Language",
+    "notSupported": "Sadly our servers don't support this language yet, errors, etc. will be presented in english.",
+    "APPEARANCE": {
+      "title": "Appearance",
+      "chooseLanguage": "Choose a language",
+      "darkMode": "Dark mode"
+    }
+  },
+  "NOTIFICATIONS": {
+    "title": "Notifications",
+    "noNotifications": "No notifications yet ..."
+  },
+  "ACTIONS": {
+    "MANAGE_USER_ROLES": {
+      "title": "Manage user roles",
+      "deleteRole": "Delete",
+      "addRole": "Add role",
+      "REMOVE_ROLE_ALERT": {
+        "alertHeader": "Are you sure?",
+        "alertText": "Do you want to delete this role?",
+        "deleteButton": "Delete"
+      },
+      "ADD_ROLE_ALERT": {
+        "header": "Add role",
+        "name": "Name",
+        "addButton": "Add"
+      }
+    },
+    "VIEW_FEEDBACK": {
+      "title": "View feedback",
+      "noFeedback": "There is not feedback yet ...",
+      "INPUT": {
+        "deleteFeedback": "Delete",
+        "searchFeedbackPlaceholder": "Search for short description"
+      }
+    },
+    "VIEW_SINGLE_FEEDBACK": {
+      "title": "View feedback",
+      "type": "Type",
+      "published_on": "Published on",
+      "published_by": "Published by",
+      "delete": "Delete",
+      "INPUT": {
+        "alertHeader": "Are you sure?",
+        "alertText": "Are you sure you irreversibly want to delete this feedback?",
+        "deleteButton": "Delete feedback"
+      }
+    },
+    "MANAGE_SCHEDULE": {
+      "title": "Manage Schedule",
+      "edit": "Edit",
+      "abortEditing": "Abort editing",
+      "delete": "Delete",
+      "addEvent": "Add event",
+      "updateEvent": "Update event",
+      "INPUT": {
+        "title": "Title",
+        "description": "Description",
+        "from": "from",
+        "fromPlaceholder": "Choose a start date",
+        "until": "until",
+        "untilPlaceholder": "Choose an end date",
+        "addEventButton": "Add event",
+        "updateEventButton": "Update event"
+      }
+    },
+    "MANAGE_SORTING": {
+      "title": "Sortierung verwalten",
+      "removeFromProject": "Remove from project",
+      "applySorting": "Apply sorting",
+      "nthGrade": "th grade",
+      "tooMany": "Participants too much",
+      "tooFew": "Too few participants",
+      "exact": "Right number of participants"
+    },
+    "MANAGE_USERS": {
+      "title": "Manage users",
+      "INPUT": {
+        "searchUsersPlaceholder": "Search for a users email"
+      },
+      "convertToGuestAttendant": "Convert to external",
+      "CONVERT_TO_GUEST_ATTENDANT_POPUP": {
+        "alertHeader": "Are you sure?",
+        "alertText": "Do you really want to convert the Pupil to an External? This action is irreversible!",
+        "convertButton": "Convert"
+      }
+    },
+    "CREATE_PROJECT": {
+      "title": "Create project",
+      "topicPlaceholder": "Please choose a topic",
+      "INPUT": {
+        "topic": "Topic",
+        "title": "Title",
+        "leader": "Leader",
+        "description": "Description",
+        "image": "Image",
+        "timeframe": "Timeframe",
+        "date": "Date",
+        "datePlaceholder": "Choose a date",
+        "fromPlaceholder": "Beginning",
+        "untilPlaceholder": "End",
+        "cost": "Cost [€]",
+        "on": "on",
+        "from": "from",
+        "until": "until",
+        "grade": "Grade level",
+        "capacity": "Capacity",
+        "submitButton": "Create project"
+      },
+      "ERRORS": {
+        "alreadyHasProject": "You have already created a project.",
+        "uploadTooLarge": "Your title image is too large."
+      }
+    },
+    "EDIT_PROJECT": {
+      "title": "Edit project",
+      "INPUT": {
+        "topic": "Topic",
+        "title": "Title",
+        "leader": "Leader",
+        "description": "Description",
+        "timeframe": "Timeframe",
+        "datePlaceholder": "Choose a date",
+        "fromPlaceholder": "Beginning",
+        "untilPlaceholder": "End",
+        "cost": "Cost [€]",
+        "on": "on",
+        "from": "from",
+        "until": "until",
+        "grade": "Grade level",
+        "capacity": "Capacity",
+        "submitButton": "Edit project"
+      }
+    },
+    "MANAGE_PROJECT": {
+      "title": "Manage project",
+      "topic": "Topic",
+      "timeframes": "Timeframes",
+      "leader": "Leader",
+      "cost": "Cost",
+      "grade": "Grade level",
+      "capacity": "Capacity",
+      "from": "From",
+      "until": "Until",
+      "edit": "Edit",
+      "delete": "Delete",
+      "addAssistant": "Add assistent",
+      "participants": "Participants",
+      "removeAssistants": "Click the assistants in the participants list to remove them.",
+      "REMOVE_ASSISTANT_POPUP": {
+        "alertHeader": "Are you sure?",
+        "alertText": "Do you really want to remove the assistant?",
+        "removeButton": "Remove"
+      }
+    },
+    "VIEW_PROJECTS": {
+      "title": "View projects",
+      "topic": "Topic",
+      "by": "by",
+      "authorized": "Authorized",
+      "unauthorized": "Unauthorized",
+      "isPreference": "⭐ Project wish",
+      "noProjects": "There are no projects yet ...",
+      "INPUT": {
+        "searchProjectPlaceholder": "Search for project title"
+      }
+    },
+    "VIEW_PROJECT": {
+      "title": "Projekt einsehen",
+      "topic": "Topic",
+      "timeframes": "Timeframes",
+      "leader": "Leader",
+      "cost": "Cost",
+      "grade": "Grade level",
+      "capacity": "Capacity",
+      "addToPreferences": "Add to preferences",
+      "removeFromPreferences": "Remove from preferences",
+      "authorize": "Authorize",
+      "deauthorize": "Deauthorize",
+      "delete": "Delete"
+    },
+    "GIVE_FEEDBACK": {
+      "title": "Give Feedback",
+      "INPUT": {
+        "type": "Type",
+        "shortDescription": "Short description",
+        "fullDescription": "Full feedback",
+        "submitButton": "Send Feedback"
+      },
+      "SUCCESS": {
+        "thankYou": "Thank you for your feedback ❤️"
+      }
+    },
+    "MANAGE_FRIENDS": {
+      "title": "Friends",
+      "LEGEND": {
+        "yourFriendshipRequest": "Your friendship request ...",
+        "hourglass": "... still has to be accepted.",
+        "check": "... still has to be authorized.",
+        "doubleCheck": "... will be taken into account."
+      },
+      "proposedFriendships": "Proposed friendship requests",
+      "receivedFriendships": "Received friendship requests",
+      "noFriends": "You don't currently have any open friendship requests ...",
+      "FRIENDS": {
+        "proposedOn": "Proposed on",
+        "receivedOn": "Received on",
+        "acceptFriend": "Accept friend",
+        "removeFriend": "Remove friend",
+        "to": "to",
+        "from": "from",
+        "add": "Add friend",
+        "ADD_FRIEND_ALERT": {
+          "header": "Add friend",
+          "username": "Username",
+          "email": "Email",
+          "addButton": "Add"
+        }
+      }
+    },
+    "MANAGE_PREFERENCES": {
+      "title": "Manage project wishes",
+      "removePreference": "Remove project wish",
+      "noPreferences": "You don't yet have any project wishes ..."
+    },
+    "MANAGE_APPLICATION_SETTINGS": {
+      "title": "Manage application settings",
+      "INPUT": {
+        "non_guest_email_domain": "Email domain of non guest attendants (students)",
+        "max_friends": "Maximum amount of friends",
+        "min_preferences": "Minimum amount of project preferences",
+        "max_preferences": "Maximum amount of project preferences",
+        "submitButton": "Update settings"
+      }
+    },
+    "MANAGE_FRIENDSHIPS": {
+      "title": "Manage Friendships",
+      "LEGEND": {
+        "theFriendshipRequest": "The friendship request ...",
+        "hourglass": "... still has to be accepted.",
+        "check": "... still has to be authorized by you.",
+        "doubleCheck": "... will be taken into account."
+      },
+      "noFriends": "There currently aren't any open friendship requests ...",
+      "FRIENDS": {
+        "proposedOn": "Proposed on",
+        "to": "to",
+        "from": "from",
+        "authorizeFriendship": "Authorize friendship",
+        "declineFriendship": "Decline friendship"
+      }
+    },
+    "VERIFY_EMAIL": {
+      "title": "Verify email address",
+      "resendButton": "Resend verification",
+      "explanation": "In order to make sure that the email address you provided is really yours, we sent you an email when you registered. It contains a link that you can use to verify your email address.",
+      "verified": "Already verified - It seems that your email address is already verified. You should now have full access to your account. If this is not the case, try reloading the page. If the error persists, please report it as a bug ( see Feedback tab ).",
+      "notVerified": "Verification pending - Your email address does not seem to be verified yet. If you can't find the email, check your spam folder or your internet connection. If you have already received and verified the email, press the reload icon.",
+      "sent_title": "Email sent",
+      "sent": "Another email with the link has now been sent to your email address. After verifying the email, reload it using the button provided."
+    },
+    "VIEW_SCHEDULE": {
+      "title": "Schedule",
+      "noEvents": "There is no schedule yet ..."
+    }
+  },
+  "OTHER": {
+    "ABOUT": {
+      "title": "About",
+      "SECTION1": {
+        "title": "The idea",
+        "about": "The idea for this app came to me when Mrs. Vogler told me one day how she assigned students to projects by hand. I jokingly remarked that an algorithm could do that much faster, so Mrs Vogler told me to programme one. But it was by no means just an algorithm; megalomaniac that I was, I wanted to digitise the entire process. Translated with www.DeepL.com/Translator"
+      },
+      "SECTION2": {
+        "title": "The development",
+        "about": "The development turned out to be much more extensive than I had initially thought. I ended up developing the application for over a year. Due to Corona, however, the 2021 project days were cancelled and with them the use of my app. I used the time gained to further develop the application - version 2.0. Translated with www.DeepL.com/Translator"
+      },
+      "SECTION3": {
+        "title": "Now we're here",
+        "about": "Right now you can see what the app has become. I myself do not know at the time of writing this text. But I am confident and hope that you will have a lot of fun using it. Translated with www.DeepL.com/Translator"
+      }
+    },
+    "DATA_USE": {
+      "title": "Information regarding data usage",
+      "transparencyExplanation": "It is very important to us to be transparent about what data we use, how we use it and for what purpose. In this section, you can get a good overview, but it should be noted that the information is given to the best of our knowledge, but without liability. Legally binding information on this can only be found in the terms of use."
+    },
+    "IMPRESSUM": {
+      "title": "Impressum",
+      "telephone": "Tel.",
+      "fax": "Fax",
+      "mobile": "Mobile",
+      "CONTACT": [
+        {
+          "name": "Support",
+          "email": "diribitio@gmail.com"
+        },
+        {
+          "name": "Paul Maier (Developer, Project Manager, Designer, Tester, Translator, etc.)",
+          "address1": "Winziger Straße 2",
+          "address2": "84181 Neufraunhofen",
+          "telephone": "+49 1733 780289",
+          "email": "pauljustus279@gmail.com"
+        }
+      ]
+    },
+    "TERMS": {
+      "title": "Terms and conditions",
+      "LEGAL": [
+        {
+          "title":"General",
+          "term": "These terms and conditions (\"Agreement\") set forth the general terms and conditions of your use of the www.diribitio.de website (\"Website\"), \"Diribitio\" mobile application (\"Mobile Application\") and any of their related products and services (collectively, \"Services\"). This Agreement is legally binding between you (\"User\", \"you\" or \"your\") and this Website operator and Mobile Application developer (\"Operator\", \"we\", \"us\" or \"our\"). By accessing and using the Services, you acknowledge that you have read, understood, and agree to be bound by the terms of this Agreement. If you are entering into this Agreement on behalf of a business or other legal entity, you represent that you have the authority to bind such entity to this Agreement, in which case the terms \"User\", \"you\" or \"your\" shall refer to such entity. If you do not have such authority, or if you do not agree with the terms of this Agreement, you must not accept this Agreement and may not access and use the Services. You acknowledge that this Agreement is a contract between you and the Operator, even though it is electronic and is not physically signed by you, and it governs your use of the Services.",
+          "summary": "There may eventually be summaries for each paragraph to make it easier to understand them. However until then you will have to read the full terms and conditions."
+        },
+        {
+          "title": "Accounts and membership",
+          "term": "If you create an account on the Services, you are responsible for maintaining the security of your account and you are fully responsible for all activities that occur under the account and any other actions taken in connection with it. We may, but have no obligation to, monitor and review new accounts before you may sign in and start using the Services. Providing false contact information of any kind may result in the termination of your account. You must immediately notify us of any unauthorized uses of your account or any other breaches of security. We will not be liable for any acts or omissions by you, including any damages of any kind incurred as a result of such acts or omissions. We may suspend, disable, or delete your account (or any part thereof) if we determine that you have violated any provision of this Agreement or that your conduct or content would tend to damage our reputation and goodwill. If we delete your account for the foregoing reasons, you may not re-register for our Services. We may block your email address and Internet protocol address to prevent further registration."
+        },
+        {
+          "title": "User content",
+          "term": "We do not own any data, information or material (collectively, \"Content\") that you submit on the Services in the course of using the Service. You shall have sole responsibility for the accuracy, quality, integrity, legality, reliability, appropriateness, and intellectual property ownership or right to use of all submitted Content. We may, but have no obligation to, monitor and review the Content on the Services submitted or created using our Services by you. You grant us permission to access, copy, distribute, store, transmit, reformat, display and perform the Content of your user account solely as required for the purpose of providing the Services to you. Without limiting any of those representations or warranties, we have the right, though not the obligation, to, in our own sole discretion, refuse or remove any Content that, in our reasonable opinion, violates any of our policies or is in any way harmful or objectionable. Unless specifically permitted by you, your use of the Services does not grant us the license to use, reproduce, adapt, modify, publish or distribute the Content created by you or stored in your user account for commercial, marketing or any similar purpose."
+        },
+        {
+          "title": "Backups",
+          "term": "We are not responsible for the Content residing on the Services. In no event shall we be held liable for any loss of any Content. It is your sole responsibility to maintain appropriate backup of your Content. Notwithstanding the foregoing, on some occasions and in certain circumstances, with absolutely no obligation, we may be able to restore some or all of your data that has been deleted as of a certain date and time when we may have backed up data for our own purposes. We make no guarantee that the data you need will be available."
+        },
+        {
+          "title": "Links to other resources",
+          "term": "Although the Services may link to other resources (such as websites, mobile applications, etc.), we are not, directly or indirectly, implying any approval, association, sponsorship, endorsement, or affiliation with any linked resource, unless specifically stated herein. We are not responsible for examining or evaluating, and we do not warrant the offerings of, any businesses or individuals or the content of their resources. We do not assume any responsibility or liability for the actions, products, services, and content of any other third parties. You should carefully review the legal statements and other conditions of use of any resource which you access through a link on the Services. Your linking to any other off-site resources is at your own risk."
+        },
+        {
+          "title": "Prohibited uses",
+          "term": "In addition to other terms as set forth in the Agreement, you are prohibited from using the Services or Content: (a) for any unlawful purpose; (b) to solicit others to perform or participate in any unlawful acts; (c) to violate any international, federal, provincial or state regulations, rules, laws, or local ordinances; (d) to infringe upon or violate our intellectual property rights or the intellectual property rights of others; (e) to harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate based on gender, sexual orientation, religion, ethnicity, race, age, national origin, or disability; (f) to submit false or misleading information; (g) to upload or transmit viruses or any other type of malicious code that will or may be used in any way that will affect the functionality or operation of the Services, third party products and services, or the Internet; (h) to spam, phish, pharm, pretext, spider, crawl, or scrape; (i) for any obscene or immoral purpose; or (j) to interfere with or circumvent the security features of the Services, third party products and services, or the Internet. We reserve the right to terminate your use of the Services for violating any of the prohibited uses."
+        },
+        {
+          "title": "Intellectual property rights",
+          "term": "\"Intellectual Property Rights\" means all present and future rights conferred by statute, common law or equity in or in relation to any copyright and related rights, trademarks, designs, patents, inventions, goodwill and the right to sue for passing off, rights to inventions, rights to use, and all other intellectual property rights, in each case whether registered or unregistered and including all applications and rights to apply for and be granted, rights to claim priority from, such rights and all similar or equivalent rights or forms of protection and any other results of intellectual activity which subsist or will subsist now or in the future in any part of the world. This Agreement does not transfer to you any intellectual property owned by the Operator or third parties, and all rights, titles, and interests in and to such property will remain (as between the parties) solely with the Operator. All trademarks, service marks, graphics and logos used in connection with the Services, are trademarks or registered trademarks of the Operator or its licensors. Other trademarks, service marks, graphics and logos used in connection with the Services may be the trademarks of other third parties. Your use of the Services grants you no right or license to reproduce or otherwise use any of the Operator or third party trademarks."
+        },
+        {
+          "title": "Limitation of liability",
+          "term": "To the fullest extent permitted by applicable law, in no event will the Operator, its affiliates, directors, officers, employees, agents, suppliers or licensors be liable to any person for any indirect, incidental, special, punitive, cover or consequential damages (including, without limitation, damages for lost profits, revenue, sales, goodwill, use of content, impact on business, business interruption, loss of anticipated savings, loss of business opportunity) however caused, under any theory of liability, including, without limitation, contract, tort, warranty, breach of statutory duty, negligence or otherwise, even if the liable party has been advised as to the possibility of such damages or could have foreseen such damages. To the maximum extent permitted by applicable law, the aggregate liability of the Operator and its affiliates, officers, employees, agents, suppliers and licensors relating to the services will be limited to an amount greater of one dollar or any amounts actually paid in cash by you to the Operator for the prior one month period prior to the first event or occurrence giving rise to such liability. The limitations and exclusions also apply if this remedy does not fully compensate you for any losses or fails of its essential purpose."
+        },
+        {
+          "title": "Indemnification",
+          "term": "You agree to indemnify and hold the Operator and its affiliates, directors, officers, employees, agents, suppliers and licensors harmless from and against any liabilities, losses, damages or costs, including reasonable attorneys' fees, incurred in connection with or arising from any third party allegations, claims, actions, disputes, or demands asserted against any of them as a result of or relating to your Content, your use of the Services or any willful misconduct on your part."
+        },
+        {
+          "title": "Severability",
+          "term": "All rights and restrictions contained in this Agreement may be exercised and shall be applicable and binding only to the extent that they do not violate any applicable laws and are intended to be limited to the extent necessary so that they will not render this Agreement illegal, invalid or unenforceable. If any provision or portion of any provision of this Agreement shall be held to be illegal, invalid or unenforceable by a court of competent jurisdiction, it is the intention of the parties that the remaining provisions or portions thereof shall constitute their agreement with respect to the subject matter hereof, and all such remaining provisions or portions thereof shall remain in full force and effect."
+        },
+        {
+          "title": "Dispute resolution",
+          "term": "The formation, interpretation, and performance of this Agreement and any disputes arising out of it shall be governed by the substantive and procedural laws of Germany without regard to its rules on conflicts or choice of law and, to the extent applicable, the laws of Germany. The exclusive jurisdiction and venue for actions related to the subject matter hereof shall be the courts located in Germany, and you hereby submit to the personal jurisdiction of such courts. You hereby waive any right to a jury trial in any proceeding arising out of or related to this Agreement. The United Nations Convention on Contracts for the International Sale of Goods does not apply to this Agreement."
+        },
+        {
+          "title": "Changes and amendments",
+          "term": "We reserve the right to modify this Agreement or its terms relating to the Services at any time, effective upon posting of an updated version of this Agreement on the Services. When we do, we will revise the updated date at the bottom of this page. Continued use of the Services after any such changes shall constitute your consent to such changes."
+        },
+        {
+          "title": "Acceptance of these terms",
+          "term": "You acknowledge that you have read this Agreement and agree to all its terms and conditions. By accessing and using the Services you agree to be bound by this Agreement. If you do not agree to abide by the terms of this Agreement, you are not authorized to access or use the Services. This terms and conditions policy was created with the help of the terms and conditions generator at https://www.websitepolicies.com/terms-and-conditions-generator"
+        },
+        {
+          "title": "Contacting us",
+          "term": "If you would like to contact us to understand more about this Agreement or wish to contact us concerning any matter relating to it, you may do so via the contact form or send an email to pauljustus279@gmail.com."
+        },
+        {
+          "term": "This document was last updated on May 10, 2021"
+        }
+      ]
+    },
+    "FOOTER": {
+      "copyright": "Copyright © 2022 Paul Maier",
+      "terms": "Terms",
+      "impressum": "Impressum",
+      "about": "About",
+      "settings": "Settings"
+    }
+  }
+}
