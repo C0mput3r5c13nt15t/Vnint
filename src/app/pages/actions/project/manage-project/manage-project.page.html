@@ -6,7 +6,7 @@
         <app-card-title-bar *ngIf="project" [title]="project.title"></app-card-title-bar>
         <app-card-title-bar *ngIf="!project" title="{{ 'ACTIONS.MANAGE_PROJECT.title' | translate }}"></app-card-title-bar>
         <ion-card *ngIf="project" color="light">
-          <img class="project-thumbnail" *ngIf="project.image" src="/images/{{ project.image }}" [alt]="project.image">
+          <img class="project-thumbnail" *ngIf="project.image" src="/storage/images/{{ project.image }}" [alt]="project.image">
           <ion-card-content>
             <ion-grid class="inside-card-grid">
               <ion-row>

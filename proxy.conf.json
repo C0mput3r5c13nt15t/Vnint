@@ -7,7 +7,7 @@
     },
     "changeOrigin": true
   },
-  "/images": {
+  "/storage/images": {
     "target": "https://dev.diribitio.digital/storage/images",
     "secure": false,
     "pathRewrite": {
